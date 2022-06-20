@@ -16,6 +16,16 @@ const users = (state,action) => {
                 user:null,
                 token:null
             }
+        case 'REGISTER':
+            return{
+                ...state,
+                message:action.payload.message
+            }
+        case 'CLEARMESSAGE':
+            return{
+                ...state,
+                message:''
+            }
             default:
         return state;
     }

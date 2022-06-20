@@ -66,6 +66,22 @@ export const UserProvider = ({children}) =>{
         }
     } 
 
+    const register = async(user)=>{
+        const res = await axios.post(API_URL + '/users/',user)
+        console.log(res)
+        dispatch({
+            type:'REGISTER',
+            payload:res.data
+        })
+
+    }
+
+    const clearMessage = async ()=>{
+        dispatch({
+            type:'CLEARMESSAGE'
+        })
+    }
+
     
 
 
@@ -78,7 +94,9 @@ export const UserProvider = ({children}) =>{
             message:state.message,
             login,
             getUserInfo,
-            logout
+            logout,
+            register,
+            clearMessage
         }}
         >
             {children}

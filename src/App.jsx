@@ -5,10 +5,12 @@ import Products from './components/Products/Products';
 import Login from './components/Login/Login'
 import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
+import Register from './components/Register/Register';
 
 import { UserProvider } from './context/UserContext/UserState';
 import { GlobalProvider } from './context/GlobalState';
 import 'antd/dist/antd.css'
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path='/' element={<Login/>}/>
             <Route path='/profile' element={<Profile/>}/>
+            <Route path='/register' element={<Register/>}/>
           </Routes>
         </UserProvider>
         </GlobalProvider>
