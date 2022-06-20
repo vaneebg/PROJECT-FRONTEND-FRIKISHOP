@@ -1,18 +1,18 @@
 import React, { createContext, useReducer } from "react";
 import axios from "axios";
-import AppReducer from "./AppReducer";
+import ProductsReducer from "./ProductsReducer";
 
 const initialState = {
     products: [],
     // product: {}
 };
 
-export const GlobalContext = createContext(initialState);
+export const ProductsContext = createContext(initialState);
 
 const API_URL = "http://localhost:8080";
 
-export const GlobalProvider = ({ children }) => {
-        const [state, dispatch] = useReducer(AppReducer, initialState);
+export const ProductsProvider = ({ children }) => {
+        const [state, dispatch] = useReducer(ProductsReducer, initialState);
 
         const getProducts = async() => {
             const res = await axios.get(API_URL + "/products");
@@ -33,7 +33,7 @@ export const GlobalProvider = ({ children }) => {
         //     }
         // };
         return ( <
-            GlobalContext.Provider 
+            ProductsContext.Provider 
             value = {
                 {
                     products: state.products,
@@ -41,5 +41,5 @@ export const GlobalProvider = ({ children }) => {
                     getProducts,
                     // getProduct,
                 }
-            } > { children } </GlobalContext.Provider>);
+            } > { children } </ProductsContext.Provider>);
         }

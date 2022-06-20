@@ -8,7 +8,7 @@ import Header from './components/Header/Header';
 import Register from './components/Register/Register';
 
 import { UserProvider } from './context/UserContext/UserState';
-import { GlobalProvider } from './context/GlobalState';
+import { ProductsProvider } from './context/ProductsContext/ProductsState';
 import 'antd/dist/antd.css'
 
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
      <BrowserRouter>
-        <GlobalProvider>
+        <ProductsProvider>
         <UserProvider>
           <Header/>
         <Routes>
@@ -26,7 +26,7 @@ function App() {
             <Route path='/register' element={<Register/>}/>
           </Routes>
         </UserProvider>
-        </GlobalProvider>
+        </ProductsProvider>
       </BrowserRouter>
     </div>
   );

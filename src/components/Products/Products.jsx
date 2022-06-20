@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "../../context/GlobalState";
+import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 
 const Products = () => {
-  const { products, getProducts} = useContext(GlobalContext);
+  const { products, getProducts} = useContext(ProductsContext);
   useEffect(() => {
     getProducts();
   }, []);
