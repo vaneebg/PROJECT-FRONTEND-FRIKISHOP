@@ -4,6 +4,7 @@ import './App.css';
 import Products from './components/Products/Products';
 import Login from './components/Login/Login'
 import Profile from './components/Profile/Profile';
+import Header from './components/Header/Header';
 
 import { UserProvider } from './context/UserContext/UserState';
 import { GlobalProvider } from './context/GlobalState';
@@ -15,6 +16,7 @@ function App() {
      <BrowserRouter>
         <GlobalProvider>
         <UserProvider>
+          <Header/>
         <Routes>
             <Route path="/products" element={<Products />} />
             <Route path='/' element={<Login/>}/>
