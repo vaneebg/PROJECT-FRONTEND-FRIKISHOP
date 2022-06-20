@@ -31,6 +31,24 @@ export const UserProvider = ({children}) =>{
     
     }
 
+    const getUserInfo = async()=>{
+        const token = JSON.parse(localStorage.getItem('token'))
+
+        const res = await axios.get(API_URL + '/users/myInfo',{
+            headers:{
+                authorization:token,
+            }
+        })
+
+        dispatch({
+            type:'USER_INFO',
+            payload:res.data
+        })
+
+        return res
+        
+    }
+
     
 
 
@@ -41,7 +59,8 @@ export const UserProvider = ({children}) =>{
             token:state.token,
             user:state.user,
             message:state.message,
-            login
+            login,
+            getUserInfo
         }}
         >
             {children}

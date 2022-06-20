@@ -5,6 +5,11 @@ const users = (state,action) => {
                 ...state,
                 token:action.payload.token
             }
+        case'USER_INFO':
+        return{
+            ...state,
+            user:action.payload
+        }
             default:
         return state;
     }
