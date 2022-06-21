@@ -17,11 +17,13 @@ const Products = () => {
   const listProducts=products.map(product=>{return(<div className='product'>
   <h2>{product.name}</h2> 
   <div className='content'>
-  <span>Descripción: {product.description}<br/>
-  Precio: {product.price}€<br/>
-  Stock: {product.stock}</span><br/>
+    <div className="text">
+  <span>Descripción: {product.description}</span><br/>
+  <span>Precio: {product.price}€</span><br/>
+  <span>Stock: {product.stock}</span><br/></div>
   <img src={"http://localhost:8080/images/products/"+product.img}/></div>
-  {token ? <button onClick={() => addCart(product)}>Añadir a carrito</button>: null}</div>
+  <div className="button">
+  {token ? <button onClick={() => addCart(product)}>Añadir a carrito</button>: null}</div></div>
   )})
 
 
