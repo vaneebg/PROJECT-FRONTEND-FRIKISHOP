@@ -3,6 +3,8 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 
 const Products = () => {
   const { products, getProducts, addCart} = useContext(ProductsContext);
+
+  const token = JSON.parse(localStorage.getItem('token'))
   
   useEffect(() => {
     getProducts();
@@ -18,7 +20,10 @@ const Products = () => {
   <span>Precio:{product.price}</span><br/>
   <span>Stock:{product.stock}</span>
   <img src={"http://localhost:8080/images/products/"+product.img}/>
-  <button onClick={() => addCart(product)}>Añadir a carrito</button></>)})
+  {token?<button onClick={() => addCart(product)}>Añadir a carrito</button>:null}
+  </>
+  )
+  })
 
 
     return (
