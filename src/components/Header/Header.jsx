@@ -22,10 +22,10 @@ const Header = () => {
             <Link to="/">Logout</Link>
           </span>
           <span>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile">Perfil</Link>
           </span>
           <span>
-            <Link to="/products">Products</Link>
+            <Link to="/products">Productos</Link>
           </span>
          
           <span>
@@ -37,13 +37,13 @@ const Header = () => {
       <>
         <span>
 
-          <Link to="/register">Register</Link>
+          <Link to="/register">Registrarse</Link>
         </span>
         <span>
           <Link to="/">Login</Link>
         </span>
         <span>
-            <Link to='/products'>Products</Link>
+            <Link to='/products'>Productos</Link>
           </span>
       </>
       )}

@@ -17,7 +17,7 @@ const Profile = () => {
 
   return (
     <div>
-        <h1>Profile</h1>  
+        <h1>Perfil</h1>  
         <span>Tu nombre: {user.username}</span> <br />
         <span>Tu email: {user.email}</span><br />
         <span>Tu cueva: {user.adress}</span><br/>

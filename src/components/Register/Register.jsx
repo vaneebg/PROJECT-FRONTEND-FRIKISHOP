@@ -39,21 +39,21 @@ function Register() {
               <Form.Item
               label="Username"
               name="username"
-              rules={[{ required: true, message: "Please input your name!" }]}
+              rules={[{ required: true, message: "Introduce un username!" }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: "Please input your email!" }]}
+              rules={[{ required: true, message: "Introduce un email!" }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               label="Adress"
               name="adress"
-              rules={[{ required: true, message: "Please input your adress!" }]}
+              rules={[{ required: true, message: "Introduce una dirección" }]}
             >
               <Input />
             </Form.Item>
@@ -61,7 +61,7 @@ function Register() {
             <Form.Item
               label="Password"
               name="password"
-              rules={[{ required: true, message: "Please input your password!" }]}
+              rules={[{ required: true, message: "Introduce una contraseña!" }]}
             >
               <Input.Password />
             </Form.Item>
@@ -70,7 +70,7 @@ function Register() {
     
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                    Submit
+                    Registrarse
               </Button>
             </Form.Item>
           </Form>

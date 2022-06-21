@@ -41,7 +41,7 @@ const Login = () => {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: "Please input your email!" }]}
+              rules={[{ required: true, message: "Pon tu email" }]}
             >
               <Input />
             </Form.Item>
@@ -49,14 +49,14 @@ const Login = () => {
             <Form.Item
               label="Password"
               name="password"
-              rules={[{ required: true, message: "Please input your password!" }]}
+              rules={[{ required: true, message: "Pon tu contraseña!" }]}
             >
               <Input.Password />
             </Form.Item>
     
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                    Submit
+                    Enviar
               </Button>
             </Form.Item>
           </Form>
