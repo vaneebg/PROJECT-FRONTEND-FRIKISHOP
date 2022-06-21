@@ -22,10 +22,9 @@ const Login = () => {
          setTimeout(()=>{
             const foundToken = JSON.parse(localStorage.getItem('token'))
             if(foundToken){
-                console.log('hay token')
-                // navigate()
+                navigate('/profile')
             }
-         },2000)
+         },100)
     },[login])
 
   return (
