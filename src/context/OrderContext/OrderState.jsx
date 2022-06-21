@@ -8,10 +8,12 @@ export const OrdersContext=createContext();
 export const OrdersProvider=({children})=>{
 
  const createOrder=async(order)=>{
+    console.log(order)
 const token=JSON.parse(localStorage.getItem('token'))
 try {
-    console.log(order);
-    await axios.post(API_URL+'/orders',{ ProductId: order },{
+   const productId=order.map(element=>{return element.id})
+//    console.log(listOrder)
+    await axios.post(API_URL+'/orders',{ ProductId: productId},{
         headers:{
             authorization:token,
         }
