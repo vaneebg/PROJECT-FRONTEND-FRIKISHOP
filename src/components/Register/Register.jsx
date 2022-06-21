@@ -13,7 +13,6 @@ function Register() {
     const navigate = useNavigate()
 
     const onFinish = (values) => {  
-        console.log('ha entrado',values)
       register(values)
       setTimeout(() => {
           navigate("/")
