@@ -21,7 +21,8 @@ const Products = () => {
   Precio: {product.price}€<br/>
   Stock: {product.stock}</span><br/>
   <img src={"http://localhost:8080/images/products/"+product.img}/></div>
-  <button onClick={() => addCart(product)}>Añadir a carrito</button></div>)})
+  {token ? <button onClick={() => addCart(product)}>Añadir a carrito</button>: null}</div>
+  )})
 
 
     return (
