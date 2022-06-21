@@ -18,7 +18,7 @@ import 'antd/dist/antd.css'
 import { OrdersProvider } from './context/OrderContext/OrderState';
 
 
-const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones']
+const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones', 'Saber más', 'Cosis1','Cosis2']
 
 function App() {
   return (

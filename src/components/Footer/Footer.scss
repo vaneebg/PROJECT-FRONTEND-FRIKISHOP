@@ -1,4 +1,4 @@
-
+@import '../../colors.scss';
 
 .social {
     display: flex;
@@ -8,37 +8,43 @@
         svg{
             font-size: 3em;
             padding: 8px;
+            color:white;
+        }
+        svg:hover{
+            color:$green6;
         }
     }
 }
 
-.info {
-    span {
-        font-family: arial;
-        font-style: italic;
-    }
-}
-
-
-
 .footer {
-    background-color: grey;
+    background-color: $green1;
     display: flex;
     flex-direction: column;
+    .contentInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .info {
+            span {
+                color: white;
+                font-family: serif;
+                font-style: italic;
+            }
+        }
+    }
 }
 
 .links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+   justify-content: center;
     a {
-        color: black;
+        font-family: serif;
+        color: white;
         padding: 10px;
+    }
+    a:hover{
+        color:$green6;
     }
 }
 
-.contentInfo {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
