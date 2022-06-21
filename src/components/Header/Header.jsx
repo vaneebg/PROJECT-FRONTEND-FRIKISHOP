@@ -27,10 +27,7 @@ const Header = () => {
           <span>
             <Link to="/products">Products</Link>
           </span>
-          <span>
-            <Link to="/cart"/>
-            <ShoppingCartOutlined/>
-          </span>
+         
           <span>
           <Link to="/cart"> <ShoppingCartOutlined /></Link>
             </span>
