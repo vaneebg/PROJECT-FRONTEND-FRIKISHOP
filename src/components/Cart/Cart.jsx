@@ -34,11 +34,10 @@ const Cart = () => {
                 <span>{cartItem.price.toFixed(2)} €</span>
                 <button onClick={() =>{
                     const items = JSON.parse(localStorage.getItem('cart'))
-                    console.log('!!!!!!!!',items[i])
-                    const filtro = cart.filtro((prod)=>prod[i]===items[i])
-                    console.log('ooooooooooo',filtro)
-                    // localStorage.setItem('cart',JSON.stringify())
-                    // localStorage.setItem('token',JSON.stringify())
+                    // console.log('!!!!!!!!',items[i])
+                    let a = items.filter((el)=>{return el!==items[i]})
+                    // console.log('aaaaaaaaaaa',a)
+                    localStorage.setItem('cart',JSON.stringify(a))
         }}>Eliminar</button>
             
             </div>
