@@ -1,3 +1,5 @@
+import './Cart.scss'
+
 import { useContext,useEffect } from "react"
 import { ProductsContext } from "../../context/ProductsContext/ProductsState"
 import { OrdersContext } from "../../context/OrderContext/OrderState"
@@ -7,14 +9,12 @@ const Cart = () => {
     const { cart,clearCart,deleteItem } = useContext(ProductsContext)
     const {createOrder}=useContext(OrdersContext)
 
-    console.log('1111111111111111',cart)
-
     useEffect(()=>{
         localStorage.setItem('cart',JSON.stringify(cart))
     },[cart])
 
     if(cart.length<=0){
-        return <span>No tienes ningún producto añadido</span>
+        return <span className='message'>No tienes ningún producto añadido</span>
     }
 
     const createNewOrder=()=>{
@@ -29,7 +29,7 @@ const Cart = () => {
     const cartItem = cart.map((cartItem,i)=>{
         console.log(cartItem)
         return(
-            <div key={i}>
+            <div className='productCart' key={i}>
                 <span>{cartItem.name}</span>
                 <span>{cartItem.price.toFixed(2)} €</span>
                 <button onClick={()=>deleteItem(cartItem.id)}>Eliminar</button>
@@ -38,11 +38,12 @@ const Cart = () => {
     })
 
   return (
-    <>
-    <div>{cartItem}</div>
+    <div className="center">
+    <div className='cart'><h2>Carrito: </h2><br/>{cartItem}
     <button onClick={()=>clearCart()}>Vaciar carrito</button>
     <button onClick={()=>createNewOrder()}>Crear pedido</button>
-    </>
+    </div>
+    </div>
   )
 }
 

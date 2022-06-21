@@ -29,7 +29,7 @@ const Products = () => {
 
     return (
     <>
-        <h1> Productos</h1>
+        <span className='title'> Productos</span>
         <div className='containerProducts'>
         {listProducts}
         {products.name} 

@@ -2,6 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
+.title{
+    display:flex;
+    justify-content: center;
+    font-family: 'Gorditas', cursive;
+    font-size: 3em;
+    background-color: $whitesemi2;
+    color: $green1;
+    position: sticky;
+    top:2.6em;
+   
+}
 .containerProducts{
     display: flex;
     flex-direction: row;
