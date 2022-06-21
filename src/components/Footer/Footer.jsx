@@ -1,4 +1,6 @@
 import './Footer.scss'
+import { TwitterOutlined,GithubOutlined, LinkedinOutlined,SkypeOutlined } from "@ant-design/icons";
+
 
 
 const Footer=({info,copy,links})=>{
@@ -13,11 +15,10 @@ const Footer=({info,copy,links})=>{
         <span>{copy}</span>
       </div>
       <div className="social">
-          <a href="http://">Link</a>
-          <a href="http://">Link2</a>
-          <a href="https://www.linkedin.com/in/vanesa-b-a59b6a230/">Link3</a>
-          <a href="http://">link4</a>
-          <a href="https://github.com/vaneebg">link5</a>
+          <a href="http://"><TwitterOutlined /></a>
+          <a href="http://"><SkypeOutlined /></a>
+          <a href="https://www.linkedin.com/in/vanesa-b-a59b6a230/"><LinkedinOutlined /></a>
+          <a href="https://github.com/vaneebg"><GithubOutlined /></a>
       </div>
     </div>
     <div className="links">
