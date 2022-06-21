@@ -4,7 +4,7 @@ import ProductsReducer from "./ProductsReducer";
 
 const initialState = {
     products: [],
-    // product: {}
+    cart:[]
 };
 
 export const ProductsContext = createContext(initialState);
@@ -20,7 +20,17 @@ export const ProductsProvider = ({ children }) => {
                 type: "GET_PRODUCTS",
                 payload: res.data,
             });
+            return res
         };
+
+        const addCart = (product) =>{
+            dispatch({
+                type:"ADD_CART",
+                payload:product
+            })
+        }
+
+
         // const getProduct = async(_id) => {
         //     try {
         //         const res = await axios.get(API_URL + "/products/id/" + _id);
@@ -32,14 +42,18 @@ export const ProductsProvider = ({ children }) => {
         //         console.error(error);
         //     }
         // };
-        return ( <
-            ProductsContext.Provider 
-            value = {
-                {
-                    products: state.products,
-                    // product: state.product,
-                    getProducts,
-                    // getProduct,
-                }
-            } > { children } </ProductsContext.Provider>);
+        return (
+             <ProductsContext.Provider 
+                value = {
+                    {
+                        products: state.products,
+                        cart:state.cart,
+                        // product: state.product,
+                        getProducts,
+                        addCart
+                        // getProduct,
+                    }}
+             >
+             { children } 
+            </ProductsContext.Provider>);
         }

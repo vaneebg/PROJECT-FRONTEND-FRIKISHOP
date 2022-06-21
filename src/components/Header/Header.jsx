@@ -22,7 +22,9 @@ const Header = () => {
           <span>
             <Link to="/profile">Profile</Link>
           </span>
-
+          <span>
+            <Link to="/products">Products</Link>
+          </span>
         </>
       ) : (
       <>
