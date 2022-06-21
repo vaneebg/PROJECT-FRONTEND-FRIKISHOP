@@ -20,10 +20,6 @@ const Products = () => {
     return <span>Cargando...</span>;
   }
   
-<<<<<<< HEAD
-  const listProducts=products.map(product=>{return(<><h2>{product.name}</h2> <span>Descripción:{product.description}</span><br/><span>Precio:{product.price}</span><br/><span>Stock:{product.stock}</span>
-  <img src={"http://localhost:8080/images/products/"+product.img}/></>)})
-=======
   const listProducts=products.map(product=>{return(<>
   <h2>{product.name}</h2> 
   <span>Descripción:{product.description}</span><br/>
@@ -32,7 +28,6 @@ const Products = () => {
   <img src={"http://localhost:8080/images/products/"+product.img}/>
   <button onClick={() => addCart(product)}>Añadir al carrito</button>
   </>)})
->>>>>>> vane
 
 
     return (
