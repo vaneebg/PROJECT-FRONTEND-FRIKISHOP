@@ -2,12 +2,7 @@ import { useContext, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 
 const Products = () => {
-<<<<<<< HEAD
-  const { products, getProducts} = useContext(ProductsContext);
-  
-=======
   const { products, getProducts,addCart, cart} = useContext(ProductsContext);
->>>>>>> vane
   useEffect(() => {
     getProducts();
   }, []);

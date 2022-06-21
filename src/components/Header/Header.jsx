@@ -25,18 +25,12 @@ const Header = () => {
             <Link to="/profile">Profile</Link>
           </span>
           <span>
-<<<<<<< HEAD
             <Link to="/products">Products</Link>
           </span>
           <span>
             <Link to="/cart"/>
             <ShoppingCartOutlined/>
           </span>
-=======
-            <Link to='/products'>Products</Link>
-          </span>
-
->>>>>>> develop
         </>
       ) : (
       <>
