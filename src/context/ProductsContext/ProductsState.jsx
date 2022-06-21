@@ -2,9 +2,12 @@ import React, { createContext, useReducer } from "react";
 import axios from "axios";
 import ProductsReducer from "./ProductsReducer";
 
+const cart=JSON.parse(localStorage.getItem('cart'))
+
+
 const initialState = {
     products: [],
-    cart:[]
+    cart: cart ? cart : [],
 };
 
 export const ProductsContext = createContext(initialState);
@@ -20,40 +23,29 @@ export const ProductsProvider = ({ children }) => {
                 type: "GET_PRODUCTS",
                 payload: res.data,
             });
-            return res
+            return res;
         };
-
-        const addCart = (product) =>{
+        const addCart =(product)=>{
             dispatch({
-                type:"ADD_CART",
-                payload:product
+                type:'ADD_CART',
+                payload:product,
             })
         }
-
-
-        // const getProduct = async(_id) => {
-        //     try {
-        //         const res = await axios.get(API_URL + "/products/id/" + _id);
-        //         dispatch({
-        //             type: "GET_PRODUCT",
-        //             payload: res.data,
-        //         });
-        //     } catch (error) {
-        //         console.error(error);
-        //     }
-        // };
-        return (
-             <ProductsContext.Provider 
-                value = {
-                    {
-                        products: state.products,
-                        cart:state.cart,
-                        // product: state.product,
-                        getProducts,
-                        addCart
-                        // getProduct,
-                    }}
-             >
-             { children } 
-            </ProductsContext.Provider>);
+        const clearCart=()=> {
+            dispatch({
+                type:'CLEAR_CART'
+            })
+        }
+        return ( <
+            ProductsContext.Provider 
+            value = {
+                {
+                    products: state.products,
+                    cart:state.cart,
+                    getProducts,
+                    addCart,
+                    clearCart,
+                    
+                }
+            } > { children } </ProductsContext.Provider>);
         }
