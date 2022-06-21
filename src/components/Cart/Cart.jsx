@@ -6,7 +6,7 @@ import { OrdersContext } from "../../context/OrderContext/OrderState"
 
 const Cart = () => {
 
-    const { cart,clearCart,deleteItem } = useContext(ProductsContext)
+    const { cart,clearCart } = useContext(ProductsContext)
     const {createOrder}=useContext(OrdersContext)
 
     useEffect(()=>{
@@ -22,17 +22,24 @@ const Cart = () => {
         clearCart()
     }
 
-    // const products =()=>{
-        
-    // }
+
+
+
 
     const cartItem = cart.map((cartItem,i)=>{
-        console.log(cartItem)
+        
         return(
             <div className='productCart' key={i}>
                 <span>{cartItem.name}</span>
                 <span>{cartItem.price.toFixed(2)} €</span>
-                <button onClick={()=>deleteItem(cartItem.id)}>Eliminar</button>
+                <button onClick={() =>{
+                    const items = JSON.parse(localStorage.getItem('cart'))
+                    // console.log('!!!!!!!!',items[i])
+                    let a = items.filter((el)=>{return el!==items[i]})
+                    // console.log('aaaaaaaaaaa',a)
+                    localStorage.setItem('cart',JSON.stringify(a))
+        }}>Eliminar</button>
+            
             </div>
         )
     })
