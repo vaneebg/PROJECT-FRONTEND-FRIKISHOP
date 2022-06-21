@@ -15,13 +15,6 @@ const products = (state, action) => {
                 ...state,
                 cart:[]
             }
-        case 'DELETEITEM':
-            return{
-                ...state,
-                cart:state.cart.filter((elem)=>console.log(action.payload))
-            }
-         
-
         default:
             return state;
     }

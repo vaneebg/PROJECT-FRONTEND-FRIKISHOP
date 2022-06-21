@@ -36,11 +36,6 @@ export const ProductsProvider = ({ children }) => {
                 type:'CLEAR_CART'
             })
         }
-        const deleteItem=async(id)=>{
-            dispatch({
-                type:'DELETEITEM'
-            })
-        }
         return ( <
             ProductsContext.Provider 
             value = {
@@ -49,8 +44,7 @@ export const ProductsProvider = ({ children }) => {
                     cart:state.cart,
                     getProducts,
                     addCart,
-                    clearCart,
-                    deleteItem
+                    clearCart
                 }
             } > { children } </ProductsContext.Provider>);
         }
