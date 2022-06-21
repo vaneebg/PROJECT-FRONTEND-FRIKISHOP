@@ -1,8 +1,14 @@
+
+
 .social {
     display: flex;
     justify-content: center;
     a {
         cursor:  pointer;
+        svg{
+            font-size: 3em;
+            padding: 8px;
+        }
     }
 }
 
@@ -12,9 +18,8 @@
         font-style: italic;
     }
 }
-svg{
-    height:3em;
-}
+
+
 
 .footer {
     background-color: grey;

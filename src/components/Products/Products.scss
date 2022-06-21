@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
 
 .containerProducts{
     display: flex;
@@ -7,10 +9,12 @@
     margin: 3em;
 }
 .product{
-    background-color: grey;
+    background-color: $green3;
     display: flex;
+    font-family: 'Kaisei Tokumin', serif;
+    font-weight: 100;
     flex-direction: column;
-    border: 2px dotted black;
+    border: 2px dotted $green1;
     width: 40%;
     margin: 3px;
     padding: 15px;

@@ -15,10 +15,10 @@ const Footer=({info,copy,links})=>{
         <span>{copy}</span>
       </div>
       <div className="social">
-          <a href="http://"><TwitterOutlined /></a>
-          <a href="http://"><SkypeOutlined /></a>
-          <a href="https://www.linkedin.com/in/vanesa-b-a59b6a230/"><LinkedinOutlined /></a>
-          <a href="https://github.com/vaneebg"><GithubOutlined /></a>
+          <a href="http://"><TwitterOutlined className='svg'/></a>
+          <a href="http://"><SkypeOutlined className='svg'/></a>
+          <a href="https://www.linkedin.com/in/vanesa-b-a59b6a230/"><LinkedinOutlined className='svg'/></a>
+          <a href="https://github.com/vaneebg"><GithubOutlined className='svg'/></a>
       </div>
     </div>
     <div className="links">
