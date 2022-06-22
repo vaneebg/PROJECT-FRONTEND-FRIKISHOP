@@ -11,6 +11,8 @@ import  Home  from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Favs from './components/Favs/Favs';
 import Admin from './components/Admin/Admin';
+import AddTask from './components/Products/AddProduct/AddProduct';
+
 
 import { UserProvider } from './context/UserContext/UserState';
 import { ProductsProvider } from './context/ProductsContext/ProductsState';
@@ -39,6 +41,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/favs" element={<Favs/>} />
             <Route path='/admin' element ={<Admin/>}/>
+            <Route path="/product/id/:id" element={<AddTask/>} />
           </Routes>
           <Footer info='Hecho por Shan y Vanesa ' copy='Junio 2022 ©' links={links}/>
           </OrdersProvider>

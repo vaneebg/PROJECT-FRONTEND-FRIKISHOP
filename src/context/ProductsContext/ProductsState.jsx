@@ -4,11 +4,14 @@ import ProductsReducer from "./ProductsReducer";
 
 const cart=JSON.parse(localStorage.getItem('cart'))
 const favs= JSON.parse(localStorage.getItem('favs'))
+const token = JSON.parse(localStorage.getItem('token'))
 
 const initialState = {
+    token: token ? token : null,
     products: [],
     cart: cart ? cart : [],
-    favs: favs ? favs : []
+    favs: favs ? favs : [],
+    product:{}
 };
 
 export const ProductsContext = createContext(initialState);
@@ -26,6 +29,23 @@ export const ProductsProvider = ({ children }) => {
             });
             return res;
         };
+
+        const addProduct = async(product) => {
+            try {
+                const res = await axios.post(API_URL + '/products', product,{
+                    headers:{
+                        authorization:token,
+                    }
+                })
+                dispatch({
+                    type: "ADD_PRODUCT",
+                    payload: res.data,
+                  });
+            } catch (error) {
+                console.error(error)
+            }
+        };
+
         const addCart =(product)=>{
             dispatch({
                 type:'ADD_CART',
@@ -53,13 +73,16 @@ export const ProductsProvider = ({ children }) => {
             value = {
                 {
                     products: state.products,
+                    product:state.product,
                     cart:state.cart,
                     favs:state.favs,
+                    token:state.token,
                     getProducts,
                     addCart,
                     clearCart,
                     clearFavs,
-                    addFavs
+                    addFavs,
+                    addProduct
                 }
             } > { children } </ProductsContext.Provider>);
         }
