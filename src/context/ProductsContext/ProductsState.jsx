@@ -36,6 +36,12 @@ export const ProductsProvider = ({ children }) => {
                 type:'CLEAR_CART'
             })
         }
+        const clearOne=(item)=>{
+            dispatch({
+                type:'CLEAR_ONE',
+                payload:item
+            })
+        }
         return ( <
             ProductsContext.Provider 
             value = {
@@ -44,7 +50,8 @@ export const ProductsProvider = ({ children }) => {
                     cart:state.cart,
                     getProducts,
                     addCart,
-                    clearCart
+                    clearCart,
+                    clearOne
                 }
             } > { children } </ProductsContext.Provider>);
         }

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-=======
 import './Cart.scss'
->>>>>>> develop
 
 import { useContext,useEffect } from "react"
 import { ProductsContext } from "../../context/ProductsContext/ProductsState"
@@ -10,7 +6,7 @@ import { OrdersContext } from "../../context/OrderContext/OrderState"
 
 const Cart = () => {
 
-    const { cart,clearCart } = useContext(ProductsContext)
+    const { cart,clearCart,clearOne } = useContext(ProductsContext)
     const {createOrder}=useContext(OrdersContext)
 
     useEffect(()=>{
@@ -27,32 +23,33 @@ const Cart = () => {
     }
 
 
-
+    const eliminarUno=(item) =>{
+        
+        const items = JSON.parse(localStorage.getItem('cart'))
+        let producto = items.filter((el)=> el.name!==item)
+        localStorage.setItem('cart',JSON.stringify(producto))
+        clearOne(item)
+        console.log('soy item',item)
+    }
 
 
     const cartItem = cart.map((cartItem,i)=>{
+        // console.log('cart',cart)
+        // console.log('cartItem.name',cartItem.name)
+        // console.log('cartItem',cartItem)
+        // console.log('true.false',cart.includes(cartItem))
         
-        return(
-            <div className='productCart' key={i}>
-<<<<<<< HEAD
-                {cartItem?
+            return(
+                <div className='productCart' key={i}>
+                    {/* {cart.includes(cartItem)? */}
                     <div>
-=======
->>>>>>> develop
-                <span>{cartItem.name}</span>
-                <span>{cartItem.price.toFixed(2)} €</span>
-                <button onClick={() =>{
-                    const items = JSON.parse(localStorage.getItem('cart'))
-                    // console.log('!!!!!!!!',items[i])
-                    let a = items.filter((el)=>{return el!==items[i]})
-                    // console.log('aaaaaaaaaaa',a)
-                    localStorage.setItem('cart',JSON.stringify(a))
-                }}>Eliminar</button>
-                </div>:null}
-                
-                
-            </div>
-        )
+                        <span>{cartItem.name}</span>
+                        <span>{cartItem.price.toFixed(2)} €</span>
+                        <button onClick={()=>eliminarUno(cartItem.name)}>Eliminar</button>
+                    </div>
+                    {/* :null} */}
+                </div>
+            )
     })
 
   return (
