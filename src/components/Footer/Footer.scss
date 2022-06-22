@@ -1,0 +1,50 @@
+@import '../../colors.scss';
+
+.social {
+    display: flex;
+    justify-content: center;
+    a {
+        cursor:  pointer;
+        svg{
+            font-size: 3em;
+            padding: 8px;
+            color:white;
+        }
+        svg:hover{
+            color:$green6;
+        }
+    }
+}
+
+.footer {
+    background-color: $green1;
+    display: flex;
+    flex-direction: column;
+    .contentInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .info {
+            span {
+                color: white;
+                font-family: serif;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+    a {
+        font-family: serif;
+        color: white;
+        padding: 10px;
+    }
+    a:hover{
+        color:$green6;
+    }
+}
+

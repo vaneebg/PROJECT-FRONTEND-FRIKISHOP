@@ -1,0 +1,77 @@
+@import '../../colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+
+.title{
+    display:flex;
+    justify-content: center;
+    font-family: 'Gorditas', cursive;
+    font-size: 3em;
+    background-color: $whitesemi2;
+    color: $green1;
+    position: sticky;
+    top:2.6em;
+   
+}
+.containerProducts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3em;
+    .button{
+        display:flex;
+        justify-content:  center;
+    }
+    button {
+        all:unset;
+        background-color: $green1;
+        border:3px solid $green6;
+        font-family: 'Gorditas', cursive;
+        text-align: center;
+        margin:10px 0;
+        font-size:2em;
+        color:white;
+        cursor:pointer;
+        width:80%;
+        border-radius: 5px;
+    }
+    button:hover{
+        color:$green1;
+        background-color: white;
+    }
+}
+.product{
+    h2{
+        font-family: 'Gorditas', cursive;
+        text-decoration: underline;
+    }
+    background-color: $green3;
+    display: flex;
+    font-family: 'Kaisei Tokumin', serif;
+    font-weight: 100;
+    flex-direction: column;
+    border: 2px dotted $green1;
+    width: 40%;
+    margin: 7px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px -9px;
+    .content{
+        display:flex;
+        .text{
+            span{
+                text-align:center;
+            }
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        img{
+            width:12em;
+            border-radius: 6px;
+        }
+    }
+}
+

@@ -1,0 +1,44 @@
+@import '../../colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+
+h2{
+    font-family: 'Gorditas', cursive;
+}
+.message{
+    padding:20px;
+    background-color: white;
+    margin:30px;
+    font-family: 'Kaisei Tokumin', serif;
+}
+
+.cart{
+    font-family: 'Kaisei Tokumin', serif;
+    display:flex;
+   font-size: 1.5em;
+    flex-direction: column;
+    align-items: center;
+    background-color: $whitesemi2;
+    width:40%;
+    margin:20px;
+    border-radius: 20px;
+    padding:20px;
+    .productCart{
+        font-size: 0.8em;
+        background-color: $green2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px dashed $green1;
+        padding:10px 30px;
+        margin:10px;
+        width:80%;
+       
+    }
+    .productCart:hover{
+        background-color: $green1;
+    }
+}
+.cart:hover{
+    background-color: white;
+}

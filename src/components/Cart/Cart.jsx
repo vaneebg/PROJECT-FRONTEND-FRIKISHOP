@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+import './Cart.scss'
+>>>>>>> develop
 
 import { useContext,useEffect } from "react"
 import { ProductsContext } from "../../context/ProductsContext/ProductsState"
@@ -30,8 +34,11 @@ const Cart = () => {
         
         return(
             <div className='productCart' key={i}>
+<<<<<<< HEAD
                 {cartItem?
                     <div>
+=======
+>>>>>>> develop
                 <span>{cartItem.name}</span>
                 <span>{cartItem.price.toFixed(2)} €</span>
                 <button onClick={() =>{

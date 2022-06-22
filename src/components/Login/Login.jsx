@@ -1,3 +1,4 @@
+import './Login.scss'
 import { useContext,useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { Form, Input, Button} from 'antd'
@@ -28,11 +29,12 @@ const Login = () => {
     },[login])
 
   return (
+    <div className="center">
     <div className="container">
           <Form
             name="basic"
             labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+            wrapperCol={{ span: 8 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -60,6 +62,7 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
+        </div>
         </div>
   )
 }
