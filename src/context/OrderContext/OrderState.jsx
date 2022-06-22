@@ -8,7 +8,6 @@ export const OrdersContext=createContext();
 export const OrdersProvider=({children})=>{
 
  const createOrder=async(order)=>{
-    console.log(order)
 const token=JSON.parse(localStorage.getItem('token'))
 try {
    const productId=order.map(element=>{return element.id})

@@ -5,13 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 
 function Register() {
-    console.log('holi')
     const { clearMessage, register, message } = useContext(UserContext);
-
-    console.log(message)
-
     const navigate = useNavigate()
-
     const onFinish = (values) => {  
       register(values)
       setTimeout(() => {
@@ -23,7 +18,6 @@ function Register() {
     const onFinishFailed = (errorInfo) => {
       console.log("Failed:", errorInfo);
     };
-
     return (
         <div className="container">
           <Form
@@ -35,7 +29,6 @@ function Register() {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-
               <Form.Item
               label="Username"
               name="username"
@@ -65,9 +58,7 @@ function Register() {
             >
               <Input.Password />
             </Form.Item>
-
-            {message}
-    
+            {message}   
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
                     Registrarse

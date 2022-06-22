@@ -3,11 +3,10 @@ import './Header.scss'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined,LikeOutlined } from "@ant-design/icons";
 
 const Header = () => {
-    const { token, logout} = useContext(UserContext)
-
+    const { token, role,logout} = useContext(UserContext)
     const logoutUser = () =>{
         logout()
     }
@@ -16,9 +15,26 @@ const Header = () => {
     <nav className="nav">
    
     <div>
-      {token ? (
+      {token ? ( 
+        
         <>
-         <span>
+         { role==='SuperAdmin' ? (<> 
+          <span>
+            <Link to="/admin">Admin</Link>
+          </span>
+          <span onClick={logoutUser}>
+            <Link to="/">Logout</Link>
+          </span>
+          <span>
+            <Link to="/profile">Perfil</Link>
+          </span>
+          <span>
+            <Link to="/products">Productos</Link>
+          </span>
+          
+          </>
+          ) : 
+          (<> <span>
             <Link to="/home">Home</Link>
           </span>
           <span onClick={logoutUser}>
@@ -30,11 +46,13 @@ const Header = () => {
           <span>
             <Link to="/products">Productos</Link>
           </span>
-         
+          <span>
+          <Link to="/favs"><LikeOutlined /></Link>
+            </span>
           <span>
           <Link to="/cart"> <ShoppingCartOutlined /></Link>
-            </span>
-
+            </span></>)}
+      
         </>
       ) : (
       <>

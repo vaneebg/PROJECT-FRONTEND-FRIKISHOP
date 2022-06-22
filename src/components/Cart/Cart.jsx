@@ -41,13 +41,9 @@ const Cart = () => {
         
             return(
                 <div className='productCart' key={i}>
-                    {/* {cart.includes(cartItem)? */}
-                    <div>
                         <span>{cartItem.name}</span>
                         <span>{cartItem.price.toFixed(2)} €</span>
                         <button onClick={()=>eliminarUno(cartItem.name)}>Eliminar</button>
-                    </div>
-                    {/* :null} */}
                 </div>
             )
     })
