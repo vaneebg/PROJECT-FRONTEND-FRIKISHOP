@@ -75,6 +75,12 @@ export const ProductsProvider = ({ children }) => {
                 payload:item
             })
         }
+        const clearOneFav=(item)=>{
+            dispatch({
+                type:'CLEAR_ONE_FAV',
+                payload:item
+            })
+        }
         return ( <
             ProductsContext.Provider 
             value = {
@@ -90,7 +96,8 @@ export const ProductsProvider = ({ children }) => {
                     clearOne,
                     clearFavs,
                     addFavs,
-                    addProduct
+                    addProduct,
+                    clearOneFav
                 }
             } > { children } </ProductsContext.Provider>);
         }

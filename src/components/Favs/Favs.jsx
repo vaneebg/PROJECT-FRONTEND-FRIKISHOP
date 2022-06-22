@@ -5,7 +5,7 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState"
 
 const Favs = () => {
 
-    const { favs,clearFavs } = useContext(ProductsContext)
+    const { favs,clearFavs,clearOneFav } = useContext(ProductsContext)
 
     useEffect(()=>{
         localStorage.setItem('favs',JSON.stringify(favs))
@@ -14,7 +14,13 @@ const Favs = () => {
     if(favs.length<=0){
         return <span className='message'>No tienes ningún producto favorito añadido</span>
     }
-
+    const eliminarUno=(item) =>{
+        const items = JSON.parse(localStorage.getItem('favs'))
+        let fav = items.filter((el)=> el!==item)
+        localStorage.setItem('cart',JSON.stringify(fav))
+        clearOneFav(item)
+       
+    }
   
     const favsItem = favs.map((favsItem,i)=>{
         
@@ -22,7 +28,7 @@ const Favs = () => {
             <div className='productFav' key={i}>
                 <span>{favsItem.name}</span>
                 <span>{favsItem.price.toFixed(2)} €</span>
-              
+                <button onClick={()=>eliminarUno(favsItem)}>Eliminar</button>
             </div>
         )
     })
