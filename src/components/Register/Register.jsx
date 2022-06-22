@@ -5,10 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 
 function Register() {
-    console.log('holi')
     const { clearMessage, register, message } = useContext(UserContext);
 
-    console.log(message)
 
     const navigate = useNavigate()
 

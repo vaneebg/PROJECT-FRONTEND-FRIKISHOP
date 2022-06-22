@@ -3,7 +3,8 @@ const users = (state,action) => {
         case 'LOGIN':
             return{
                 ...state,
-                token:action.payload.token
+                token:action.payload.token,
+                role:action.payload.user.role
             }
         case'USER_INFO':
         return{

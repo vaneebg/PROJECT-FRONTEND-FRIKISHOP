@@ -8,7 +8,6 @@ const Profile = () => {
     useEffect(()=>{
         getUserInfo()
     },[])
-
     if(!user){
         return <span>Cargando...</span>
     }

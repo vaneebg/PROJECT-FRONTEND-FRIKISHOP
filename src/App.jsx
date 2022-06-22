@@ -16,6 +16,7 @@ import { UserProvider } from './context/UserContext/UserState';
 import { ProductsProvider } from './context/ProductsContext/ProductsState';
 import 'antd/dist/antd.css'
 import { OrdersProvider } from './context/OrderContext/OrderState';
+import Admin from './components/Header/Admin/Admin';
 
 
 
@@ -37,6 +38,7 @@ function App() {
             <Route path='/register' element={<Register/>}/>
             <Route path="/cart" element={<Cart />} />
             <Route path="/favs" element={<Favs/>} />
+            <Route path='/admin' element ={<Admin/>}/>
           </Routes>
           <Footer info='Hecho por Shan y Vanesa ' copy='Junio 2022 ©' links={links}/>
           </OrdersProvider>
