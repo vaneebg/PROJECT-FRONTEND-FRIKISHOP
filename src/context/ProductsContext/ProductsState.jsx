@@ -31,6 +31,7 @@ export const ProductsProvider = ({ children }) => {
         };
 
         const addProduct = async(product) => {
+            const token = JSON.parse(localStorage.getItem('token'))
             try {
                 const res = await axios.post(API_URL + '/products', product,{
                     headers:{
