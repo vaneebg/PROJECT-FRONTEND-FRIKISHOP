@@ -3,11 +3,12 @@ import axios from "axios";
 import ProductsReducer from "./ProductsReducer";
 
 const cart=JSON.parse(localStorage.getItem('cart'))
-
+const favs= JSON.parse(localStorage.getItem('favs'))
 
 const initialState = {
     products: [],
     cart: cart ? cart : [],
+    favs: favs ? favs : []
 };
 
 export const ProductsContext = createContext(initialState);
@@ -31,6 +32,17 @@ export const ProductsProvider = ({ children }) => {
                 payload:product,
             })
         }
+        const addFavs =(product)=>{
+            dispatch({
+                type:'ADD_FAVS',
+                payload:product,
+            })
+        }
+        const clearFavs=()=> {
+            dispatch({
+                type:'CLEAR_FAVS'
+            })
+        }
         const clearCart=()=> {
             dispatch({
                 type:'CLEAR_CART'
@@ -42,9 +54,12 @@ export const ProductsProvider = ({ children }) => {
                 {
                     products: state.products,
                     cart:state.cart,
+                    favs:state.favs,
                     getProducts,
                     addCart,
-                    clearCart
+                    clearCart,
+                    clearFavs,
+                    addFavs
                 }
             } > { children } </ProductsContext.Provider>);
         }

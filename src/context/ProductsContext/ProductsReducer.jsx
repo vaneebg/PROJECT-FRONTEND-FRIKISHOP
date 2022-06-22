@@ -10,10 +10,20 @@ const products = (state, action) => {
                 ...state,
                 cart:[action.payload, ...state.cart],
             };
+            case 'ADD_FAVS':
+                return{
+                    ...state,
+                    favs:[action.payload, ...state.favs],
+                };
         case 'CLEAR_CART':
             return{
                 ...state,
                 cart:[]
+            };
+            case 'CLEAR_FAVS':
+            return{
+                ...state,
+                favs:[]
             }
         default:
             return state;

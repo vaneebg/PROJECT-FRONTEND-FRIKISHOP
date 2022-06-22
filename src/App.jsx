@@ -9,13 +9,14 @@ import Register from './components/Register/Register';
 import Cart from './components/Cart/Cart';
 import  Home  from './components/Home/Home';
 import Footer from './components/Footer/Footer';
-
+import Favs from './components/Favs/Favs';
 
 
 import { UserProvider } from './context/UserContext/UserState';
 import { ProductsProvider } from './context/ProductsContext/ProductsState';
 import 'antd/dist/antd.css'
 import { OrdersProvider } from './context/OrderContext/OrderState';
+
 
 
 const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones', 'Saber más', 'Cosis1','Cosis2']
@@ -35,6 +36,7 @@ function App() {
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path="/cart" element={<Cart />} />
+            <Route path="/favs" element={<Favs/>} />
           </Routes>
           <Footer info='Hecho por Shan y Vanesa ' copy='Junio 2022 ©' links={links}/>
           </OrdersProvider>
