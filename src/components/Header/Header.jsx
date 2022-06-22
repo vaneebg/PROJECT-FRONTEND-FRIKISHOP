@@ -7,7 +7,6 @@ import { ShoppingCartOutlined,LikeOutlined } from "@ant-design/icons";
 
 const Header = () => {
     const { token, role,logout} = useContext(UserContext)
-console.log(role)
     const logoutUser = () =>{
         logout()
     }

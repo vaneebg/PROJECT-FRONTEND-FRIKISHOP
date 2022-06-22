@@ -1,6 +1,6 @@
 const Admin = () => {
   return (
-    <div className='imgcontent'>Holiii adminnn</div>
+    <div>Holiii adminnn</div>
   )
 }
 export default Admin

@@ -10,13 +10,13 @@ import Cart from './components/Cart/Cart';
 import  Home  from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Favs from './components/Favs/Favs';
-
+import Admin from './components/Admin/Admin';
 
 import { UserProvider } from './context/UserContext/UserState';
 import { ProductsProvider } from './context/ProductsContext/ProductsState';
 import 'antd/dist/antd.css'
 import { OrdersProvider } from './context/OrderContext/OrderState';
-import Admin from './components/Header/Admin/Admin';
+
 
 
 
