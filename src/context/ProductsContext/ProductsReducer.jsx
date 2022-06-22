@@ -30,6 +30,11 @@ const products = (state, action) => {
                 ...state,
                 favs:[]
             }
+        case 'CLEAR_ONE':
+            return{
+                ...state,
+                cart:state.cart.filter((produ)=>produ !== action.payload)
+            }
         default:
             return state;
     }

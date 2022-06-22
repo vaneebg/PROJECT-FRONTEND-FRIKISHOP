@@ -68,6 +68,13 @@ export const ProductsProvider = ({ children }) => {
                 type:'CLEAR_CART'
             })
         }
+        const clearOne=(item)=>{
+            console.log('soy itemmmmmmmmmmmmm',item)
+            dispatch({
+                type:'CLEAR_ONE',
+                payload:item
+            })
+        }
         return ( <
             ProductsContext.Provider 
             value = {
@@ -80,6 +87,7 @@ export const ProductsProvider = ({ children }) => {
                     getProducts,
                     addCart,
                     clearCart,
+                    clearOne,
                     clearFavs,
                     addFavs,
                     addProduct
