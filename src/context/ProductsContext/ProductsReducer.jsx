@@ -28,7 +28,7 @@ const products = (state, action) => {
         case 'CLEAR_ONE':
             return{
                 ...state,
-                cart:state.cart.filter((produ)=>produ.name!==action.payload.item)
+                cart:state.cart.filter((produ)=>produ !== action.payload)
             }
         default:
             return state;

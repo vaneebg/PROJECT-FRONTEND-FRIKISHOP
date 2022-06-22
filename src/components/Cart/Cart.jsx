@@ -22,28 +22,22 @@ const Cart = () => {
         clearCart()
     }
 
-
     const eliminarUno=(item) =>{
-        
         const items = JSON.parse(localStorage.getItem('cart'))
-        let producto = items.filter((el)=> el.name!==item)
+        let producto = items.filter((el)=> el!==item)
         localStorage.setItem('cart',JSON.stringify(producto))
         clearOne(item)
         console.log('soy item',item)
+        console.log('soy producto',producto)
     }
 
 
     const cartItem = cart.map((cartItem,i)=>{
-        // console.log('cart',cart)
-        // console.log('cartItem.name',cartItem.name)
-        // console.log('cartItem',cartItem)
-        // console.log('true.false',cart.includes(cartItem))
-        
             return(
                 <div className='productCart' key={i}>
                         <span>{cartItem.name}</span>
                         <span>{cartItem.price.toFixed(2)} €</span>
-                        <button onClick={()=>eliminarUno(cartItem.name)}>Eliminar</button>
+                        <button onClick={()=>eliminarUno(cartItem)}>Eliminar</button>
                 </div>
             )
     })

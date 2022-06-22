@@ -49,6 +49,7 @@ export const ProductsProvider = ({ children }) => {
             })
         }
         const clearOne=(item)=>{
+            console.log('soy itemmmmmmmmmmmmm',item)
             dispatch({
                 type:'CLEAR_ONE',
                 payload:item
