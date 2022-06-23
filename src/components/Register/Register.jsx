@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 function Register() {
     const { clearMessage, register, message } = useContext(UserContext);
     const navigate = useNavigate()
-    const onFinish = (values) => {  
+    const onFinish = (values) => { 
+      console.log(values) 
       register(values)
       setTimeout(() => {
           navigate("/")

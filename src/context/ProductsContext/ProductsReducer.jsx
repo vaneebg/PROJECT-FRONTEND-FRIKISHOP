@@ -5,6 +5,11 @@ const products = (state, action) => {
                 ...state,
                 products: action.payload,
             };
+        case "GET_PRODUCT":
+            return {
+                ...state,
+                product: action.payload,
+            };
         case "ADD_PRODUCT":
             return {
                   ...state,

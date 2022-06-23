@@ -1,5 +1,7 @@
 import { useContext, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
+import { Link } from 'react-router-dom'
+
 import './Products.scss'
 const Products = () => {
   const { products, getProducts, addCart, addFavs} = useContext(ProductsContext);
@@ -24,7 +26,8 @@ const Products = () => {
   <img src={"http://localhost:8080/images/products/"+product.img}/></div>
   <div className="button">
   {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-  <button onClick={() => addFavs(product)}>Añadir favorito</button> </>
+  <button onClick={() => addFavs(product)}>Añadir favorito</button> 
+  <button><Link to={'/edit/products/id/' + product.id}>Editar producto</Link> </button></>
   : null}</div></div>
   )}
   )
