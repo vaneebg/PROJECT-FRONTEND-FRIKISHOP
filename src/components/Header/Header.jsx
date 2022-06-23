@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { ShoppingCartOutlined,LikeOutlined } from "@ant-design/icons";
+import { useEffect } from 'react'
 
 const Header = () => {
     const { token, role,logout} = useContext(UserContext)
+    
     const logoutUser = () =>{
         logout()
     }
+
 
   return (
     <nav className="nav">
@@ -34,7 +37,8 @@ const Header = () => {
           
           </>
           ) : 
-          (<> <span>
+          (<>
+           <span>
             <Link to="/home">Home</Link>
           </span>
           <span onClick={logoutUser}>
@@ -51,8 +55,8 @@ const Header = () => {
             </span>
           <span>
           <Link to="/cart"> <ShoppingCartOutlined /></Link>
-            </span></>)}
-      
+            </span>
+            </>)}
         </>
       ) : (
       <>

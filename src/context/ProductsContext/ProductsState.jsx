@@ -47,6 +47,24 @@ export const ProductsProvider = ({ children }) => {
             }
         };
 
+        const filterProduct = async(product) => {
+            console.log(product)
+            const token = JSON.parse(localStorage.getItem('token'))
+            try {
+                const res = await axios.get(API_URL + '/products',product,{
+                    headers:{
+                        authorization:token
+                    }
+                })
+                dispatch({
+                    type:"FILTER_PRODUCT",
+                    payload:res.data
+                })
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
         const addCart =(product)=>{
             dispatch({
                 type:'ADD_CART',
@@ -98,7 +116,8 @@ export const ProductsProvider = ({ children }) => {
                     clearFavs,
                     addFavs,
                     addProduct,
-                    clearOneFav
+                    clearOneFav,
+                    filterProduct
                 }
             } > { children } </ProductsContext.Provider>);
         }

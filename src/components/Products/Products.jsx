@@ -10,11 +10,27 @@ const Products = () => {
     getProducts();
   }, []);
 
+  const valorRange=(value)=>{
+    console.log(value)
+  }
+
+
     if (products.length <= 0) {
     return <span>Cargando...</span>;
   }
   
-  const listProducts=products.map((product,i)=>{return(<div className='product' key={i}>
+  const listProducts=products.map((product,i)=>{return(
+    <div>
+      <div className='product' key={i}>
+      <div>
+      <input 
+      type="range" 
+      className="custom-range" 
+      min="0" 
+      max="3999" 
+      onChange={(event) => valorRange(event.target.value)} />
+      <h4>The range value is {}</h4>
+    </div>
   <h2>{product.name}</h2> 
   <div className='content'>
     <div className="text">
@@ -26,6 +42,8 @@ const Products = () => {
   {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> </>
   : null}</div></div>
+    </div>
+  
   )}
   )
   

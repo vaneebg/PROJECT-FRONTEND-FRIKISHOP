@@ -40,6 +40,11 @@ const products = (state, action) => {
                  ...state,
                 favs:state.favs.filter((fav)=>fav !== action.payload)
                 }
+        case 'FILTER_PRODUCT':
+            return{
+                ...state,
+                products:state.products.filter((produ)=>console.log(produ.price))
+            }
         default:
             return state;
     }
