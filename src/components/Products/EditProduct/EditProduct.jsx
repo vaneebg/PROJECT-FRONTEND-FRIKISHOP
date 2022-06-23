@@ -33,7 +33,9 @@ const onFinishFailed = (errorInfo) => {
 }
 
 return (
+  <div className="center">
   <div className="container">
+  <h2>Modificar producto</h2>
     <Form
       name="basic"
       labelCol={{ span: 8 }}
@@ -74,11 +76,14 @@ return (
       </Form.Item>
       {message}   
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
+      <div className='containerbut'>
+        <Button className='button' htmlType="submit">
               Modificar producto
         </Button>
+        </div>
       </Form.Item>
     </Form>
+  </div>
   </div>
 );
 }

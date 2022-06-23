@@ -43,7 +43,7 @@ const Products = () => {
   <span>Stock: {product.stock}</span><br/></div>
   <img src={"http://localhost:8080/images/products/"+product.img}/></div>
   <div className="button">
-  {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
+  {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> 
   </>
   : null}
