@@ -62,6 +62,7 @@
     box-shadow: 5px -9px;
     .content{
         display:flex;
+        justify-content: space-around;
         .text{
             span{
                 text-align:center;
