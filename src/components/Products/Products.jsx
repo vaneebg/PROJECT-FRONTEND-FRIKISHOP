@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import './Products.scss'
 const Products = () => {
-  const { products, getProducts, addCart, addFavs,deleteProduct} = useContext(ProductsContext);
+  const { products, getProducts, addCart, addFavs,deleteProduct,filterProduct} = useContext(ProductsContext);
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -15,7 +15,7 @@ const Products = () => {
   }, []);
 
   const valorRange=(value)=>{
-    console.log(value)
+    filterProduct(value)
   }
 
 
@@ -31,7 +31,7 @@ const Products = () => {
       type="range" 
       className="custom-range" 
       min="0" 
-      max="3999" 
+      max="10" 
       onChange={(event) => valorRange(event.target.value)} />
       <h4>The range value is {}</h4>
       </div>

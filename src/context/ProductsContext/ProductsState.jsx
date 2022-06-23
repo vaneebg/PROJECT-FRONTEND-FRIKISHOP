@@ -94,15 +94,16 @@ export const ProductsProvider = ({ children }) => {
             }
             }
 
-        const filterProduct = async(product) => {
-            console.log(product)
+        const filterProduct = async(value) => {
+            console.log(value)
             const token = JSON.parse(localStorage.getItem('token'))
             try {
-                const res = await axios.get(API_URL + '/products',product,{
+                const res = await axios.get(API_URL + '/products'+ value,{
                     headers:{
                         authorization:token
                     }
                 })
+                console.log('holaaaaaaaaaaaa',res.data)
                 dispatch({
                     type:"FILTER_PRODUCT",
                     payload:res.data
@@ -164,13 +165,10 @@ export const ProductsProvider = ({ children }) => {
                     addFavs,
                     addProduct,
                     clearOneFav,
-<<<<<<< HEAD
-                    filterProduct
-=======
+                    filterProduct,
                     getProduct,
                     editProduct,
                     deleteProduct
->>>>>>> develop
                 }
             } > { children } </ProductsContext.Provider>);
         }
