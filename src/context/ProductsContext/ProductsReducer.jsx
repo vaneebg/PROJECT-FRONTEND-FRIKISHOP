@@ -53,7 +53,7 @@ const products = (state, action) => {
         case 'FILTER_PRODUCT':
             return{
                 ...state,
-                products:state.products.filter((produ)=>produ.price<5)
+                products:action.payload
             }
         default:
             return state;

@@ -30,10 +30,9 @@ const Products = () => {
       <input 
       type="range" 
       className="custom-range" 
-      min="0" 
-      max="10" 
+      min="1" 
+      max="40" 
       onChange={(event) => valorRange(event.target.value)} />
-      <h4>The range value is {}</h4>
       </div>
   <h2>{product.name}</h2> 
   <div className='content'>
