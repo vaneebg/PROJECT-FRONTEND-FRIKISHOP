@@ -2,9 +2,37 @@
 
 
 .container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     background-color: $whitesemi;
-    width:50%;
+    width:40%;
     padding:20px;
     margin:30px;
     border-radius: 20px;
+    h2{
+        font-size: 3em;
+    }
+    .containerbut{
+        display:flex;
+      width:30em;
+      
+    .button {
+        all:unset;
+        background-color: $green1;
+        border:3px solid $green6;
+        font-family: 'Gorditas', cursive;
+        text-align: center;
+        margin:10px 0;
+        font-size:2em;
+        color:white;
+        cursor:pointer;
+        width:10em;
+        border-radius: 5px;
+    }
+    .button:hover{
+        color:$green1;
+        background-color: white;
+    }
+}
 }

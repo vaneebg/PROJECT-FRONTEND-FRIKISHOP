@@ -27,7 +27,9 @@ const AddProduct = () => {
     });
   };
   return (
+    <div className="center">
     <div className="container">
+      <h2>Crear producto</h2>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -68,11 +70,14 @@ const AddProduct = () => {
         </Form.Item>
         {message}   
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit">
+          <div className='containerbut'>
+          <Button className='button' htmlType="submit">
                 Añadir producto
           </Button>
+          </div>
         </Form.Item>
       </Form>
+    </div>
     </div>
   );
 }
