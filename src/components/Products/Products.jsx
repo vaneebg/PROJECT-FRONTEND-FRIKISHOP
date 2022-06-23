@@ -14,7 +14,7 @@ const Products = () => {
     return <span>Cargando...</span>;
   }
   
-  const listProducts=products.map(product=>{return(<div className='product'>
+  const listProducts=products.map((product,i)=>{return(<div className='product' key={i}>
   <h2>{product.name}</h2> 
   <div className='content'>
     <div className="text">
@@ -29,7 +29,6 @@ const Products = () => {
   )}
   )
   
-
 
     return (
     <>
