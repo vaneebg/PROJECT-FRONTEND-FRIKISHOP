@@ -70,7 +70,6 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token,
                     }
                 })
-                console.log("res",res.data)
                 dispatch({
                     type: "ADD_PRODUCT",
                     payload: res.data.newProduct,
@@ -79,6 +78,21 @@ export const ProductsProvider = ({ children }) => {
                 console.error(error)
             }
         };
+        const deleteProduct= async(id) => {
+            try {
+            const res = await axios.delete(API_URL + "/products/id/" + id,{
+                headers:{
+                    authorization:token,
+                }
+                })
+            dispatch({
+            type: "DELETE_PRODUCT",
+            payload: res.data,
+            });
+            } catch (error) {
+            console.error(error)
+            }
+            }
 
         const addCart =(product)=>{
             dispatch({
@@ -133,7 +147,8 @@ export const ProductsProvider = ({ children }) => {
                     addProduct,
                     clearOneFav,
                     getProduct,
-                    editProduct
+                    editProduct,
+                    deleteProduct
                 }
             } > { children } </ProductsContext.Provider>);
         }

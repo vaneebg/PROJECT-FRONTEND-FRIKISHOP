@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import './Products.scss'
 const Products = () => {
-  const { products, getProducts, addCart, addFavs} = useContext(ProductsContext);
+  const { products, getProducts, addCart, addFavs,deleteProduct} = useContext(ProductsContext);
 
   const token = JSON.parse(localStorage.getItem('token'))
   
@@ -15,6 +15,7 @@ const Products = () => {
     if (products.length <= 0) {
     return <span>Cargando...</span>;
   }
+  
   
   const listProducts=products.map((product,i)=>{return(<div className='product' key={i}>
   <h2>{product.name}</h2> 
@@ -27,7 +28,8 @@ const Products = () => {
   <div className="button">
   {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> 
-  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button></>
+  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></>
   : null}</div></div>
   )}
   )

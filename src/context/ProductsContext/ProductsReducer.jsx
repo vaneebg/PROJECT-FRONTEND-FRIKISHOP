@@ -15,6 +15,11 @@ const products = (state, action) => {
                   ...state,
                   products: [action.payload, ...state.products],
             };
+        case "DELETE_PRODUCT":
+            return {
+                    ...state,
+                    products: state.products.filter((el) => el.id !== action.payload.id),
+                };
         case 'ADD_CART':
             return{
                 ...state,

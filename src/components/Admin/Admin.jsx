@@ -10,7 +10,8 @@ const Admin = () => {
           </span>
           </span>
           <Link to="/products/">Modificar un producto</Link>
-    <button>Borrar productos</button>
+          <Link to="/products/">Borrar un producto</Link>
+
     </>
   )
 }
