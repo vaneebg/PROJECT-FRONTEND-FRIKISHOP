@@ -1,10 +1,14 @@
 import { useContext, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
+import { Link } from 'react-router-dom'
+
 import './Products.scss'
 const Products = () => {
-  const { products, getProducts, addCart, addFavs} = useContext(ProductsContext);
+  const { products, getProducts, addCart, addFavs,deleteProduct} = useContext(ProductsContext);
 
   const token = JSON.parse(localStorage.getItem('token'))
+  const role = JSON.parse(localStorage.getItem('role'))
+
   
   useEffect(() => {
     getProducts();
@@ -19,9 +23,9 @@ const Products = () => {
     return <span>Cargando...</span>;
   }
   
+  
   const listProducts=products.map((product,i)=>{return(
-    <div>
-      <div className='product' key={i}>
+  <div className='product' key={i}>
       <div>
       <input 
       type="range" 
@@ -30,7 +34,7 @@ const Products = () => {
       max="3999" 
       onChange={(event) => valorRange(event.target.value)} />
       <h4>The range value is {}</h4>
-    </div>
+      </div>
   <h2>{product.name}</h2> 
   <div className='content'>
     <div className="text">
@@ -40,10 +44,11 @@ const Products = () => {
   <img src={"http://localhost:8080/images/products/"+product.img}/></div>
   <div className="button">
   {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-  <button onClick={() => addFavs(product)}>Añadir favorito</button> </>
-  : null}</div></div>
-    </div>
-  
+  <button onClick={() => addFavs(product)}>Añadir favorito</button> 
+  </>
+  : null}
+  { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></> :null}</div></div>
   )}
   )
   

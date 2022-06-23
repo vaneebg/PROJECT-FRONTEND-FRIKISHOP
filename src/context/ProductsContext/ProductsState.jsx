@@ -29,6 +29,38 @@ export const ProductsProvider = ({ children }) => {
             });
             return res;
         };
+        
+        const getProduct = async (id) => {
+            try {
+            const res = await axios.get(API_URL+ "/products/id/" + id);
+            console.log('coger produto',res)
+
+            dispatch({
+            type: "GET_PRODUCT",
+            payload: res.data,
+            });
+            } catch (error) {
+            console.error(error);
+            }
+            };
+
+        const editProduct= async (id, product) => {
+            const token = JSON.parse(localStorage.getItem('token'))
+                try {
+                const res= await axios.put(API_URL +"/products/id/" + id, product,{
+                    headers:{
+                        authorization:token,
+                    }
+                    })
+
+                    dispatch({
+                        type: "EDIT_PRODUCT",
+                        payload: res.data,
+                      });
+                } catch (error) {
+                  console.error(error);
+                }
+              };
 
         const addProduct = async(product) => {
             const token = JSON.parse(localStorage.getItem('token'))
@@ -40,12 +72,27 @@ export const ProductsProvider = ({ children }) => {
                 })
                 dispatch({
                     type: "ADD_PRODUCT",
-                    payload: res.data,
+                    payload: res.data.newProduct,
                   });
             } catch (error) {
                 console.error(error)
             }
         };
+        const deleteProduct= async(id) => {
+            try {
+            const res = await axios.delete(API_URL + "/products/id/" + id,{
+                headers:{
+                    authorization:token,
+                }
+                })
+            dispatch({
+            type: "DELETE_PRODUCT",
+            payload: res.data,
+            });
+            } catch (error) {
+            console.error(error)
+            }
+            }
 
         const filterProduct = async(product) => {
             console.log(product)
@@ -117,7 +164,13 @@ export const ProductsProvider = ({ children }) => {
                     addFavs,
                     addProduct,
                     clearOneFav,
+<<<<<<< HEAD
                     filterProduct
+=======
+                    getProduct,
+                    editProduct,
+                    deleteProduct
+>>>>>>> develop
                 }
             } > { children } </ProductsContext.Provider>);
         }

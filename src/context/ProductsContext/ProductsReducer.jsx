@@ -5,11 +5,21 @@ const products = (state, action) => {
                 ...state,
                 products: action.payload,
             };
+        case "GET_PRODUCT":
+            return {
+                ...state,
+                product: action.payload,
+            };
         case "ADD_PRODUCT":
             return {
                   ...state,
                   products: [action.payload, ...state.products],
             };
+        case "DELETE_PRODUCT":
+            return {
+                    ...state,
+                    products: state.products.filter((el) => el.id !== action.payload.id),
+                };
         case 'ADD_CART':
             return{
                 ...state,

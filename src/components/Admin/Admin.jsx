@@ -9,8 +9,9 @@ const Admin = () => {
       <Link to="/product/id/:id">Crear un nuevo producto</Link>
           </span>
           </span>
-    <button>Modificar productos</button>
-    <button>Borrar productos</button>
+          <Link to="/products/">Modificar un producto</Link>
+          <Link to="/products/">Borrar un producto</Link>
+
     </>
   )
 }
