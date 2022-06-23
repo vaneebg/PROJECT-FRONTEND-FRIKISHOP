@@ -7,6 +7,8 @@ const Products = () => {
   const { products, getProducts, addCart, addFavs,deleteProduct} = useContext(ProductsContext);
 
   const token = JSON.parse(localStorage.getItem('token'))
+  const role = JSON.parse(localStorage.getItem('role'))
+
   
   useEffect(() => {
     getProducts();
@@ -28,9 +30,10 @@ const Products = () => {
   <div className="button">
   {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> 
-  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></>
-  : null}</div></div>
+  </>
+  : null}
+  { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></> :null}</div></div>
   )}
   )
   
