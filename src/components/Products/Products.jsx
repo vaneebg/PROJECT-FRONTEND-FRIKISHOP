@@ -27,7 +27,7 @@ const Products = () => {
   <div className="button">
   {token ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> 
-  <button><Link to={'/edit/products/id/' + product.id}>Editar producto</Link> </button></>
+  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button></>
   : null}</div></div>
   )}
   )

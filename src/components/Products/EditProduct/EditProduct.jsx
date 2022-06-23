@@ -4,7 +4,7 @@ import { ProductsContext } from "../../../context/ProductsContext/ProductsState"
 import { Form, Input, Button, InputNumber, notification } from 'antd';
 
 const EditProduct = () => {
-  const { product, getProduct, editProduct } = useContext(ProductsContext);
+  const { product, getProduct, editProduct,message } = useContext(ProductsContext);
   const [data, setData] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,24 +32,54 @@ const onFinishFailed = (errorInfo) => {
     console.log('Failed:',errorInfo)
 }
 
-  return (
-    <div className="center">
-        
-    <div className="container">
-    <h2>Modificar producto</h2>
-    <Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off" >
-            <Form.Item label="Nombre producto" name="name" > <Input /> </Form.Item>
-            <Form.Item label="Descripción"  name="description" > <Input /> </Form.Item>
-            <Form.Item label="Precio" name="price" defaultValue={3}> <InputNumber /> </Form.Item>
-            <Form.Item label="Stock" name="stock"> <InputNumber /> </Form.Item>
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-             <Button type="primary" htmlType="submit"> Modificar producto </Button> </Form.Item>
-     </Form>
-        </div>
-        </div>
-  )
+return (
+  <div className="container">
+    <Form
+      name="basic"
+      labelCol={{ span: 8 }}
+      wrapperCol={{ span: 16 }}
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
+        <Form.Item
+        label="Nombre"
+        name="name"
+        rules={[{ required: true, message: "Introduce un nombre de producto!" }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label="Descripción"
+        name="description"
+        rules={[{ required: true, message: "Introduce una descripción" }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+        label="Stock"
+        name="stock"
+        rules={[{ required: true, message: "Introduce un stock" }]}
+      >
+        <InputNumber />
+      </Form.Item>
+
+      <Form.Item
+        label="Precio"
+        name="price"
+        rules={[{ required: true, message: "Introduce su precio" }]}
+      >
+        <InputNumber />
+      </Form.Item>
+      {message}   
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button type="primary" htmlType="submit">
+              Modificar producto
+        </Button>
+      </Form.Item>
+    </Form>
+  </div>
+);
 }
 export default EditProduct;

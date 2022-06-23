@@ -69,7 +69,7 @@ const AddProduct = () => {
         {message}   
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-                Registrarse
+                Añadir producto
           </Button>
         </Form.Item>
       </Form>
