@@ -24,6 +24,9 @@
         justify-content:  center;
     }
     button {
+        a{
+            all:unset
+        }
         all:unset;
         background-color: $green1;
         border:3px solid $green6;
@@ -70,6 +73,7 @@
         }
         img{
             width:12em;
+            height:12.5em;
             border-radius: 6px;
         }
     }
