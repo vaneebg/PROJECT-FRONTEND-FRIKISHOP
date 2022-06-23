@@ -20,11 +20,12 @@ function Register() {
       console.log("Failed:", errorInfo);
     };
     return (
+      <div className="center">
         <div className="container">
           <Form
             name="basic"
             labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
+            wrapperCol={{ span: 29 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -66,6 +67,7 @@ function Register() {
               </Button>
             </Form.Item>
           </Form>
+        </div>
         </div>
       );
 }

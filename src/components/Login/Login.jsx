@@ -3,6 +3,8 @@ import { useContext,useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { Form, Input, Button} from 'antd'
 import { useNavigate} from 'react-router-dom'
+import {  UserOutlined,LockOutlined } from '@ant-design/icons';
+
 
 const Login = () => {
 
@@ -33,8 +35,8 @@ const Login = () => {
     <div className="container">
           <Form
             name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 22 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
@@ -45,7 +47,7 @@ const Login = () => {
               name="email"
               rules={[{ required: true, message: "Pon tu email" }]}
             >
-              <Input />
+              <Input prefix={<UserOutlined className="site-form-item-icon" />}/>
             </Form.Item>
     
             <Form.Item
@@ -53,7 +55,7 @@ const Login = () => {
               name="password"
               rules={[{ required: true, message: "Pon tu contraseña!" }]}
             >
-              <Input.Password />
+              <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} />
             </Form.Item>
     
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
