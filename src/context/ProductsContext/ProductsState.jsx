@@ -102,7 +102,6 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 })
-                console.log('llllllll',value)
                 dispatch({
                     type:"FILTER_PRODUCT",
                     payload:res.data
@@ -110,6 +109,23 @@ export const ProductsProvider = ({ children }) => {
             } catch (error) {
                 console.error(error)
                 console.log('error')
+            }
+        }
+
+        const filterProductName = async(name) => {
+            const token = JSON.parse(localStorage.getItem('token'))
+            try {
+                const res = await axios.get(API_URL + '/products/name/' + name,{
+                    headers:{
+                        authorization:token
+                    }
+                } )
+                dispatch({
+                    type:"NAME_FILTER",
+                    payload:res.data
+                })
+            } catch (error) {
+                
             }
         }
 
@@ -168,7 +184,8 @@ export const ProductsProvider = ({ children }) => {
                     filterProduct,
                     getProduct,
                     editProduct,
-                    deleteProduct
+                    deleteProduct,
+                    filterProductName
                 }
             } > { children } </ProductsContext.Provider>);
         }

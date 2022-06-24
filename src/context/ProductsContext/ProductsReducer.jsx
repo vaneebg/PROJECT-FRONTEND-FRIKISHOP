@@ -55,6 +55,11 @@ const products = (state, action) => {
                 ...state,
                 products:action.payload
             }
+        case 'NAME_FILTER':
+            return{
+                ...state,
+                products:action.payload
+            }
         default:
             return state;
     }

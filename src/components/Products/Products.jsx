@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import './Products.scss'
 const Products = () => {
-  const { products, getProducts, addCart, addFavs,deleteProduct,filterProduct} = useContext(ProductsContext);
+  const { products, getProducts, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -20,6 +20,10 @@ const Products = () => {
   const handleChange=(event)=>{
     setValor(event.target.value)
     filterProduct(valor)
+  }
+
+  const nameFilter=(name)=>{
+    filterProductName(name)
   }
 
 
@@ -63,6 +67,13 @@ const Products = () => {
           onChange={handleChange} 
           />
           <span className="inputText">El rango de precio:{valor} €</span>
+        </form>
+        <form action="" className='containerProducts'>
+        <input
+          type="text" 
+          size="5rem"
+          onChange={(event)=>nameFilter(event.target.value)} 
+          />
         </form>
         <div className='containerProducts'>
         {listProducts}
