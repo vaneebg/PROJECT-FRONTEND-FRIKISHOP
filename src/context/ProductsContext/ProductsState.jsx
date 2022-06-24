@@ -95,7 +95,6 @@ export const ProductsProvider = ({ children }) => {
             }
 
         const filterProduct = async(value) => {
-            console.log(value)
             const token = JSON.parse(localStorage.getItem('token'))
             try {
                 const res = await axios.get(API_URL + '/products/filter/pricemin/1/pricemax/' + value,{
@@ -103,7 +102,7 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 })
-                console.log(res)
+                console.log('llllllll',value)
                 dispatch({
                     type:"FILTER_PRODUCT",
                     payload:res.data

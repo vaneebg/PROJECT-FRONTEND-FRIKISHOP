@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect,useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 
@@ -14,26 +14,23 @@ const Products = () => {
     getProducts();
   }, []);
 
-  const valorRange=(value)=>{
-    filterProduct(value)
+  const [valor,setValor] = useState(40)
+
+
+  const handleChange=(event)=>{
+    setValor(event.target.value)
+    filterProduct(valor)
   }
 
 
     if (products.length <= 0) {
     return <span>Cargando...</span>;
-  }
+  }  
   
   
   const listProducts=products.map((product,i)=>{return(
+    
   <div className='product' key={i}>
-      <div>
-      <input 
-      type="range" 
-      className="custom-range" 
-      min="1" 
-      max="40" 
-      onChange={(event) => valorRange(event.target.value)} />
-      </div>
   <h2>{product.name}</h2> 
   <div className='content'>
     <div className="text">
@@ -56,6 +53,17 @@ const Products = () => {
     return (
     <>
         <span className='title'> Productos</span>
+        <form action="" className='containerProducts'>
+        <input
+          type="range" 
+          className="rangeInput" 
+          size="5rem"
+          min="3.6" 
+          max="40" 
+          onChange={handleChange} 
+          />
+          <span className="inputText">El rango de precio:{valor} €</span>
+        </form>
         <div className='containerProducts'>
         {listProducts}
         {products.name} 
@@ -65,3 +73,4 @@ const Products = () => {
 };
 
 export default Products;
+
