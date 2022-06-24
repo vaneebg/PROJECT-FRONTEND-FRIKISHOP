@@ -23,9 +23,14 @@ const Products = () => {
 
   const [name,setName] = useState('')
 
-  const handleChange1=(event)=>{
+
+  const handleInputChange=(event)=>{
     setName(event.target.value)
+  }
+  const handleSubmit=(event)=>{
+    event.preventDefault()
     filterProductName(name)
+    console.log(name)
   }
 
 
@@ -70,12 +75,13 @@ const Products = () => {
           />
           <span className="inputText">El rango de precio:{valor} €</span>
         </form>
-        <form action="" className='containerProducts'>
+        <form action="" className='containerProducts' onSubmit={handleSubmit}>
         <input
           type="text" 
           size="5rem"
-          onChange={handleChange1}
+          onChange={handleInputChange}
           />
+          <button type="submit">Buscar</button>
         </form>
         <div className='containerProducts'>
           {listProducts}
