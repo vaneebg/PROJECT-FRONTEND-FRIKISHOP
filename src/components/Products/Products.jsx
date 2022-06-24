@@ -58,7 +58,7 @@ const Products = () => {
           type="range" 
           className="rangeInput" 
           size="5rem"
-          min="3.6" 
+          min="4" 
           max="40" 
           onChange={handleChange} 
           />
