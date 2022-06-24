@@ -120,12 +120,22 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 } )
-                dispatch({
-                    type:"NAME_FILTER",
-                    payload:res.data
+                let a = []
+                res.data.map((p)=>{
+                 a.push(p)
                 })
-            } catch (error) {
+                console.log('aaaaaaaaaa',typeof(a),a)
+                if(a.length==0){
+                    alert('me piro,adios')
+                }
+                    dispatch({
+                        type:"NAME_FILTER",
+                        payload:res.data
+                    })
                 
+
+            } catch (error) {
+                console.error(error)
             }
         }
 
