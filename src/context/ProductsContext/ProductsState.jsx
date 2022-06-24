@@ -120,20 +120,11 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 } )
-                let a = []
-                res.data.map((p)=>{
-                 a.push(p)
-                })
-                console.log('aaaaaaaaaa',typeof(a),a)
-                if(a.length==0){
-                    alert('me piro,adios')
-                }
+                console.log(res.data)
                     dispatch({
                         type:"NAME_FILTER",
                         payload:res.data
                     })
-                
-
             } catch (error) {
                 console.error(error)
             }

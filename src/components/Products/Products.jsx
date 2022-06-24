@@ -16,13 +16,15 @@ const Products = () => {
 
   const [valor,setValor] = useState(40)
 
-
   const handleChange=(event)=>{
     setValor(event.target.value)
     filterProduct(valor)
   }
 
-  const nameFilter=(name)=>{
+  const [name,setName] = useState('')
+
+  const handleChange1=(event)=>{
+    setName(event.target.value)
     filterProductName(name)
   }
 
@@ -52,9 +54,9 @@ const Products = () => {
     <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></> :null}</div></div>
   )}
   )
-  
 
     return (
+     
     <>
         <span className='title'> Productos</span>
         <form action="" className='containerProducts'>
@@ -72,14 +74,14 @@ const Products = () => {
         <input
           type="text" 
           size="5rem"
-          onChange={(event)=>nameFilter(event.target.value)} 
+          onChange={handleChange1}
           />
         </form>
         <div className='containerProducts'>
-        {listProducts}
-        {products.name} 
-      </div>
-      </>
+          {listProducts}
+          {products.name} 
+        </div>
+    </>
     );
 };
 
