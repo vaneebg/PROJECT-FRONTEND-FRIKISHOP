@@ -8,17 +8,11 @@ const Reviews = () => {
 
     const { reviews,getReviews } = useContext(ReviewsContext)
 
-    console.log(reviews)
-
     useEffect(() => {
         getReviews();
       }, []);
-    console.log(reviews)
     const reviewList = reviews.map((rev,i)=>{
-      console.log('rev',rev.Reviews)
-
       const review = rev.Reviews.map((revi)=>{
-        console.log('revi',revi)
         return(
           <div>
             <span>Title: {revi.title}</span><br />
@@ -28,7 +22,6 @@ const Reviews = () => {
           </div>
         )
       })
-
         return (
             <div key={i}>
                 <span>Nombre del producto: {rev.name}</span><br />

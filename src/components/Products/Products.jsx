@@ -1,6 +1,6 @@
 import { useContext, useEffect,useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 import './Products.scss'
 const Products = () => {
@@ -9,7 +9,12 @@ const Products = () => {
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
 
+  const navigate = useNavigate()
   
+  const toReviews = () =>{
+    navigate('/reviews')
+  }
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -52,7 +57,7 @@ const Products = () => {
   </div>
   <div className="button">
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-  <button onClick={() => addFavs(product)}>Añadir favorito</button> 
+  <button onClick={() => addFavs(product)}>Añadir favorito</button> <button onClick={toReviews}>Comentar</button>
   </>
   : null}
   { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>

@@ -46,7 +46,7 @@ function App() {
             <Route path='/admin' element ={<Admin/>}/>
             <Route path="/product/id/:id" element={<AddProduct/>} />
             <Route path="/products/id/:id" element={<EditProduct/>} />
-            <Route path='reviews' element={<Reviews/>}/>
+            <Route path='/reviews' element={<Reviews/>}/>
           </Routes>
           <Footer info='Hecho por Shan y Vanesa ' copy='Junio 2022 ©' links={links}/>
           </ReviewsProvider>

@@ -5,6 +5,11 @@ const reviews =(state,action)=>{
                 ...state,
                 reviews:action.payload
             }
+        case 'CREATE_REVIEW':
+            return{
+                ...state,
+                reviews:[action.payload,...state.reviews]
+            }
         default:
             return state;
     }
