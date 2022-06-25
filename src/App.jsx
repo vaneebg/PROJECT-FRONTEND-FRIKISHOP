@@ -11,16 +11,17 @@ import  Home  from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Favs from './components/Favs/Favs';
 import Admin from './components/Admin/Admin';
+import Reviews from './components/Reviews/Reviews';
 
 
 import { UserProvider } from './context/UserContext/UserState';
 import { ProductsProvider } from './context/ProductsContext/ProductsState';
-import 'antd/dist/antd.css'
 import { OrdersProvider } from './context/OrderContext/OrderState';
 import AddProduct from './components/Products/AddProduct/AddProduct';
 import EditProduct from './components/Products/EditProduct/EditProduct';
+import { ReviewsProvider } from './context/ReviewsContext/ReviewsState';
 
-
+import 'antd/dist/antd.css'
 
 
 const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones', 'Saber más', 'Cosis1','Cosis2']
@@ -32,6 +33,7 @@ function App() {
         <UserProvider>
         <ProductsProvider>
           <OrdersProvider>
+          <ReviewsProvider>
           <Header/>
         <Routes>
             <Route path="/home" element={<Home />} />
@@ -44,8 +46,10 @@ function App() {
             <Route path='/admin' element ={<Admin/>}/>
             <Route path="/product/id/:id" element={<AddProduct/>} />
             <Route path="/products/id/:id" element={<EditProduct/>} />
+            <Route path='reviews' element={<Reviews/>}/>
           </Routes>
           <Footer info='Hecho por Shan y Vanesa ' copy='Junio 2022 ©' links={links}/>
+          </ReviewsProvider>
           </OrdersProvider>
         </ProductsProvider>
         </UserProvider>

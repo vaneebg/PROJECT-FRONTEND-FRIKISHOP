@@ -34,7 +34,9 @@ const Header = () => {
           <span>
             <Link to="/products">Productos</Link>
           </span>
-          
+          <span>
+            <Link to='/reviews'>Reviews</Link>
+          </span>
           </>
           ) : 
           (<>

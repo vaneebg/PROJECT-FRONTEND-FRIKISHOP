@@ -189,4 +189,4 @@ export const ProductsProvider = ({ children }) => {
                     filterProductName
                 }
             } > { children } </ProductsContext.Provider>);
-        }
+}
