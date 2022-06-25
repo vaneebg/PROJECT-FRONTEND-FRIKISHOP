@@ -1,8 +1,35 @@
 import { useContext, useEffect,useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
+import { Button, Dropdown, Menu } from 'antd';
 
 import './Products.scss'
+
+const menu = (
+  <Menu
+    items={[
+      {
+        key: '1',
+        label: (
+          <button>
+            Filtrar por nombre
+          </button>
+        ),
+      },
+      {
+        key: '2',
+        label: (
+          <button>
+            Filtrar por precio
+          </button>
+        ),
+      },
+    ]}
+  />
+);
+
+
+
 const Products = () => {
   const { products, getProducts, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
 
@@ -43,6 +70,7 @@ const Products = () => {
     
   <div className='product' key={i}>
   <h2>{product.name}</h2> 
+ 
   <div className='content'>
     <div className="text">
   <span>Descripción: {product.description}</span><br/>
@@ -63,8 +91,15 @@ const Products = () => {
     return (
      
     <>
-        <span className='title'> Productos</span>
-        <form action="" className='containerProducts'>
+        <span className='title'> Productos
+        <Dropdown overlay={menu} placement="bottom" arrow>
+      <Button className='filter'>Filtro de búsqueda</Button>
+    </Dropdown>
+        </span>
+        <div className="filters">
+        <div className="range">
+        <span className="inputText">Rango de precio: {valor} €</span>
+
         <input
           type="range" 
           className="rangeInput" 
@@ -73,16 +108,21 @@ const Products = () => {
           max="40" 
           onChange={handleChange} 
           />
-          <span className="inputText">El rango de precio:{valor} €</span>
-        </form>
+        
+      
+        </div>
+        <div className="search">
         <form action="" className='containerProducts' onSubmit={handleSubmit}>
         <input
           type="text" 
-          size="5rem"
+         className="inputSearch"
+         placeholder="Nombre producto..."
           onChange={handleInputChange}
           />
-          <button type="submit">Buscar</button>
+          <button className='btnsearch' type="submit">Buscar</button>
         </form>
+      </div>
+      </div>
         <div className='containerProducts'>
           {listProducts}
           {products.name} 
