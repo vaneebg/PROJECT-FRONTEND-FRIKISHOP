@@ -8,39 +8,20 @@ const Reviews = () => {
 
     const { reviews,getReviews } = useContext(ReviewsContext)
 
-    console.log(reviews)
 
     useEffect(() => {
         getReviews();
       }, []);
-    console.log(reviews)
-    const reviewList = reviews.map((rev,i)=>{
-      console.log('rev',rev.Reviews)
+      
+const listReviews=reviews.map(el=>el.Reviews.map(review=>{return <>
+<span>Título review: {review.title}</span> <br />
+<span>{review.body}</span>
+<span>Puntuación: {review.score}</span></>}))
 
-      const review = rev.Reviews.map((revi)=>{
-        console.log('revi',revi)
-        return(
-          <div>
-            <span>Title: {revi.title}</span><br />
-            <span>User id: {revi.UserId}</span><br />
-            <span>Score: {revi.score} point</span><br />
-            <span>Review: {revi.body}</span>
-          </div>
-        )
-      })
-
-        return (
-            <div key={i}>
-                <span>Nombre del producto: {rev.name}</span><br />
-                <span>Categoria: {rev.Categorie.name}</span><br />
-                <span>{review}</span>
-            </div>
-        )
-    })
-
-  return (
-    <div>{reviewList}</div>
-  )
+return(
+  <div className="review">
+    {listReviews}
+  </div>
+)
 }
-
 export default Reviews

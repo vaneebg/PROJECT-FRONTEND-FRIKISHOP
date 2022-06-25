@@ -1,8 +1,11 @@
 import { useContext, useEffect,useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
+import { Button, Modal } from 'antd';
+
 
 import './Products.scss'
+import Reviews from "../Reviews/Reviews";
 
 
 
@@ -37,11 +40,23 @@ const Products = () => {
     console.log(name)
   }
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
     if (products.length <= 0) {
     return <span>Cargando...</span>;
   }  
-  
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  }; 
   
   const listProducts=products.map((product,i)=>{return(
     
@@ -55,6 +70,12 @@ const Products = () => {
   <span>Stock: {product.stock}</span><br/></div>
   {product.img ?<img src={"http://localhost:8080/images/products/"+product.img}/> : <img src="http://localhost:8080/images/products/int.jpg"/> }
   </div>
+  <Button type="primary" onClick={showModal}>
+       Reviews
+      </Button>
+      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+       <Reviews/>
+      </Modal>
   <div className="button">
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> 

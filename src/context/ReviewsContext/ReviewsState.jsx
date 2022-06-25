@@ -18,14 +18,13 @@ export const ReviewsProvider = ({children}) => {
     const [state,dispatch] = useReducer(ReviewsReducer,initialState)
 
     const getReviews = async() =>{
-        console.log('h9oa')
         const token = JSON.parse(localStorage.getItem('token'))
-            const res = await axios.get(API_URL + '/reviews/review_product/',{
+            const res = await axios.get(API_URL + '/reviews/review_product',{
                 headers:{
                     authorization:token,
                 }
             })
-            console.log(res.data)
+            console.log("aquii",res.data)
             dispatch({
                 type:'GET_ALL_REVIEWS',
                 payload:res.data
