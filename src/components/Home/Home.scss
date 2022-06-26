@@ -14,12 +14,10 @@ $slideOut: $animation-unit * 2.5;
 $slideStudios: $animation-unit * 4;
 
 
-* {
-	box-sizing: border-box;
-}
 
-body {
-	margin: 0;
+.body {
+    margin: -72px -190px;
+	padding:80px 2px;
 	background-color: $green1;
 	background-image: radial-gradient($green1 20%, $green3 50%, rgba(black, .5) 100%);
 	background-size: 120%;

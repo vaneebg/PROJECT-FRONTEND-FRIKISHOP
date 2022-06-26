@@ -2,7 +2,7 @@ import img from '../../assets/foto.jpg'
 import './Home.scss'
 const Home = () => {
   return (<>
-    <div class="wrapper run-animation" id="animate">
+    <div class="wrapper run-animation body" id="animate">
 	<div class="logo">
 
 		<span class="marvel">Shan & Vanee</span>
