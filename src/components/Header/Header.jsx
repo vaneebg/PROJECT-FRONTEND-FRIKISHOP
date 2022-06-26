@@ -5,10 +5,11 @@ import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { ShoppingCartOutlined,LikeOutlined } from "@ant-design/icons";
 import { useEffect } from 'react'
+import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 
 const Header = () => {
     const { token, role,logout} = useContext(UserContext)
-    
+    const {cart}=useContext(ProductsContext)
     const logoutUser = () =>{
         logout()
     }
@@ -53,7 +54,7 @@ const Header = () => {
           <Link to="/favs"><LikeOutlined /></Link>
             </span>
           <span>
-          <Link to="/cart"> <ShoppingCartOutlined /></Link>
+          <Link to="/cart"> <ShoppingCartOutlined /><div className="iconcart"><span>{cart.length}</span></div></Link>
             </span>
             </>)}
         </>
