@@ -59,15 +59,13 @@ const Products = () => {
 
 
   const listProducts = products.map((product, i) => {
-    const listReview = product.Reviews.map((el, i) => {
-      console.log(el)
+    const listReview = reviews.map((el, i) => {
       return (
-        <><div key={i} className='review'>
+        <div className='review' key={i}>
           <span>Título review: {el.title}</span><br />
           <span>Cuerpo review: {el.body}</span> <br />
           <span>Puntuación: {el.score}</span><br />
         </div>
-        </>
       )
     })
 
@@ -75,17 +73,16 @@ const Products = () => {
 
       <div className='product' key={i}>
         <h2>{product.name}</h2>
-
-        <div className='content'>
-          <div className="text">
+        <div className='content' >
+          <div className="text" key={i}>
             <span>Descripción: {product.description}</span><br />
             <span>Precio: {product.price}€</span><br />
             <span>Stock: {product.stock}</span><br /></div>
           {product.img ? <img src={"http://localhost:8080/images/products/" + product.img} /> : <img src="http://localhost:8080/images/products/int.jpg" />}
         </div>
 
-        <div className="button">
-          {token && role === 'user' ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
+        <div className="button" key={i}>
+          {token && role === 'user' ? <div key={i}> <button onClick={() => addCart(product)}>Añadir a carrito</button>
             {favs.map((f) => f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>}
             <div className="reviews">
               <Button type="primary" onClick={() => modalButton(product.id)}>
@@ -101,13 +98,13 @@ const Products = () => {
                 {listReview}
               </Modal>
             </div>
-          </>
+          </div>
             : null}
-          {role === 'SuperAdmin' ? <>
+          {role === 'SuperAdmin' ? <div key={i}>
             <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
             <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
             <div className="reviews">
-              <Button type="primary" onClick={() => modalButton(product.id)}>
+              <Button type="primary" onClick={() => setModal2Visible(true)}>
                 Reviews
               </Button>
               <Modal
@@ -120,7 +117,7 @@ const Products = () => {
                 {listReview}
               </Modal>
             </div>
-          </> : null}</div></div>
+          </div> : null}</div></div>
     )
   }
   )
