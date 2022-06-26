@@ -40,23 +40,12 @@ const Products = () => {
     getProducts()
   }
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modal2Visible, setModal2Visible] = useState(false);
 
   if (products.length <= 0) {
     return <span>Cargando...</span>;
   }  
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  }; 
   
   const listProducts=products.map((product,i)=>{
 const listReview=product.Reviews.map((el,i)=>
@@ -65,6 +54,7 @@ const listReview=product.Reviews.map((el,i)=>
 <span>Cuerpo review: {el.body}</span> <br />
 <span>Puntuación: {el.score}</span><br />
 </div>)
+
     return(
     
   <div className='product' key={i}>
@@ -82,11 +72,17 @@ const listReview=product.Reviews.map((el,i)=>
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   {favs.map((f)=>f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>} 
   <div className="reviews">
-  <Button type="primary" onClick={showModal}>
-       Reviews
+  <Button type="primary" onClick={() => setModal2Visible(true)}>
+        Reviews
       </Button>
-      <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      {listReview}
+      <Modal
+        title="Reviews producto"
+        centered
+        visible={modal2Visible}
+        onOk={() => setModal2Visible(false)}
+        onCancel={() => setModal2Visible(false)}
+      >
+       {listReview}
       </Modal>
       </div>
   </>
@@ -95,11 +91,17 @@ const listReview=product.Reviews.map((el,i)=>
   <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
     <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
     <div className="reviews">
-  <Button type="primary" onClick={showModal}>
-       Reviews
+    <Button type="primary" onClick={() => setModal2Visible(true)}>
+        Reviews
       </Button>
-      <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      {listReview}
+      <Modal
+        title="Reviews producto"
+        centered
+        visible={modal2Visible}
+        onOk={() => setModal2Visible(false)}
+        onCancel={() => setModal2Visible(false)}
+      >
+       {listReview}
       </Modal>
       </div>
     </> :null}</div></div>
