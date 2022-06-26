@@ -1,18 +1,23 @@
 import { useContext, useEffect,useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext/ProductsState";
+import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
 import { Link,useNavigate } from 'react-router-dom'
 
 import './Products.scss'
 const Products = () => {
   const { products, getProducts, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
+  const { reviews,createReviews } = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
 
   const navigate = useNavigate()
   
-  const toReviews = () =>{
-    navigate('/reviews')
+  const toReviews = (product) =>{
+    navigate('/createReviews')
+    createReviews(product)
+    console.log('product',product)
+    console.log(reviews)
   }
 
   useEffect(() => {
@@ -57,7 +62,7 @@ const Products = () => {
   </div>
   <div className="button">
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-  <button onClick={() => addFavs(product)}>Añadir favorito</button> <button onClick={toReviews}>Comentar</button>
+  <button onClick={() => addFavs(product)}>Añadir favorito</button> <button onClick={()=>toReviews(product)}>Comentar</button>
   </>
   : null}
   { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>

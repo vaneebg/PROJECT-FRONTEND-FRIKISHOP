@@ -11,6 +11,7 @@ const Reviews = () => {
     useEffect(() => {
         getReviews();
       }, []);
+      
     const reviewList = reviews.map((rev,i)=>{
       const review = rev.Reviews.map((revi)=>{
         return(
