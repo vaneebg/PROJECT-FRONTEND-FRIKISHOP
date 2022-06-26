@@ -5,12 +5,26 @@
 h2{
     font-family: 'Gorditas', cursive;
 }
-.message{
-    padding:20px;
-    background-color: white;
-    margin:30px;
-    font-family: 'Kaisei Tokumin', serif;
+.nomoney{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    .messagecar{
+        display: flex;
+        justify-content: center;
+        padding:20px;
+        background-color: white;
+        width:100%;
+        font-size: 2em;
+        font-family: 'Kaisei Tokumin', serif;
+    }
+    img{
+        width:40em;
+        padding:2em;
+        margin-bottom:6em;
+    }
 }
+
 
 .cart{
     font-family: 'Kaisei Tokumin', serif;

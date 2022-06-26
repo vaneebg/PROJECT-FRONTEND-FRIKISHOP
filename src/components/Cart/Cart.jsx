@@ -1,5 +1,5 @@
 import './Cart.scss'
-
+import gif from '../../assets/gif.gif'
 import { useContext,useEffect } from "react"
 import { ProductsContext } from "../../context/ProductsContext/ProductsState"
 import { OrdersContext } from "../../context/OrderContext/OrderState"
@@ -14,7 +14,7 @@ const Cart = () => {
     },[cart])
 
     if(cart.length<=0){
-        return <span className='message'>No tienes ningún producto añadido</span>
+        return <div className='nomoney'>  <span className='messagecar'>No tienes ningún producto añadido, es hora de gastar 💰💰</span><img src={gif} alt="" /></div>
     }
 
     const createNewOrder=()=>{
