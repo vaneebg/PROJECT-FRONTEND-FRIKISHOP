@@ -13,7 +13,6 @@ const Login = () => {
     const navigate = useNavigate()
 
     const onFinish = (values) =>{
-        console.log(values)
         login(values)
         return notification.success({
           message: "Holiiii",

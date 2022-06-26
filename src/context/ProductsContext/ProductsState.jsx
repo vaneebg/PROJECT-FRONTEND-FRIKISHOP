@@ -78,12 +78,15 @@ export const ProductsProvider = ({ children }) => {
             }
         };
         const deleteProduct= async(id) => {
+            const token = JSON.parse(localStorage.getItem('token'))
+
             try {
             const res = await axios.delete(API_URL + "/products/id/" + id,{
                 headers:{
                     authorization:token,
                 }
                 })
+                console.log(res)
             dispatch({
             type: "DELETE_PRODUCT",
             payload: res.data,

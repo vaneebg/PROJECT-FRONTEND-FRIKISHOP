@@ -18,7 +18,7 @@ const products = (state, action) => {
         case "DELETE_PRODUCT":
             return {
                     ...state,
-                    products: state.products.filter((el) => el.id !== action.payload.id),
+                    products: state.products.filter((el) => +action.payload.el !== +el.id )
                 };
         case 'ADD_CART':
             return{

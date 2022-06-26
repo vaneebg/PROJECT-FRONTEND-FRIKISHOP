@@ -36,7 +36,6 @@ const Products = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     filterProductName(name)
-    console.log(name)
     getProducts()
   }
 
@@ -48,16 +47,16 @@ const Products = () => {
 
   
   const listProducts=products.map((product,i)=>{
-const listReview=product.Reviews.map((el,i)=>{
-  console.log(el)
-  return(
-  <><div key={i} className='review'>
-  <span>Título review: {el.title}</span><br />
-  <span>Cuerpo review: {el.body}</span> <br />
-  <span>Puntuación: {el.score}</span><br />
-  </div>
-  </>
-)})
+// const listReview=product.Reviews.map((el,i)=>{
+//   console.log(el)
+//   return(
+//   <><div key={i} className='review'>
+//   <span>Título review: {el.title}</span><br />
+//   <span>Cuerpo review: {el.body}</span> <br />
+//   <span>Puntuación: {el.score}</span><br />
+//   </div>
+//   </>
+// )})
 
     return(
     
@@ -86,7 +85,7 @@ const listReview=product.Reviews.map((el,i)=>{
         onOk={() => setModal2Visible(false)}
         onCancel={() => setModal2Visible(false)}
       >
-       {listReview}
+       {/* {listReview} */}
       </Modal>
       </div>
   </>
@@ -105,7 +104,7 @@ const listReview=product.Reviews.map((el,i)=>{
         onOk={() => setModal2Visible(false)}
         onCancel={() => setModal2Visible(false)}
       >
-       {listReview}
+       {/* {listReview} */}
       </Modal>
       </div>
     </> :null}</div></div>
