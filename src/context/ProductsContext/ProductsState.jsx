@@ -102,10 +102,14 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 })
+                if(res.data.length !== 0){
                 dispatch({
                     type:"FILTER_PRODUCT",
                     payload:res.data
                 })
+            }else{
+                getProducts()
+            }
             } catch (error) {
                 console.error(error)
                 console.log('error')
