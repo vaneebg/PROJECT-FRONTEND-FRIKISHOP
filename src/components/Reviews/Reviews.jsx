@@ -2,14 +2,14 @@ import React from 'react'
 import { useContext, useEffect } from 'react'
 // import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 import { ReviewsContext } from '../../context/ReviewsContext/ReviewsState'
-import './Reviews.scss'
+// import './Reviews.scss'
 
 const Reviews = () => {
 
   const { reviews,getReview } = useContext(ReviewsContext)
   // const { products } = useContext(ProductsContext)
 
-  console.log('soy reviews', reviews)
+  // console.log('soy reviews', reviews)
 
   useEffect(() => {
     getReview();
@@ -19,10 +19,10 @@ const Reviews = () => {
   //   console.log('rrrrrrrrrrrrrrr', r)
   //   return (
   //     <>
-  //       <span>Id producto: {r.Reviews.id}</span><br />
-  //       <span className='titleRev'>Título review: {r.Reviews.title}</span> <br />
-  //       <span>{r.reviews.body}</span><br />
-  //       <span>Puntuación: {r.reviews.score}</span><br />
+  //       <span>Id producto: {r}</span><br />
+  //       <span className='titleRev'>Título review: {r}</span> <br />
+  //       <span>{r}</span><br />
+  //       <span>Puntuación: {r}</span><br />
   //     </>
   //   )
   // })

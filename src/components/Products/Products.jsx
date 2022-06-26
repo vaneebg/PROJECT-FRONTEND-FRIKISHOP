@@ -3,13 +3,16 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 import { Button, Modal } from 'antd';
 import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
+import { listReviews } from '../../components/Reviews/Reviews'
 
 import './Products.scss'
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
 
-  const { getReview } = useContext(ReviewsContext)
+  const { getReview,reviews } = useContext(ReviewsContext)
+
+  console.log('reviews',reviews)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -56,17 +59,17 @@ const Products = () => {
   }
 
   
-  const listProducts=products.map((product,i)=>{
-// const listReview=product.Reviews.map((el,i)=>{
-//   console.log(el)
-//   return(
-//   <><div key={i} className='review'>
-//   <span>Título review: {el.title}</span><br />
-//   <span>Cuerpo review: {el.body}</span> <br />
-//   <span>Puntuación: {el.score}</span><br />
-//   </div>
-//   </>
-// )})
+const listProducts=products.map((product,i)=>{
+const listReview=product.Reviews.map((el,i)=>{
+  console.log(el)
+  return(
+  <><div key={i} className='review'>
+  <span>Título review: {el.title}</span><br />
+  <span>Cuerpo review: {el.body}</span> <br />
+  <span>Puntuación: {el.score}</span><br />
+  </div>
+  </>
+)})
 
     return(
     
@@ -95,7 +98,7 @@ const Products = () => {
         onOk={() => setModal2Visible(false)}
         onCancel={() => setModal2Visible(false)}
       >
-       {/* {listReview} */}
+       {listReview}
       </Modal>
       </div>
   </>
@@ -114,7 +117,7 @@ const Products = () => {
         onOk={() => setModal2Visible(false)}
         onCancel={() => setModal2Visible(false)}
       >
-       {/* {listReview} */}
+       {listReview}
       </Modal>
       </div>
     </> :null}</div></div>
