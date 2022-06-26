@@ -6,17 +6,19 @@ import { Button, Modal } from 'antd';
 
 import './Products.scss'
 import Reviews from "../Reviews/Reviews";
+import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
 
 
 
 
 const Products = () => {
   const { products, getProducts, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
+  const { reviews} = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
 
-  
+  console.log("ESTO ES",reviews)
   useEffect(() => {
     getProducts();
   }, []);
@@ -70,15 +72,18 @@ const Products = () => {
   <span>Stock: {product.stock}</span><br/></div>
   {product.img ?<img src={"http://localhost:8080/images/products/"+product.img}/> : <img src="http://localhost:8080/images/products/int.jpg"/> }
   </div>
-  <Button type="primary" onClick={showModal}>
-       Reviews
-      </Button>
-      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-       <Reviews/>
-      </Modal>
+ 
   <div className="button">
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   <button onClick={() => addFavs(product)}>Añadir favorito</button> 
+  <div className="reviews">
+  <Button type="primary" onClick={showModal}>
+       Reviews
+      </Button>
+      <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+       <Reviews/>
+      </Modal>
+      </div>
   </>
   : null}
   { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>

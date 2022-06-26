@@ -1,7 +1,6 @@
 import React from 'react'
 import { useContext,useEffect } from 'react'
 import { ReviewsContext } from '../../context/ReviewsContext/ReviewsState'
-import { Link } from 'react-router-dom'
 import './Reviews.scss'
 
 const Reviews = () => {
@@ -12,11 +11,12 @@ const Reviews = () => {
     useEffect(() => {
         getReviews();
       }, []);
-      
+ console.log(reviews)     
 const listReviews=reviews.map(el=>el.Reviews.map(review=>{return <>
-<span>Título review: {review.title}</span> <br />
-<span>{review.body}</span>
-<span>Puntuación: {review.score}</span></>}))
+<span>Id producto: {review.ProductId}</span><br/>
+<span className='titleRev'>Título review: {review.title}</span> <br />
+<span>{review.body}</span><br/>
+<span>Puntuación: {review.score}</span><br/></>}))
 
 return(
   <div className="review">
