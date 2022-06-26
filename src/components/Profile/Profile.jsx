@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { PoweroffOutlined } from "@ant-design/icons";
 import { Link } from 'react-router-dom'
+import { notification} from 'antd'
 
 
 const Profile = () => {
@@ -13,6 +14,10 @@ const Profile = () => {
     },[])
     const logoutUser = () =>{
       logout()
+      return notification.success({
+        message: "Byee",
+        description: "Hasta otra",
+      });
   }
     if(!user){
         return <span>Cargando...</span>
