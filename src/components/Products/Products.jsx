@@ -9,9 +9,9 @@ import './Products.scss'
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
 
-  const { getReview,reviews } = useContext(ReviewsContext)
+  const { getReview, reviews } = useContext(ReviewsContext)
 
-  console.log('reviews',reviews)
+  console.log('reviews', reviews)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -31,7 +31,7 @@ const Products = () => {
     filterProduct(valor)
   }
 
-  
+
 
 
   const handleInputChange = (event) => {
@@ -43,84 +43,86 @@ const Products = () => {
     getProducts()
   }
 
-  
 
-  const modalButton = (value) =>{
+
+  const modalButton = (value) => {
     setModal2Visible(true)
-    console.log('value',value)
+    console.log('value', value)
     getReview(value)
   }
 
-  
+
 
   if (products.length <= 0) {
     return <span>Cargando...</span>;
   }
 
-  
-const listProducts=products.map((product,i)=>{
-const listReview=product.Reviews.map((el,i)=>{
-  console.log(el)
-  return(
-  <><div key={i} className='review'>
-  <span>Título review: {el.title}</span><br />
-  <span>Cuerpo review: {el.body}</span> <br />
-  <span>Puntuación: {el.score}</span><br />
-  </div>
-  </>
-)})
 
-    return(
-    
-  <div className='product' key={i}>
-  <h2>{product.name}</h2> 
- 
-  <div className='content'>
-    <div className="text">
-  <span>Descripción: {product.description}</span><br/>
-  <span>Precio: {product.price}€</span><br/>
-  <span>Stock: {product.stock}</span><br/></div>
-  {product.img ?<img src={"http://localhost:8080/images/products/"+product.img}/> : <img src="http://localhost:8080/images/products/int.jpg"/> }
-  </div>
- 
-  <div className="button">
-  {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-  {favs.map((f)=>f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>} 
-  <div className="reviews">
-  <Button type="primary" onClick={() =>modalButton(product.id)}>
-        Reviews
-      </Button>
-      <Modal
-        title="Reviews producto"
-        centered
-        visible={modal2Visible}
-        onOk={() => setModal2Visible(false)}
-        onCancel={() => setModal2Visible(false)}
-      >
-       {listReview}
-      </Modal>
-      </div>
-  </>
-  : null}
-  { role==='SuperAdmin' ? <>
-  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
-    <div className="reviews">
-    <Button type="primary" onClick={() => setModal2Visible(true)}>
-        Reviews
-      </Button>
-      <Modal
-        title="Reviews producto"
-        centered
-        visible={modal2Visible}
-        onOk={() => setModal2Visible(false)}
-        onCancel={() => setModal2Visible(false)}
-      >
-       {listReview}
-      </Modal>
-      </div>
-    </> :null}</div></div>
-  )}
+  const listProducts = products.map((product, i) => {
+    const listReview = product.Reviews.map((el, i) => {
+      console.log(el)
+      return (
+        <><div key={i} className='review'>
+          <span>Título review: {el.title}</span><br />
+          <span>Cuerpo review: {el.body}</span> <br />
+          <span>Puntuación: {el.score}</span><br />
+        </div>
+        </>
+      )
+    })
+
+    return (
+
+      <div className='product' key={i}>
+        <h2>{product.name}</h2>
+
+        <div className='content'>
+          <div className="text">
+            <span>Descripción: {product.description}</span><br />
+            <span>Precio: {product.price}€</span><br />
+            <span>Stock: {product.stock}</span><br /></div>
+          {product.img ? <img src={"http://localhost:8080/images/products/" + product.img} /> : <img src="http://localhost:8080/images/products/int.jpg" />}
+        </div>
+
+        <div className="button">
+          {token && role === 'user' ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
+            {favs.map((f) => f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>}
+            <div className="reviews">
+              <Button type="primary" onClick={() => modalButton(product.id)}>
+                Reviews
+              </Button>
+              <Modal
+                title="Reviews producto"
+                centered
+                visible={modal2Visible}
+                onOk={() => setModal2Visible(false)}
+                onCancel={() => setModal2Visible(false)}
+              >
+                {listReview}
+              </Modal>
+            </div>
+          </>
+            : null}
+          {role === 'SuperAdmin' ? <>
+            <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+            <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
+            <div className="reviews">
+              <Button type="primary" onClick={() => modalButton(product.id)}>
+                Reviews
+              </Button>
+              <Modal
+                title="Reviews producto"
+                centered
+                visible={modal2Visible}
+                onOk={() => setModal2Visible(false)}
+                onCancel={() => setModal2Visible(false)}
+              >
+                {listReview}
+              </Modal>
+            </div>
+          </> : null}</div></div>
+    )
+  }
   )
 
   return (
