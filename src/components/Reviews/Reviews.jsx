@@ -6,13 +6,13 @@ import './Reviews.scss'
 
 const Reviews = () => {
 
-  const { reviews,getReviewsById } = useContext(ReviewsContext)
+  const { reviews,getReview } = useContext(ReviewsContext)
   // const { products } = useContext(ProductsContext)
 
   console.log('soy reviews', reviews)
 
   useEffect(() => {
-    getReviewsById();
+    getReview();
   }, []);
 
   // const listReviews = reviews.map((r) => {

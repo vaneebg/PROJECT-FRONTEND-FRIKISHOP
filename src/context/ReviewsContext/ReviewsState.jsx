@@ -30,7 +30,7 @@ export const ReviewsProvider = ({children}) => {
                 payload:res.data
             })
     }
-    const getReviewsById = async(produ)=>{
+    const getReview = async(produ)=>{
         console.log('hola')
         console.log('soy produ',produ)
         const token = JSON.parse(localStorage.getItem('token'))
@@ -52,7 +52,7 @@ export const ReviewsProvider = ({children}) => {
     value={{
         reviews:state.reviews,
         getReviews,
-        getReviewsById
+        getReview
     }}
     >
         {children}

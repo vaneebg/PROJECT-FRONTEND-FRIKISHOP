@@ -9,23 +9,27 @@ import './Products.scss'
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
 
-  const { getReviewsById } = useContext(ReviewsContext)
+  const { getReview } = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
+
+
 
   useEffect(() => {
     getProducts();
   }, []);
 
+  const [modal2Visible, setModal2Visible] = useState(false);
   const [valor, setValor] = useState(40)
+  const [name, setName] = useState('')
 
   const handleChange = (event) => {
     setValor(event.target.value)
     filterProduct(valor)
   }
 
-  const [name, setName] = useState('')
+  
 
 
   const handleInputChange = (event) => {
@@ -37,7 +41,15 @@ const Products = () => {
     getProducts()
   }
 
-  const [modal2Visible, setModal2Visible] = useState(false);
+  
+
+  const modalButton = (value) =>{
+    setModal2Visible(true)
+    console.log('value',value)
+    getReview(value)
+  }
+
+  
 
   if (products.length <= 0) {
     return <span>Cargando...</span>;
@@ -73,7 +85,7 @@ const Products = () => {
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   {favs.map((f)=>f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>} 
   <div className="reviews">
-  <Button type="primary" onClick={() => setModal2Visible(true)}>
+  <Button type="primary" onClick={() =>modalButton(product.id)}>
         Reviews
       </Button>
       <Modal
