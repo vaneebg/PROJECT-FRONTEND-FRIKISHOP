@@ -11,7 +11,6 @@ const EditProduct = () => {
 
   useEffect(() => {
     getProduct(id);
-    console.log('id del producto',id)
   }, []);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ const EditProduct = () => {
   }, [data]);
 
   const onFinish = (values) =>{
-    console.log('valores',values)
     editProduct(product.id,values)
     return notification.success({
         message: "Bieeen!",

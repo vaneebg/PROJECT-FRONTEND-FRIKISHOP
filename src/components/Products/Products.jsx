@@ -48,12 +48,16 @@ const Products = () => {
 
   
   const listProducts=products.map((product,i)=>{
-const listReview=product.Reviews.map((el,i)=>
-<div key={i} className='review'>
-<span>Título review: {el.title}</span><br />
-<span>Cuerpo review: {el.body}</span> <br />
-<span>Puntuación: {el.score}</span><br />
-</div>)
+const listReview=product.Reviews.map((el,i)=>{
+  console.log(el)
+  return(
+  <><div key={i} className='review'>
+  <span>Título review: {el.title}</span><br />
+  <span>Cuerpo review: {el.body}</span> <br />
+  <span>Puntuación: {el.score}</span><br />
+  </div>
+  </>
+)})
 
     return(
     
