@@ -5,13 +5,12 @@ import { useContext } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { ShoppingCartOutlined,LikeOutlined } from "@ant-design/icons";
 import { useEffect } from 'react'
+import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 
 const Header = () => {
-    const { token, role,logout} = useContext(UserContext)
-    
-    const logoutUser = () =>{
-        logout()
-    }
+    const { token, role} = useContext(UserContext)
+    const {cart,favs}=useContext(ProductsContext)
+
 
 
   return (
@@ -25,9 +24,7 @@ const Header = () => {
           <span>
             <Link to="/admin">Admin</Link>
           </span>
-          <span onClick={logoutUser}>
-            <Link to="/">Logout</Link>
-          </span>
+        
           <span>
             <Link to="/profile">Perfil</Link>
           </span>
@@ -40,9 +37,7 @@ const Header = () => {
            <span>
             <Link to="/home">Home</Link>
           </span>
-          <span onClick={logoutUser}>
-            <Link to="/">Logout</Link>
-          </span>
+         
           <span>
             <Link to="/profile">Perfil</Link>
           </span>
@@ -50,10 +45,10 @@ const Header = () => {
             <Link to="/products">Productos</Link>
           </span>
           <span>
-          <Link to="/favs"><LikeOutlined /></Link>
+          <Link to="/favs"><LikeOutlined /><div className="iconlike"><span>{favs.length}</span></div></Link>
             </span>
           <span>
-          <Link to="/cart"> <ShoppingCartOutlined /></Link>
+          <Link to="/cart"> <ShoppingCartOutlined /><div className="iconcart"><span>{cart.length}</span></div></Link>
             </span>
             </>)}
         </>

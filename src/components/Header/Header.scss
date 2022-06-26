@@ -27,3 +27,39 @@
         color:$green1;
     }
 }
+.iconcart{
+    display:flex;
+    position:fixed;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.4em;
+    top:12px;
+    right:305px;
+    text-align: center;
+    background-color: white;
+    color:$green1;
+    padding:7px;
+    width:1.6em;
+    height:1.6em;
+    border-radius: 200px;
+    border:2px solid $green6;
+   
+}
+.iconlike{
+    display:flex;
+    position:fixed;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.4em;
+   top:12px;
+   right:425px;
+    text-align: center;
+    background-color: white;
+    color:$green1;
+    padding:7px;
+    width:1.6em;
+    height:1.6em;
+    border-radius: 200px;
+    border:2px solid $green6;
+   
+}

@@ -9,7 +9,6 @@ const AddProduct = () => {
   const { addProduct,message } = useContext(ProductsContext);
  
   const onFinish = (values) => {  
-    console.log(values) 
 
     addProduct(values)
     return notification.success({

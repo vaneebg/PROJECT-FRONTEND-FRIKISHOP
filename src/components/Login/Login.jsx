@@ -1,7 +1,7 @@
 import './Login.scss'
 import { useContext,useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
-import { Form, Input, Button} from 'antd'
+import { Form, Input, Button,notification} from 'antd'
 import { useNavigate} from 'react-router-dom'
 import {  UserOutlined,LockOutlined } from '@ant-design/icons';
 
@@ -13,8 +13,11 @@ const Login = () => {
     const navigate = useNavigate()
 
     const onFinish = (values) =>{
-        console.log(values)
         login(values)
+        return notification.success({
+          message: "Holiiii",
+          description: "Bienvenido!",
+        });
     }
 
     const onFinishFailed = (errorInfo) => {
@@ -35,8 +38,8 @@ const Login = () => {
     <div className="container">
           <Form
             name="basic"
-            labelCol={{ span: 5 }}
-            wrapperCol={{ span: 22 }}
+            labelCol={{ span: 9}}
+            wrapperCol={{ span: 20}}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}

@@ -27,8 +27,7 @@ const Cart = () => {
         let producto = items.filter((el)=> el!==item)
         localStorage.setItem('cart',JSON.stringify(producto))
         clearOne(item)
-        console.log('soy item',item)
-        console.log('soy producto',producto)
+      
     }
 
 

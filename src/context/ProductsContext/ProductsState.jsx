@@ -33,7 +33,6 @@ export const ProductsProvider = ({ children }) => {
         const getProduct = async (id) => {
             try {
             const res = await axios.get(API_URL+ "/products/id/" + id);
-            console.log('coger produto',res)
 
             dispatch({
             type: "GET_PRODUCT",
@@ -79,12 +78,15 @@ export const ProductsProvider = ({ children }) => {
             }
         };
         const deleteProduct= async(id) => {
+            const token = JSON.parse(localStorage.getItem('token'))
+
             try {
             const res = await axios.delete(API_URL + "/products/id/" + id,{
                 headers:{
                     authorization:token,
                 }
                 })
+                console.log(res)
             dispatch({
             type: "DELETE_PRODUCT",
             payload: res.data,
@@ -124,7 +126,6 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 } )
-                console.log(res.data)
                 if(res.data.length !== 0){
                     dispatch({
                         type:"NAME_FILTER",
@@ -161,7 +162,6 @@ export const ProductsProvider = ({ children }) => {
             })
         }
         const clearOne=(item)=>{
-            console.log('soy itemmmmmmmmmmmmm',item)
             dispatch({
                 type:'CLEAR_ONE',
                 payload:item

@@ -34,82 +34,79 @@ const Products = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     filterProductName(name)
-    console.log(name)
     getProducts()
   }
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modal2Visible, setModal2Visible] = useState(false);
 
   if (products.length <= 0) {
     return <span>Cargando...</span>;
   }
 
-  const showModal = (value) => {
-    setIsModalVisible(true);
-    getReviewsById(value)
-    console.log(value)
-  };
+  
+  const listProducts=products.map((product,i)=>{
+// const listReview=product.Reviews.map((el,i)=>{
+//   console.log(el)
+//   return(
+//   <><div key={i} className='review'>
+//   <span>Título review: {el.title}</span><br />
+//   <span>Cuerpo review: {el.body}</span> <br />
+//   <span>Puntuación: {el.score}</span><br />
+//   </div>
+//   </>
+// )})
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-
-  const listProducts = products.map((product, i) => {
-    const listReview = product.Reviews.map((el, i) => {
-      console.log(el)
-      return (
-        <div key={i} className='review'>
-          <span>Título review: {el.title}</span><br />
-          <span>Cuerpo review: {el.body}</span> <br />
-          <span>Puntuación: {el.score}</span><br />
-        </div>
-      )
-    }
-    )
-    return (
-
-      <div className='product' key={i}>
-        <h2>{product.name}</h2>
-
-        <div className='content'>
-          <div className="text">
-            <span>Descripción: {product.description}</span><br />
-            <span>Precio: {product.price}€</span><br />
-            <span>Stock: {product.stock}</span><br /></div>
-          {product.img ? <img src={"http://localhost:8080/images/products/" + product.img} /> : <img src="http://localhost:8080/images/products/int.jpg" />}
-        </div>
-
-        <div className="button">
-          {token && role === 'user' ? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-            {favs.map((f) => f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>}
-            <div className="reviews">
-              <Button type="primary" onClick={() => showModal(product.id)}>
-                Reviews
-              </Button>
-              <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                {listReview}
-              </Modal>
-            </div>
-          </>
-            : null}
-          {role === 'SuperAdmin' ? <>
-            <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-            <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
-            <div className="reviews">
-              <Button type="primary" onClick={()=>showModal(product.id)}>
-                Reviews
-              </Button>
-              <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                {/* {listReview} */}
-              </Modal>
-            </div>
-          </> : null}</div></div>
-    )
-  }
+    return(
+    
+  <div className='product' key={i}>
+  <h2>{product.name}</h2> 
+ 
+  <div className='content'>
+    <div className="text">
+  <span>Descripción: {product.description}</span><br/>
+  <span>Precio: {product.price}€</span><br/>
+  <span>Stock: {product.stock}</span><br/></div>
+  {product.img ?<img src={"http://localhost:8080/images/products/"+product.img}/> : <img src="http://localhost:8080/images/products/int.jpg"/> }
+  </div>
+ 
+  <div className="button">
+  {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
+  {favs.map((f)=>f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>} 
+  <div className="reviews">
+  <Button type="primary" onClick={() => setModal2Visible(true)}>
+        Reviews
+      </Button>
+      <Modal
+        title="Reviews producto"
+        centered
+        visible={modal2Visible}
+        onOk={() => setModal2Visible(false)}
+        onCancel={() => setModal2Visible(false)}
+      >
+       {/* {listReview} */}
+      </Modal>
+      </div>
+  </>
+  : null}
+  { role==='SuperAdmin' ? <>
+  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
+    <div className="reviews">
+    <Button type="primary" onClick={() => setModal2Visible(true)}>
+        Reviews
+      </Button>
+      <Modal
+        title="Reviews producto"
+        centered
+        visible={modal2Visible}
+        onOk={() => setModal2Visible(false)}
+        onCancel={() => setModal2Visible(false)}
+      >
+       {/* {listReview} */}
+      </Modal>
+      </div>
+    </> :null}</div></div>
+  )}
   )
 
   return (

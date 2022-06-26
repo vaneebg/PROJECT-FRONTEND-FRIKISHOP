@@ -2,12 +2,23 @@ import './Profile.scss'
 import React from 'react'
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
+import { PoweroffOutlined } from "@ant-design/icons";
+import { Link } from 'react-router-dom'
+import { notification} from 'antd'
+
 
 const Profile = () => {
-    const { getUserInfo,user } = useContext(UserContext)
+    const { getUserInfo,user,logout,role } = useContext(UserContext)
     useEffect(()=>{
         getUserInfo()
     },[])
+    const logoutUser = () =>{
+      logout()
+      return notification.success({
+        message: "Byee",
+        description: "Hasta otra!!",
+      });
+  }
     if(!user){
         return <span>Cargando...</span>
     }
@@ -17,7 +28,12 @@ const Profile = () => {
   return (
     <div className="center">
     <div className='profile'>
+      <div className="header">
         <h1>Perfil</h1>  
+        <span onClick={logoutUser}>
+            <Link to="/"><PoweroffOutlined /></Link>
+          </span>
+          </div>
         <div className="contentInfo">
         <img src={"http://localhost:8080/images/users/"+user.img}/>
         <div className="text">
@@ -27,7 +43,7 @@ const Profile = () => {
         </div>
         </div>
         <div className="orders">
-        <span><div className="titleorder">Pedidos hechos:</div> <br/>{listOrders}</span>
+        { role==='SuperAdmin' ? <span className='hello'>👋 Aquí está el jefazo de nuevo 👋</span> : <span><div className="titleorder">Pedidos hechos:</div> <br/>{listOrders}</span>}
         </div>
         </div>
         </div>
