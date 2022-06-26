@@ -5,20 +5,17 @@ import { Button, Modal } from 'antd';
 
 
 import './Products.scss'
-import Reviews from "../Reviews/Reviews";
-import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
+
 
 
 
 
 const Products = () => {
   const { products, getProducts,favs, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
-  const { reviews} = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
 
-  console.log("ESTO ES",reviews)
   useEffect(() => {
     getProducts();
   }, []);
@@ -61,7 +58,14 @@ const Products = () => {
     setIsModalVisible(false);
   }; 
   
-  const listProducts=products.map((product,i)=>{return(
+  const listProducts=products.map((product,i)=>{
+const listReview=product.Reviews.map((el,i)=>
+<div key={i} className='review'>
+<span>Título review: {el.title}</span><br />
+<span>Cuerpo review: {el.body}</span> <br />
+<span>Puntuación: {el.score}</span><br />
+</div>)
+    return(
     
   <div className='product' key={i}>
   <h2>{product.name}</h2> 
@@ -82,7 +86,7 @@ const Products = () => {
        Reviews
       </Button>
       <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-       <Reviews/>
+      {listReview}
       </Modal>
       </div>
   </>

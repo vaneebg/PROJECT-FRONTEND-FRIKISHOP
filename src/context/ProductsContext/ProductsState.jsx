@@ -22,7 +22,7 @@ export const ProductsProvider = ({ children }) => {
         const [state, dispatch] = useReducer(ProductsReducer, initialState);
 
         const getProducts = async() => {
-            const res = await axios.get(API_URL + "/products");
+            const res = await axios.get(API_URL + "/reviews/review_product");
             dispatch({
                 type: "GET_PRODUCTS",
                 payload: res.data,
