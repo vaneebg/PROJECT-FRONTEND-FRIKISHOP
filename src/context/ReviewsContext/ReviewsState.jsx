@@ -31,6 +31,7 @@ export const ReviewsProvider = ({children}) => {
             })
     }
     const getReviewsById = async(produ)=>{
+        console.log('hola')
         console.log('soy produ',produ)
         const token = JSON.parse(localStorage.getItem('token'))
         const res = await axios.get(API_URL + '/reviews/review_product/id/' + produ,{
