@@ -91,8 +91,18 @@ const listReview=product.Reviews.map((el,i)=>
       </div>
   </>
   : null}
-  { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></> :null}</div></div>
+  { role==='SuperAdmin' ? <>
+  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
+    <div className="reviews">
+  <Button type="primary" onClick={showModal}>
+       Reviews
+      </Button>
+      <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      {listReview}
+      </Modal>
+      </div>
+    </> :null}</div></div>
   )}
   )
 
