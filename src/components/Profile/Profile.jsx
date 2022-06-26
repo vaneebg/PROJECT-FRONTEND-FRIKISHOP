@@ -8,7 +8,7 @@ import { notification} from 'antd'
 
 
 const Profile = () => {
-    const { getUserInfo,user,logout } = useContext(UserContext)
+    const { getUserInfo,user,logout,role } = useContext(UserContext)
     useEffect(()=>{
         getUserInfo()
     },[])
@@ -16,7 +16,7 @@ const Profile = () => {
       logout()
       return notification.success({
         message: "Byee",
-        description: "Hasta otra",
+        description: "Hasta otra!!",
       });
   }
     if(!user){
@@ -43,7 +43,7 @@ const Profile = () => {
         </div>
         </div>
         <div className="orders">
-        <span><div className="titleorder">Pedidos hechos:</div> <br/>{listOrders}</span>
+        { role==='SuperAdmin' ? <span className='hello'>👋 Aquí está el jefazo de nuevo 👋</span> : <span><div className="titleorder">Pedidos hechos:</div> <br/>{listOrders}</span>}
         </div>
         </div>
         </div>
