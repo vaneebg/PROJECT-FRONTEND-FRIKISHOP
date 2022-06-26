@@ -5,6 +5,11 @@ const reviews =(state,action)=>{
                 ...state,
                 reviews:action.payload
             }
+        case 'GET_REVIEW_BY_ID':
+            return{
+                ...state,
+                reviews:action.payload
+            }
         default:
             return state;
     }

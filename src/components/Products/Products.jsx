@@ -13,12 +13,12 @@ import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
 
 const Products = () => {
   const { products, getProducts,favs, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
-  const { reviews} = useContext(ReviewsContext)
+ 
+  const { getReviewsById} = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
 
-  console.log("ESTO ES",reviews)
   useEffect(() => {
     getProducts();
   }, []);
@@ -49,8 +49,9 @@ const Products = () => {
     return <span>Cargando...</span>;
   }  
 
-  const showModal = () => {
+  const showModal = (value) => {
     setIsModalVisible(true);
+    getReviewsById(value)
   };
 
   const handleOk = () => {
@@ -78,7 +79,7 @@ const Products = () => {
   {token && role==='user'? <> <button onClick={() => addCart(product)}>Añadir a carrito</button>
   {favs.map((f)=>f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>} 
   <div className="reviews">
-  <Button type="primary" onClick={showModal}>
+  <Button type="primary" onClick={()=>showModal(product.id)}>
        Reviews
       </Button>
       <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>

@@ -30,12 +30,28 @@ export const ReviewsProvider = ({children}) => {
                 payload:res.data
             })
     }
+    const getReviewsById = async(produ)=>{
+        console.log('soy produ',produ)
+        const token = JSON.parse(localStorage.getItem('token'))
+        const res = await axios.get(API_URL + '/reviews/review_product/id/' + produ,{
+            headers:{
+                authorization:token,
+            }
+        }
+        )
+        console.log('res.data',res.data.Reviews)
+        dispatch({
+            type:'GET_REVIEW_BY_ID',
+            payload:res.data.Reviews
+        })
+    }
 
 
   return (<ReviewsContext.Provider
     value={{
         reviews:state.reviews,
-        getReviews
+        getReviews,
+        getReviewsById
     }}
     >
         {children}
