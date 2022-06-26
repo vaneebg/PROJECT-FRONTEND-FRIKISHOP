@@ -8,11 +8,9 @@ import { useEffect } from 'react'
 import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 
 const Header = () => {
-    const { token, role,logout} = useContext(UserContext)
+    const { token, role} = useContext(UserContext)
     const {cart,favs}=useContext(ProductsContext)
-    const logoutUser = () =>{
-        logout()
-    }
+
 
 
   return (
@@ -26,9 +24,7 @@ const Header = () => {
           <span>
             <Link to="/admin">Admin</Link>
           </span>
-          <span onClick={logoutUser}>
-            <Link to="/">Logout</Link>
-          </span>
+        
           <span>
             <Link to="/profile">Perfil</Link>
           </span>
@@ -41,9 +37,7 @@ const Header = () => {
            <span>
             <Link to="/home">Home</Link>
           </span>
-          <span onClick={logoutUser}>
-            <Link to="/">Logout</Link>
-          </span>
+         
           <span>
             <Link to="/profile">Perfil</Link>
           </span>

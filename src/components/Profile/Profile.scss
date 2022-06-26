@@ -13,6 +13,18 @@
 
         font-family: 'Gorditas', cursive;
     }
+    .header{
+        display:flex;
+        justify-content: space-between;
+        svg{
+            font-size:3em;
+            margin:10px;
+            color:$green1;
+        }
+        svg:hover{
+            color:$green6;
+        }
+    }
     font-family: 'Kaisei Tokumin', serif;
     margin:46px;
     border-radius: 20px;
