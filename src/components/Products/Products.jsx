@@ -3,7 +3,6 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 import { Button, Modal } from 'antd';
 import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
-import { listReviews } from '../../components/Reviews/Reviews'
 
 import './Products.scss'
 
