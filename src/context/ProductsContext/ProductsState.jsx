@@ -22,7 +22,7 @@ export const ProductsProvider = ({ children }) => {
         const [state, dispatch] = useReducer(ProductsReducer, initialState);
 
         const getProducts = async() => {
-            const res = await axios.get(API_URL + "/products");
+            const res = await axios.get(API_URL + "/reviews/review_product");
             dispatch({
                 type: "GET_PRODUCTS",
                 payload: res.data,
@@ -102,10 +102,14 @@ export const ProductsProvider = ({ children }) => {
                         authorization:token
                     }
                 })
+                if(res.data.length !== 0){
                 dispatch({
                     type:"FILTER_PRODUCT",
                     payload:res.data
                 })
+            }else{
+                getProducts()
+            }
             } catch (error) {
                 console.error(error)
                 console.log('error')

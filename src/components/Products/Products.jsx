@@ -5,16 +5,13 @@ import { Button, Modal } from 'antd';
 
 
 import './Products.scss'
-import Reviews from "../Reviews/Reviews";
-import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
+
 
 
 
 
 const Products = () => {
   const { products, getProducts,favs, addCart, addFavs,deleteProduct,filterProduct,filterProductName} = useContext(ProductsContext);
- 
-  const { getReviewsById} = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -62,7 +59,14 @@ const Products = () => {
     setIsModalVisible(false);
   }; 
   
-  const listProducts=products.map((product,i)=>{return(
+  const listProducts=products.map((product,i)=>{
+const listReview=product.Reviews.map((el,i)=>
+<div key={i} className='review'>
+<span>Título review: {el.title}</span><br />
+<span>Cuerpo review: {el.body}</span> <br />
+<span>Puntuación: {el.score}</span><br />
+</div>)
+    return(
     
   <div className='product' key={i}>
   <h2>{product.name}</h2> 
@@ -83,13 +87,23 @@ const Products = () => {
        Reviews
       </Button>
       <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-       <Reviews/>
+      {listReview}
       </Modal>
       </div>
   </>
   : null}
-  { role==='SuperAdmin' ? <><button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button></> :null}</div></div>
+  { role==='SuperAdmin' ? <>
+  <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+    <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
+    <div className="reviews">
+  <Button type="primary" onClick={showModal}>
+       Reviews
+      </Button>
+      <Modal title="Reviews" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      {listReview}
+      </Modal>
+      </div>
+    </> :null}</div></div>
   )}
   )
 
