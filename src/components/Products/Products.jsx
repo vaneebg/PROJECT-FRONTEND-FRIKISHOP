@@ -124,7 +124,7 @@ const Products = () => {
           />
         </div>
 
-        <span className="textTitle">Productos</span>
+        <span className="textTitle">Filtros búsqueda</span>
 
         <div className="search">
           <form action="" onSubmit={handleSubmit}>

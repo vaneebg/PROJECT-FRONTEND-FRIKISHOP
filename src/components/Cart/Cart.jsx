@@ -40,10 +40,15 @@ const Cart = () => {
                 </div>
             )
     })
+    
+        const price= cart.map(el=>el.price)
+        const sum = price.reduce((a,b)=> a + b)
 
-  return (
+
+    return (
     <div className="center">
     <div className='cart'><h2>Carrito: </h2><br/>{cartItem}
+    <span>Total: {sum} €</span>
     <button onClick={()=>clearCart()}>Vaciar carrito</button>
     <button onClick={()=>createNewOrder()}>Crear pedido</button>
     </div>
