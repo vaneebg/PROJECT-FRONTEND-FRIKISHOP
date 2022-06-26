@@ -20,6 +20,7 @@ import AddProduct from './components/Products/AddProduct/AddProduct';
 import EditProduct from './components/Products/EditProduct/EditProduct';
 
 import 'antd/dist/antd.css'
+import Reviews from './components/Reviews/Reviews';
 
 
 const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones', 'Saber más', 'Cosis1','Cosis2']
@@ -43,6 +44,7 @@ function App() {
             <Route path='/admin' element ={<Admin/>}/>
             <Route path="/product/id/:id" element={<AddProduct/>} />
             <Route path="/products/id/:id" element={<EditProduct/>} />
+            <Route path='/reviews' element={<Reviews/>}/>
           </Routes>
           <Footer info='Hecho por Shan y Vanesa ' copy='Junio 2022 ©' links={links}/>
           </OrdersProvider>
