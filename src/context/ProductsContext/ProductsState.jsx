@@ -121,10 +121,14 @@ export const ProductsProvider = ({ children }) => {
                     }
                 } )
                 console.log(res.data)
+                if(res.data.length !== 0){
                     dispatch({
                         type:"NAME_FILTER",
                         payload:res.data
                     })
+                }else{
+                    getProducts()
+                }
             } catch (error) {
                 console.error(error)
             }

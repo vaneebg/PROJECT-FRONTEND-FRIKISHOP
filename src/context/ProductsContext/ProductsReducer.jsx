@@ -28,7 +28,7 @@ const products = (state, action) => {
             case 'ADD_FAVS':
                 return{
                     ...state,
-                    favs:[action.payload, ...state.favs],
+                    favs:[action.payload,...state.favs],
                 };
         case 'CLEAR_CART':
             return{
