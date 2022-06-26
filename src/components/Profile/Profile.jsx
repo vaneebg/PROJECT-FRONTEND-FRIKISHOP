@@ -22,9 +22,12 @@ const Profile = () => {
     if(!user){
         return <span>Cargando...</span>
     }
-    const listOrders=user.Orders.map((order)=>order.Products.map((product,i)=>{return(<div key={i}>
+    const listOrders=user.Orders.map((order)=>order.Products.map((product,i)=>{return(<>
+    <div className='orderc' key={i}>
     <span>Nombre del producto: {product.name}</span><br/>
-    <span>Descripción: {product.description}</span><br/></div>)}))
+    <span>Descripción:<br/> {product.description}</span><br/></div>
+    <br />
+    </>)}))
   return (
     <div className="center">
     <div className='profile'>
