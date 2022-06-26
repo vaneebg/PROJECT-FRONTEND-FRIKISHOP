@@ -3,7 +3,7 @@ import { useContext,useEffect } from 'react'
 import { UserContext } from '../../context/UserContext/UserState'
 import { Form, Input, Button,notification} from 'antd'
 import { useNavigate} from 'react-router-dom'
-import {  UserOutlined,LockOutlined } from '@ant-design/icons';
+import {  MailOutlined,LockOutlined } from '@ant-design/icons';
 
 
 const Login = () => {
@@ -50,7 +50,7 @@ const Login = () => {
               name="email"
               rules={[{ required: true, message: "Pon tu email" }]}
             >
-              <Input prefix={<UserOutlined className="site-form-item-icon" />}/>
+              <Input prefix={<MailOutlined className="site-form-item-icon" />}/>
             </Form.Item>
     
             <Form.Item

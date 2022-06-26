@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
 import { Form, Input, Button } from 'antd';
 import { useNavigate } from "react-router-dom";
+import {  UserOutlined,MailOutlined,LockOutlined, AuditOutlined} from '@ant-design/icons';
 
 
 function Register() {
@@ -35,21 +36,21 @@ function Register() {
               name="username"
               rules={[{ required: true, message: "Introduce un username!" }]}
             >
-              <Input />
+              <Input prefix={<UserOutlined className="site-form-item-icon" />} />
             </Form.Item>
             <Form.Item
               label="Email"
               name="email"
               rules={[{ required: true, message: "Introduce un email!" }]}
             >
-              <Input />
+              <Input prefix={<MailOutlined className="site-form-item-icon" />}/>
             </Form.Item>
             <Form.Item
               label="Adress"
               name="adress"
               rules={[{ required: true, message: "Introduce una dirección" }]}
             >
-              <Input />
+              <Input prefix={<AuditOutlined className="site-form-item-icon" />}/>
             </Form.Item>
     
             <Form.Item
@@ -57,7 +58,7 @@ function Register() {
               name="password"
               rules={[{ required: true, message: "Introduce una contraseña!" }]}
             >
-              <Input.Password />
+              <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} />
             </Form.Item>
             {message}   
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
