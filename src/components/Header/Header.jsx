@@ -9,7 +9,7 @@ import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 
 const Header = () => {
     const { token, role,logout} = useContext(UserContext)
-    const {cart}=useContext(ProductsContext)
+    const {cart,favs}=useContext(ProductsContext)
     const logoutUser = () =>{
         logout()
     }
@@ -51,7 +51,7 @@ const Header = () => {
             <Link to="/products">Productos</Link>
           </span>
           <span>
-          <Link to="/favs"><LikeOutlined /></Link>
+          <Link to="/favs"><LikeOutlined /><div className="iconlike"><span>{favs.length}</span></div></Link>
             </span>
           <span>
           <Link to="/cart"> <ShoppingCartOutlined /><div className="iconcart"><span>{cart.length}</span></div></Link>
