@@ -3,15 +3,17 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 import { Button, Modal } from 'antd';
 import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
+import { UserContext } from "../../context/UserContext/UserState";
 
 import './Products.scss'
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
-
+  const {user} = useContext(UserContext)
   const { getReview, reviews } = useContext(ReviewsContext)
 
-  console.log('reviews', reviews)
+  console.log(user.id)
+
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -60,11 +62,12 @@ const Products = () => {
 
   const listProducts = products.map((product, i) => {
     const listReview = reviews.map((el, i) => {
+      console.log('reviews',el)
       return (
         <div className='review' key={i}>
           <span>Título review: {el.title}</span><br />
-          <span>Cuerpo review: {el.body}</span> <br />
-          <span>Puntuación: {el.score}</span><br />
+          <span>Puntuacíon: {el.score}</span> <br />
+          {user.id==el.UserId? <div><span>Review:</span><br /><input type="text" placeholder={el.body}/></div> :<span>Review: {el.body}</span>}
         </div>
       )
     })
