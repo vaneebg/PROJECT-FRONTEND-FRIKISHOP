@@ -1,6 +1,8 @@
 @import '../../colors.scss';
 @import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
+
+
 .nav {
     display: flex;
     position: sticky;
@@ -26,6 +28,9 @@
     a:hover{
         background-color: white;
         color:$green1;
+    }
+    .iconss{
+       padding:0;
     }
 }
 .iconcart{
@@ -63,4 +68,9 @@
     border-radius: 200px;
     border:2px solid $green6;
    
+}
+.iconssC{
+    display:inline;
+  margin: 0 30px;
+  padding:10px;
 }

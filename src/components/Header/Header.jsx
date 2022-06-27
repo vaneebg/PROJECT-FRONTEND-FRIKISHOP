@@ -6,6 +6,8 @@ import { UserContext } from '../../context/UserContext/UserState'
 import { ShoppingCartOutlined,LikeOutlined } from "@ant-design/icons";
 import { useEffect } from 'react'
 import { ProductsContext } from '../../context/ProductsContext/ProductsState'
+import {  Badge } from 'antd';
+
 
 const Header = () => {
     const { token, role} = useContext(UserContext)
@@ -44,12 +46,21 @@ const Header = () => {
           <span>
             <Link to="/products">Productos</Link>
           </span>
-          <span>
-          <Link to="/favs"><LikeOutlined /><div className="iconlike"><span>{favs.length}</span></div></Link>
-            </span>
-          <span>
-          <Link to="/cart"> <ShoppingCartOutlined /><div className="iconcart"><span>{cart.length}</span></div></Link>
-            </span>
+         <div className="iconssC">
+          <Badge count={favs.length} showZero>
+          <Link className='iconss' to="/favs"><LikeOutlined /></Link>
+        </Badge>
+        </div>
+        <div className="iconssC">
+
+        <Badge 
+          count={cart.length} showZero>
+        <Link className='iconss' to="/cart"> <ShoppingCartOutlined /></Link>
+        </Badge>
+        </div>
+
+          
+       
             </>)}
         </>
       ) : (
