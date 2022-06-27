@@ -4,7 +4,7 @@
 .center{
     display:flex;
     justify-content: center;
-    margin-bottom:12em;
+    margin-bottom:4em;
 }
 
 .profile{
@@ -26,7 +26,8 @@
         }
     }
     font-family: $font-content;
-    margin:46px;
+    margin:66px;
+    padding:10px;
     border-radius: 20px;
     background-color: $whitesemi2;
     width:40%;

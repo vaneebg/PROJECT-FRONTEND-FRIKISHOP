@@ -3,6 +3,7 @@ import { UserContext } from "../../context/UserContext/UserState";
 import { Form, Input, Button , notification} from 'antd';
 import { useNavigate } from "react-router-dom";
 import {  UserOutlined,MailOutlined,LockOutlined, AuditOutlined} from '@ant-design/icons';
+import './Register.scss'
 
 
 function Register() {
@@ -25,7 +26,7 @@ function Register() {
     };
     return (
       <div className="center">
-        <div className="container">
+        <div className="containerR">
           <Form
             name="basic"
             labelCol={{ span: 8 }}

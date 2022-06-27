@@ -1,0 +1,14 @@
+@import '../../colors.scss';
+
+
+
+.containerR{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $whitesemi;
+    width:40%;
+    padding:20px;
+    margin:80px;
+    border-radius: 20px;
+}
