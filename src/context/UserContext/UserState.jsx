@@ -21,17 +21,20 @@ export const UserProvider = ({children}) =>{
 
     const login = async (user) =>{
         const res = await axios.post(API_URL + '/users/login',user)
+        console.log(res.data)
         dispatch({
             type:'LOGIN',
             payload:res.data
         }) 
-
+if(res.data!=='Email/contraseña incorrectos'){
         if(res.data){
             localStorage.setItem('token',JSON.stringify(res.data.token))
             localStorage.setItem('role',JSON.stringify(res.data.user.role))
 
         }
-
+    }else{
+        alert('Yeeee email/contraseña incorrectos')
+    }
     
     }
 
