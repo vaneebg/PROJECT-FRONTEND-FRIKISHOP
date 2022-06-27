@@ -1,4 +1,3 @@
-import img from '../../assets/foto.jpg'
 import './Home.scss'
 const Home = () => {
   return (<>

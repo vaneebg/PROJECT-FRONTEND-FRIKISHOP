@@ -14,10 +14,7 @@ const Login = () => {
 
     const onFinish = (values) =>{
         login(values)
-        return notification.success({
-          message: "Holiiii",
-          description: "Bienvenido!",
-        });
+        
     }
 
     const onFinishFailed = (errorInfo) => {
