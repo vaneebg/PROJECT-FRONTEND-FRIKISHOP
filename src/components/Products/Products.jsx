@@ -9,8 +9,12 @@ import Reviews from "../Reviews/Reviews";
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
+<<<<<<< HEAD
   const { getReview } = useContext(ReviewsContext)
 
+=======
+  const { getReview} = useContext(ReviewsContext)
+>>>>>>> shan
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
