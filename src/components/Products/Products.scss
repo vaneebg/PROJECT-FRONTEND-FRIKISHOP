@@ -161,11 +161,24 @@
         }
     }
 }
-
+.modal{
+    background-color: red;
+}
 
 
 
 .ant-modal-mask{
     background-color: transparent!important;
    
+}
+.line{
+    text-decoration: overline;
+}
+.ant-modal-body{
+    border:3px dotted $green1;
+    font-family: 'Gorditas', cursive;
+
+}
+.review{
+    background-color: $whitesemi2;
 }

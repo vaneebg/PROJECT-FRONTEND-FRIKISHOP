@@ -63,9 +63,9 @@ const Products = () => {
     const listReview = reviews.map((el, i) => {
       return (
         <div className='review' key={i}>
-          <span>Título review: {el.title}</span><br />
+          <span >Título review: {el.title}</span><br />
           <span>Puntuación: {el.score}</span> <br />
-         <span>Review: {el.body}</span>
+         <span className='line' >Comentario: {el.body}</span>
         </div>
       )
     })
