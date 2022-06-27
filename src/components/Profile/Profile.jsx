@@ -5,15 +5,19 @@ import { UserContext } from '../../context/UserContext/UserState'
 import { PoweroffOutlined } from "@ant-design/icons";
 import { Link } from 'react-router-dom'
 import { notification} from 'antd'
+import { ProductsContext } from '../../context/ProductsContext/ProductsState';
 
 
 const Profile = () => {
     const { getUserInfo,user,logout,role } = useContext(UserContext)
+    const { clearCart,clearFavs} = useContext(ProductsContext)
     useEffect(()=>{
         getUserInfo()
     },[])
     const logoutUser = () =>{
       logout()
+      clearFavs()
+      clearCart()
       return notification.success({
         message: "Byee",
         description: "Hasta otra!!",
