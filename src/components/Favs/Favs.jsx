@@ -2,6 +2,7 @@ import './Favs.scss'
 
 import { useContext,useEffect } from "react"
 import { ProductsContext } from "../../context/ProductsContext/ProductsState"
+import gif2 from '../../assets/gif2.gif'
 
 const Favs = () => {
 
@@ -12,7 +13,7 @@ const Favs = () => {
     },[favs])
 
     if(favs.length<=0){
-        return <span className='message'>No tienes ningún producto favorito añadido</span>
+        return <div className='nomoney'>  <span className='messagecar'>No tienes ningún favorito añadido, hora de añadir alguno💛💛</span><img src={gif2} alt="" /></div>
     }
     const eliminarUno=(item) =>{
         const items = JSON.parse(localStorage.getItem('favs'))
