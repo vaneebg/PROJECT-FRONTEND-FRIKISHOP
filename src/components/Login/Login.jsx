@@ -26,6 +26,10 @@ const Login = () => {
             const foundToken = JSON.parse(localStorage.getItem('token'))
             if(foundToken){
                 navigate('/profile')
+                return notification.success({
+                  message: "Nuevo nakama!",
+                  description: "Usuario creado con éxito!",
+                });
             }
          },100)
     },[login])
