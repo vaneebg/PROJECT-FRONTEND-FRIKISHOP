@@ -100,14 +100,35 @@
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 3em;
-    .button{
+    .buttonCont{
         display:flex;
         flex-direction: column;
-        align-items:  center;
+      align-items: center;
+        .together{
+            display:flex;
+            
+        }
     }
-    button {
+    .btnss {
         a{
-            all:unset
+            all:unset;
+
+        }
+        all:unset;
+        background-color: $green1;
+        border:3px solid $green6;
+        font-family: 'Gorditas', cursive;
+        text-align: center;
+        margin:10px ;
+        padding:10px;
+        font-size:2em;
+        color:white;
+        cursor:pointer;
+        border-radius: 5px;
+    }
+    .btnssRev {
+        a{
+            all:unset;
         }
         all:unset;
         background-color: $green1;
@@ -118,10 +139,10 @@
         font-size:2em;
         color:white;
         cursor:pointer;
-        width:80%;
+        width:100%;
         border-radius: 5px;
     }
-    button:hover{
+    .btnssRev:hover{
         color:$green1;
         background-color: white;
     }
@@ -149,21 +170,22 @@
             span{
                 text-align:center;
             }
+            .bolder{
+               font-size: 1.3em;
+            }
             display:flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
         }
         img{
-            width:12em;
+            width:11em;
             height:12.5em;
             border-radius: 6px;
         }
     }
 }
-.modal{
-    background-color: red;
-}
+
 
 
 

@@ -9,12 +9,8 @@ import Reviews from "../Reviews/Reviews";
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
-<<<<<<< HEAD
   const { getReview } = useContext(ReviewsContext)
 
-=======
-  const { getReview} = useContext(ReviewsContext)
->>>>>>> shan
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -68,16 +64,18 @@ const Products = () => {
         <div className='content' >
           <div className="text" key={i}>
             <span>Descripción: {product.description}</span><br />
-            <span>Precio: {product.price}€</span><br />
-            <span>Stock: {product.stock}</span><br /></div>
+            <span className='bolder'>Precio: {product.price}€</span><br />
+            <span>Stock: {product.stock} ud.</span><br /></div>
           {product.img ? <img src={"http://localhost:8080/images/products/" + product.img} /> : <img src="http://localhost:8080/images/products/int.jpg" />}
         </div>
 
-        <div className="button" key={i}>
-          {token && role === 'user' ? <div key={i}> <button onClick={() => addCart(product)}>Añadir a carrito</button>
-            {favs.map((f) => f.id).includes(product.id) ? null : <button onClick={() => addFavs(product)}>Añadir favorito</button>}
+        <div className="buttonCont" key={i}>
+          {token && role === 'user' ?<> <div className='together'> <button className='btnss' onClick={() => addCart(product)}>Añadir a carrito</button>
+            {favs.map((f) => f.id).includes(product.id) ? null : <button className='btnss' onClick={() => addFavs(product)}>Añadir favorito</button>
+            }
+            </div>
             <div className="reviews">
-              <Button type="primary" onClick={() => modalButton(product.id)}>
+              <Button className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
                 Reviews
               </Button>
               <Modal
@@ -90,7 +88,8 @@ const Products = () => {
                 <Reviews />
               </Modal>
             </div>
-          </div>
+            </>
+         
             : null}
           {role === 'SuperAdmin' ? <div key={i}>
             <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
