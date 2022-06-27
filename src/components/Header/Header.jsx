@@ -47,13 +47,18 @@ const Header = () => {
             <Link to="/products">Productos</Link>
           </span>
          <div className="iconssC">
-          <Badge count={favs.length} showZero>
+          <Badge style={{
+          backgroundColor: 'green',
+        }}
+        count={favs.length} showZero>
           <Link className='iconss' to="/favs"><LikeOutlined /></Link>
         </Badge>
         </div>
         <div className="iconssC">
 
-        <Badge 
+        <Badge style={{
+          backgroundColor: 'green',
+        }}
           count={cart.length} showZero>
         <Link className='iconss' to="/cart"> <ShoppingCartOutlined /></Link>
         </Badge>
