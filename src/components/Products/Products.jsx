@@ -11,7 +11,6 @@ const Products = () => {
 
   const { getReview, reviews } = useContext(ReviewsContext)
 
-  console.log('reviews', reviews)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -63,8 +62,8 @@ const Products = () => {
       return (
         <div className='review' key={i}>
           <span>Título review: {el.title}</span><br />
-          <span>Cuerpo review: {el.body}</span> <br />
-          <span>Puntuación: {el.score}</span><br />
+          <span>Puntuación: {el.score}</span> <br />
+         <span>Review: {el.body}</span>
         </div>
       )
     })
@@ -109,7 +108,7 @@ const Products = () => {
               </Button>
               <Modal
                 title="Reviews producto"
-                centered
+                mask ={false}
                 visible={modal2Visible}
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}
