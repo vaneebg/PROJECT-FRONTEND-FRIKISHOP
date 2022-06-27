@@ -44,6 +44,9 @@ const Header = () => {
             <Link to="/profile">Perfil</Link>
           </span>
           <span>
+            <Link to='/categories'>Categorias</Link>
+          </span>
+          <span>
             <Link to="/products">Productos</Link>
           </span>
          <div className="iconssC">

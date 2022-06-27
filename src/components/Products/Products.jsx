@@ -61,7 +61,6 @@ const Products = () => {
 
   const listProducts = products.map((product, i) => {
     const listReview = reviews.map((el, i) => {
-      console.log('reviews',el)
       return (
         <div className='review' key={i}>
           <span>Título review: {el.title}</span><br />
@@ -140,7 +139,7 @@ const Products = () => {
         </div>
 
         <span className="textTitle">Filtros búsqueda</span>
-
+      
         <div className="search">
           <form action="" onSubmit={handleSubmit}>
             <input

@@ -21,6 +21,8 @@ import AddProduct from './components/Products/AddProduct/AddProduct';
 import EditProduct from './components/Products/EditProduct/EditProduct';
 
 import 'antd/dist/antd.css'
+import { CategoriesProvider } from './context/CategoriesContext/CategoriesState';
+import Categories from './components/Categories/Categories';
 
 
 
@@ -31,6 +33,7 @@ function App() {
     <div className="App">
      <BrowserRouter>
         <UserProvider>
+          <CategoriesProvider>
         <ProductsProvider>
           <OrdersProvider>
             <ReviewsProvider>
@@ -40,6 +43,7 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path='/' element={<Login/>}/>
             <Route path='/profile' element={<Profile/>}/>
+            <Route path='/categories' element ={<Categories/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path="/cart" element={<Cart />} />
             <Route path="/favs" element={<Favs/>} />
@@ -51,6 +55,7 @@ function App() {
           </ReviewsProvider>
           </OrdersProvider>
         </ProductsProvider>
+        </CategoriesProvider>
         </UserProvider>
       </BrowserRouter>
     </div>
