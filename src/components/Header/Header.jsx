@@ -43,9 +43,7 @@ const Header = () => {
           <span>
             <Link to="/profile">Perfil</Link>
           </span>
-          <span>
-            <Link to='/categories'>Categorias</Link>
-          </span>
+          
           <span>
             <Link to="/products">Productos</Link>
           </span>
