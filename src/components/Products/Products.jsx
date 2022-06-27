@@ -42,7 +42,6 @@ const Products = () => {
 
   const modalButton = (value) => {
     setModal2Visible(true)
-    console.log('value', value)
     getReview(value)
   }
 

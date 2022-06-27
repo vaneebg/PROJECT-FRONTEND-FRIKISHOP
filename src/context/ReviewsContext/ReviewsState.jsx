@@ -19,8 +19,7 @@ export const ReviewsProvider = ({children}) => {
 
  
     const getReview = async(produ)=>{
-        console.log('hola')
-        console.log('soy produ',produ)
+       
         const token = JSON.parse(localStorage.getItem('token'))
         const res = await axios.get(API_URL + '/reviews/review_product/id/' + produ,{
             headers:{
@@ -28,7 +27,6 @@ export const ReviewsProvider = ({children}) => {
             }
         }
         )
-        console.log('res.data',res.data.Reviews)
         dispatch({
             type:'GET_REVIEW_BY_ID',
             payload:res.data.Reviews
@@ -36,14 +34,12 @@ export const ReviewsProvider = ({children}) => {
     }
 
     const createReview = async(review)=>{
-        console.log(review)
         const token = JSON.parse(localStorage.getItem('token'))
         const res = await axios.post(API_URL + '/reviews' ,review,{
             headers:{
                 authorization:token
             }
         })
-        console.log('create review',res.data)
         dispatch({
             type:'CREATE_REVIEW',
             payload:res.data.newReview

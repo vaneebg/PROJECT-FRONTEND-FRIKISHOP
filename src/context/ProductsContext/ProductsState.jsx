@@ -86,7 +86,6 @@ export const ProductsProvider = ({ children }) => {
                     authorization:token,
                 }
                 })
-                console.log(res)
             dispatch({
             type: "DELETE_PRODUCT",
             payload: res.data,
@@ -114,7 +113,6 @@ export const ProductsProvider = ({ children }) => {
             }
             } catch (error) {
                 console.error(error)
-                console.log('error')
             }
         }
 
