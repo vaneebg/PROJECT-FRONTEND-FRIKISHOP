@@ -33,10 +33,10 @@ const Reviews = () => {
       }
         return (
           <div>
-            {user?.id == el?.UserId ?
+            {user?.id === el?.UserId ?
               <div key={i}>
                 <form action="" >
-                  <span>Título review:</span><br />
+                  <span className='titleRev'>Título review:</span><br />
                   <input type="text" onChange={handleInputchange2} placeholder={el.title} /><br />
                   <span>Puntuación:</span> <br />
                   <input type="number" max={"10"} min={"0"} onChange={handleInputchange3} placeholder={el.score} /><br />

@@ -1,9 +1,8 @@
 @import '../../colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+
 
 h2{
-    font-family: 'Gorditas', cursive;
+    font-family: $font-gorditas;
 }
 .nomoney{
     display:flex;
@@ -16,7 +15,7 @@ h2{
         background-color: white;
         width:100%;
         font-size: 2em;
-        font-family: 'Kaisei Tokumin', serif;
+        font-family: $font-content;
     }
     img{
         width:40em;
@@ -27,7 +26,7 @@ h2{
 
 
 .cart{
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: $font-content;
     display:flex;
    font-size: 1.5em;
     flex-direction: column;

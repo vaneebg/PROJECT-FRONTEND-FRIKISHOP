@@ -1,6 +1,4 @@
 @import '../../colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
 .title{
     display:flex;
@@ -12,7 +10,7 @@
   background-color: $whitesemi2;
   color: $green1;
   .textTitle{
-    font-family: 'Gorditas', cursive;
+    font-family: $font-gorditas;
     font-size: 2.3em; 
    
   }
@@ -68,7 +66,7 @@
         all:unset;
         background-color: $green1;
         border:3px solid $green6;
-        font-family: 'Gorditas', cursive;
+        font-family: $font-gorditas;
         text-align: center;
         margin:10px 0;
         font-size:1.6em;
@@ -117,7 +115,7 @@
         all:unset;
         background-color: $green1;
         border:3px solid $green6;
-        font-family: 'Gorditas', cursive;
+        font-family: $font-gorditas;
         text-align: center;
         margin:10px ;
         padding:10px;
@@ -133,7 +131,7 @@
         all:unset;
         background-color: $green1;
         border:3px solid $green6;
-        font-family: 'Gorditas', cursive;
+        font-family: $font-gorditas;
         text-align: center;
         margin:10px 0;
         font-size:2em;
@@ -149,12 +147,12 @@
 }
 .product{
     h2{
-        font-family: 'Gorditas', cursive;
+        font-family: $font-gorditas;
         text-decoration: underline;
     }
     background-color: $green3;
     display: flex;
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: $font-content;
     font-weight: 100;
     flex-direction: column;
     border: 2px dotted $green1;
@@ -198,7 +196,7 @@
 }
 .ant-modal-body{
     border:3px dotted $green1;
-    font-family: 'Gorditas', cursive;
+    font-family: $font-gorditas;
 
 }
 .review{

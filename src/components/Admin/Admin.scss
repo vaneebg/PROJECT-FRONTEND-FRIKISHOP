@@ -1,5 +1,4 @@
 @import '../../colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
 
 
@@ -17,7 +16,7 @@ h2{
 }
     a {
     all: unset;
-    font-family: 'Gorditas', cursive;
+    font-family: $font-gorditas;
     letter-spacing: 5px;
     cursor: pointer;
     color:$green1;

@@ -1,6 +1,5 @@
 @import '../../colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+
 
 .center{
     display:flex;
@@ -11,7 +10,7 @@
     h1  {
         padding-left:20px;
 
-        font-family: 'Gorditas', cursive;
+        font-family: $font-gorditas;
     }
     .header{
         display:flex;
@@ -25,7 +24,7 @@
             color:$green6;
         }
     }
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: $font-content;
     margin:46px;
     border-radius: 20px;
     background-color: $whitesemi2;

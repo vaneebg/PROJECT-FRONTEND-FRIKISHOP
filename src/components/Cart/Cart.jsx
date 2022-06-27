@@ -3,6 +3,8 @@ import gif from '../../assets/gif.gif'
 import { useContext,useEffect } from "react"
 import { ProductsContext } from "../../context/ProductsContext/ProductsState"
 import { OrdersContext } from "../../context/OrderContext/OrderState"
+import { notification} from 'antd'
+
 
 const Cart = () => {
 
@@ -20,6 +22,10 @@ const Cart = () => {
     const createNewOrder=()=>{
         createOrder(cart)
         clearCart()
+        return notification.success({
+            message: "Yeah!",
+            description: "Pedido hecho",
+          });
     }
 
     const eliminarUno=(item) =>{
@@ -43,12 +49,13 @@ const Cart = () => {
     
         const price= cart.map(el=>el.price)
         const sum = price.reduce((a,b)=> a + b)
+        const sumDec=sum.toFixed(2)
 
 
     return (
     <div className="center">
     <div className='cart'><h2>Carrito: </h2><br/>{cartItem}
-    <span>Total: {sum} €</span>
+    <span>Total: {sumDec} €</span>
     <button onClick={()=>clearCart()}>Vaciar carrito</button>
     <button onClick={()=>createNewOrder()}>Crear pedido</button>
     </div>

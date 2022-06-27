@@ -1,19 +1,18 @@
 @import '../../colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
+
 
 h2{
-    font-family: 'Gorditas', cursive;
+    font-family: $font-gorditas;
 }
 .message{
     padding:20px;
     background-color: white;
     margin:30px;
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: $font-content;
 }
 
 .favs{
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: $font-content;
     display:flex;
    font-size: 1.5em;
     flex-direction: column;

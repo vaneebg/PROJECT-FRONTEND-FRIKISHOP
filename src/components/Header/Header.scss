@@ -1,12 +1,11 @@
 @import '../../colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
 
 
 .nav {
     display: flex;
     position: sticky;
-    font-family: 'Gorditas', cursive;
+    font-family: $font-gorditas;
     top: 0;
     flex-direction: row;
     justify-content: space-around;
