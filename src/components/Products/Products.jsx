@@ -3,17 +3,13 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 import { Button, Modal } from 'antd';
 import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
-import { UserContext } from "../../context/UserContext/UserState";
 
 import './Products.scss'
 import Reviews from "../Reviews/Reviews";
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
-  const { user } = useContext(UserContext)
-  const { getReview, reviews, createReview } = useContext(ReviewsContext)
-
-  console.log('user', user)
+  const { getReview} = useContext(ReviewsContext)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
