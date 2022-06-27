@@ -12,7 +12,6 @@ const Products = () => {
   const {user} = useContext(UserContext)
   const { getReview, reviews } = useContext(ReviewsContext)
 
-  console.log(user.id)
 
 
   const token = JSON.parse(localStorage.getItem('token'))
@@ -66,8 +65,8 @@ const Products = () => {
       return (
         <div className='review' key={i}>
           <span>Título review: {el.title}</span><br />
-          <span>Puntuacíon: {el.score}</span> <br />
-          {user.id==el.UserId? <div><span>Review:</span><br /><input type="text" placeholder={el.body}/></div> :<span>Review: {el.body}</span>}
+          <span>Puntuación: {el.score}</span> <br />
+         <span>Review: {el.body}</span>
         </div>
       )
     })
