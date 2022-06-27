@@ -132,7 +132,7 @@ const Products = () => {
         </div>
 
         <span className="textTitle">Filtros búsqueda</span>
-
+      
         <div className="search">
           <form action="" onSubmit={handleSubmit}>
             <input
