@@ -109,7 +109,7 @@ const Products = () => {
               </Button>
               <Modal
                 title="Reviews producto"
-                centered
+                mask ={false}
                 visible={modal2Visible}
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}
