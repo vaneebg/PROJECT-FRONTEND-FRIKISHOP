@@ -24,12 +24,8 @@ import 'antd/dist/antd.css'
 
 
 
-<<<<<<< HEAD
 
 const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones', 'Saber más', 'Cosis1','Cosis2']
-=======
-const links = ['Información', 'Blog', 'Empleo', 'Ayuda', 'API', 'Privacidad', 'Condiciones', 'Cuentas destacadas', 'Hashtags', 'Ubicaciones', 'Saber más', 'Cosis1', 'Cosis2']
->>>>>>> shan
 
 function App() {
   return (
