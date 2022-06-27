@@ -3,17 +3,14 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 import { Button, Modal } from 'antd';
 import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
-import { UserContext } from "../../context/UserContext/UserState";
 
 import './Products.scss'
 import Reviews from "../Reviews/Reviews";
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
-  const { user } = useContext(UserContext)
-  const { getReview, reviews, createReview } = useContext(ReviewsContext)
+  const { getReview } = useContext(ReviewsContext)
 
-  console.log('user', user)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -58,7 +55,7 @@ const Products = () => {
 
 
   const listProducts = products.map((product, i) => {
-   
+
 
     return (
 
@@ -86,8 +83,7 @@ const Products = () => {
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}
               >
-                <Reviews/>
-                {/* {listReview} */}
+                <Reviews />
               </Modal>
             </div>
           </div>
@@ -106,14 +102,12 @@ const Products = () => {
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}
               >
-                                <Reviews/>
-
-                {/* {listReview} */}
+                <Reviews />
               </Modal>
             </div>
           </div> : null}</div></div>
     )
-  }    
+  }
   )
 
   return (
@@ -125,14 +119,14 @@ const Products = () => {
             type="range"
             className="rangeInput"
             size="5rem"
-            min="4" 
+            min="4"
             max="40"
             onChange={handleChange}
           />
         </div>
 
         <span className="textTitle">Filtros búsqueda</span>
-      
+
         <div className="search">
           <form action="" onSubmit={handleSubmit}>
             <input
