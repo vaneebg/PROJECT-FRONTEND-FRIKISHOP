@@ -91,16 +91,17 @@ const Products = () => {
             </>
          
             : null}
-          {role === 'SuperAdmin' ? <div key={i}>
-            <button><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-            <button onClick={() => deleteProduct(product.id)}>Borrar producto</button>
+          {role === 'SuperAdmin' ? <div className="buttonCont" key={i}>
+          <div className='together'>
+            <button className='btnsadmin'><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+            <button  className='btnsadmin'onClick={() => deleteProduct(product.id)}>Borrar producto</button></div>
             <div className="reviews">
-              <Button type="primary" onClick={() => setModal2Visible(true)}>
+            <Button className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
                 Reviews
               </Button>
               <Modal
                 title="Reviews producto"
-                mask={false}
+                centered
                 visible={modal2Visible}
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}

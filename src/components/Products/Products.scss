@@ -130,7 +130,7 @@
         }
         all:unset;
         background-color: $green1;
-        border:3px solid $green6;
+        border:3px dashed $green6;
         font-family: $font-gorditas;
         text-align: center;
         margin:10px 0;
@@ -139,6 +139,10 @@
         cursor:pointer;
         width:100%;
         border-radius: 5px;
+    }
+    .btnss:hover{
+        color:$green1;
+        background-color: white;
     }
     .btnssRev:hover{
         color:$green1;
@@ -184,7 +188,27 @@
     }
 }
 
-
+.btnsadmin {
+    a{
+        all:unset !important;
+    }
+    all:unset;
+    background-color: $green1;
+    border:3px solid $green6;
+    font-family: $font-gorditas;
+    text-align: center;
+    margin:10px 0;
+    padding:10px;
+    font-size:1.6em;
+    color:white;
+    cursor:pointer;
+  
+    border-radius: 5px;
+}
+.btnsadmin:hover{
+    color:$green1;
+    background-color: white;
+}
 
 
 .ant-modal-mask{
