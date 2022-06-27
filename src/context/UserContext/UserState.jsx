@@ -31,6 +31,7 @@ export const UserProvider = ({children}) =>{
             localStorage.setItem('role',JSON.stringify(res.data.user.role))
 
         }
+
     
     }
 

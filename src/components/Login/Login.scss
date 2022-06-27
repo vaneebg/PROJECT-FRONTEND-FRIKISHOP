@@ -1,10 +1,15 @@
 @import '../../colors.scss';
 
 
-.container{
+.containerlog{
     background-color: $whitesemi;
-    width:50%;
+    width:30em;
+    height:15em;
     padding:20px;
-    margin:30px;
+    margin:80px;
     border-radius: 20px;
+    margin-bottom:90px;
+}
+.ant-form-item-label > label{
+    font-size: 1.5em !important;
 }

@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <div className="center">
-    <div className="container">
+    <div className="containerlog">
           <Form
             name="basic"
             labelCol={{ span: 9}}
@@ -62,7 +62,7 @@ const Login = () => {
             </Form.Item>
     
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
+              <Button className='logbtn' type="primary" htmlType="submit">
                     Enviar
               </Button>
             </Form.Item>
