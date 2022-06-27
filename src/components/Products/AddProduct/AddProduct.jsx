@@ -2,15 +2,21 @@ import {  useContext,useEffect } from "react";
 import { ProductsContext } from "../../../context/ProductsContext/ProductsState";
 import './AddProduct.scss'
 import { Form, Input, Button, InputNumber, notification } from 'antd';
+import { useNavigate } from "react-router-dom";
+
 
 
 const AddProduct = () => {
+  const navigate = useNavigate()
 
   const { addProduct,message } = useContext(ProductsContext);
  
   const onFinish = (values) => {  
 
     addProduct(values)
+    setTimeout(() => {
+      navigate("/products")
+  },2000)
     return notification.success({
       message: "Yuju!",
       description: "Producto añadido!",

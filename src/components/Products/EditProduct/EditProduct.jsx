@@ -19,6 +19,9 @@ const EditProduct = () => {
 
   const onFinish = (values) =>{
     editProduct(product.id,values)
+    setTimeout(() => {
+      navigate("/products")
+  },2000)
     return notification.success({
         message: "Bieeen!",
         description: "Producto cambiado!",

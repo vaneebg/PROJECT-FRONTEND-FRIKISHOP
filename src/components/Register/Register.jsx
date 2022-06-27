@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button , notification} from 'antd';
 import { useNavigate } from "react-router-dom";
 import {  UserOutlined,MailOutlined,LockOutlined, AuditOutlined} from '@ant-design/icons';
 
@@ -14,6 +14,10 @@ function Register() {
           navigate("/")
           clearMessage()
       },3000)
+      return notification.success({
+        message: "Nuevo nakama!",
+        description: "Usuario creado con éxito!",
+      });
     };
    
     const onFinishFailed = (errorInfo) => {
