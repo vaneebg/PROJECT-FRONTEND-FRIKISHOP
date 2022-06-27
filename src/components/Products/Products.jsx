@@ -3,14 +3,16 @@ import { ProductsContext } from "../../context/ProductsContext/ProductsState";
 import { Link } from 'react-router-dom'
 import { Button, Modal } from 'antd';
 import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
+import { UserContext } from "../../context/UserContext/UserState";
 
 import './Products.scss'
 
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
+  const { user } = useContext(UserContext)
+  const { getReview, reviews, createReview } = useContext(ReviewsContext)
 
-  const { getReview, reviews } = useContext(ReviewsContext)
-
+  console.log('user', user)
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -24,14 +26,14 @@ const Products = () => {
   const [modal2Visible, setModal2Visible] = useState(false);
   const [valor, setValor] = useState(40)
   const [name, setName] = useState('')
+  const [title, setTitle] = useState('')
+  const [score, setScore] = useState(0)
+  const [body, setBody] = useState('')
 
   const handleChange = (event) => {
     setValor(event.target.value)
     filterProduct(valor)
   }
-
-
-
 
   const handleInputChange = (event) => {
     setName(event.target.value)
@@ -41,7 +43,6 @@ const Products = () => {
     filterProductName(name)
     getProducts()
   }
-
 
 
   const modalButton = (value) => {
@@ -57,13 +58,46 @@ const Products = () => {
   }
 
 
+
   const listProducts = products.map((product, i) => {
     const listReview = reviews.map((el, i) => {
+      const ProductId = el.id
+      const handleInputchange2 = (event) => {
+        setTitle(event.target.value)
+      }
+      const handleInputchange3 = (event) => {
+        setScore(event.target.value)
+      }
+      const handleInputchange4 = (event) => {
+        setBody(event.target.value)
+      }
+      const modify = (e) => {
+        e.preventDefault()
+        console.log('hola mundo', title)
+        console.log('score', score)
+        console.log('body', body)
+        createReview({ ProductId, title, score, body })
+      }
       return (
         <div className='review' key={i}>
-          <span>Título review: {el.title}</span><br />
-          <span>Puntuación: {el.score}</span> <br />
-         <span>Review: {el.body}</span>
+          {user.id == el.UserId ?
+            <div key={i}>
+              <form action="" >
+                <span>Título review:</span><br />
+                <input type="text" onChange={handleInputchange2} placeholder={el.title} /><br />
+                <span>Puntuación:</span> <br />
+                <input type="number" max={"10"} min={"0"} onChange={handleInputchange3} placeholder={el.score} /><br />
+                <span>Review:</span><br />
+                <input type="text" onChange={handleInputchange4} placeholder={el.body} /><br />
+                <button onClick={modify} />
+              </form>
+            </div> :
+            <div key={i}>
+              <span>Título:{el.title}</span><br />
+              <span>Puntuacíon:{el.score}</span><br />
+              <span>Review:{el.body}</span>
+            </div>
+          }
         </div>
       )
     })
@@ -108,7 +142,7 @@ const Products = () => {
               </Button>
               <Modal
                 title="Reviews producto"
-                mask ={false}
+                mask={false}
                 visible={modal2Visible}
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}

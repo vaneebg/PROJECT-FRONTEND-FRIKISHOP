@@ -35,11 +35,27 @@ export const ReviewsProvider = ({children}) => {
         })
     }
 
+    const createReview = async(review)=>{
+        console.log(review)
+        const token = JSON.parse(localStorage.getItem('token'))
+        const res = await axios.post(API_URL + '/reviews' ,review,{
+            headers:{
+                authorization:token
+            }
+        })
+        console.log('create review',res.data)
+        dispatch({
+            type:'CREATE_REVIEW',
+            payload:res.data.newReview
+        })
+    }
+
 
   return (<ReviewsContext.Provider
     value={{
         reviews:state.reviews,
-        getReview
+        getReview,
+        createReview
     }}
     >
         {children}
