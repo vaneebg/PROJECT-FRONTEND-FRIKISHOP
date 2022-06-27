@@ -113,7 +113,7 @@ const Products = () => {
             </div>
           </div> : null}</div></div>
     )
-  }
+  }    
   )
 
   return (
@@ -125,7 +125,7 @@ const Products = () => {
             type="range"
             className="rangeInput"
             size="5rem"
-            min="4"
+            min="4" 
             max="40"
             onChange={handleChange}
           />
