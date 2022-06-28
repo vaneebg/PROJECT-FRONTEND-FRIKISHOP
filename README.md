@@ -16,22 +16,20 @@
 
 - [Descripción del proyecto](#greenbook-descripción-del-proyecto-greenbook)
 
-    - [API](#1-api)
 
     - [Componentes](#2-componentes)
 
+
     - [Context](#2-componentes)
+
+    - [Vista Admin]
 
     - [React router](#4-react-router)
 
 
 - [Retos presentados](#dart-retos-presentados-dart)
 
-    - [Imágenes noticias](#imágenes-noticias)
-
-    - [Formularios con input file](#formularios-con-input-file)
-    
-    - [Documentación API](#documentación-api)
+  
 
 
 - [Agradecimientos](#agradecimientos)
@@ -46,69 +44,94 @@
 
 
 ## :nut_and_bolt: Instalación y despliegue 
-Para el desarrollo de este mini-proyecto se ha utilizado React principalmente.
+Para el desarrollo de este proyecto se ha utilizado React principalmente.
 El proyecto se subirá a un repositorio público de GitHub.
-Además, cuenta con el registro en la siguiente API: [Nytimes](https://developer.nytimes.com/apis).
-Para instalar este proyecto debes hacer lo siguiente: primero acceder desde github al repositorio y proceder a clonártelo con el siguiente comando:
+Además, el backend procede de la API anteriormente creada para e-commerce online: [Frikishop API](https://github.com/vaneebg/BACKEND_FRIKISHOP).
+Para instalar este proyecto debes hacer lo siguiente: primero acceder desde github a los dos repositorios y proceder a clonártelos con el siguiente comando:
 
-git clone https://github.com/vaneebg/PROJECT-NEWS-REACT
+git clone https://github.com/vaneebg/PROJECT-FRONTEND-FRIKISHOP
+git clone https://github.com/vaneebg/BACKEND_FRIKISHOP
 
-Una vez clonado el respositorio es muy importante que en tu consola instales todos los npm que necesita el proyecto con el siguiente comando: 
+Una vez clonado el repositorio es muy importante que en tu consola instales todos los npm que necesita cada proyecto con el siguiente comando: 
 ````
 npm i
 ````
 
-Seguidamente, hay que crear un archivo .env que lleve lo siguiente:
-```
-REACT_APP_APIKEY = que es la key que te proporciona la API una vez te has registrado
-```
 
-Por último, procede a levantar el servidor con este comando una vez estés dentro de la carpeta project-news:
+Por último, procede a levantar el servidor primero en el proyecto de backend con este comando:
+```
+npm start
+```
+Y después en el proyecto de frontend, entras con cd my-frikishop/ y una vez dentro de la carpeta, levantas el servidor:
 ```
 npm start
 ```
 
+Automáticamente se te abrirá una nueva ventana del navegador con la página web.
 ## :wrench: Tecnologias/packages utilizados 
 - Javascript
 - React
-- JSX
 - SASS
 - Context
 - UseReducer
 - React Router
 - Axios
-- Dotenv
+- NodeJS
+- MySQL
+- Sequelize
+- Bcrypt
+- Jsonwebtoken
+- Multer
+- AntDesign
+
 
 ## :dart: Origen 
-Es un proyecto de frontend de la academia The Brigde para asentar conocimientos sobre la utilización de React conjuntamente con context y useReducer. Aparte de esto, se trabajan aptitudes anteriores, como el uso de Axios para llamar a una API. Además, cobra más importancia el diseño con la utilización de SASS.
+Es un proyecto fullstack de la academia The Brigde para asentar conocimientos sobre la utilización de React conjuntamente con context y useReducer, esta vez adaptado para trabajar con la API de backend que hemos creado anteriormente para un e-commerce, con lo cual se trabajan aptitudes anteriores, como el uso de Axios para llamar a nuestra API y el trabajo con NodeJS en caso de tener que modificar algo en la API para mejorar el funcionamiento. En lo referente al diseño, se ha seguido utilizando SASS y la librería AntDesign, que nos ha proporcionado tanto nofificaciones, como formularios e iconos entre otros.
 
 
-Se ha trabajado en diversas ramas de Git para continuar con el proceso de aprendizaje de esta herramienta y fomentar las buenas prácticas. Primeramente se ha creado la rama develop y, como en este caso ha sido un trabajo invididual, se ha trabajado desde esa misma rama.   Finalmente, cuando se prueba el proyecto entero desde develop, se comprueba que todo funciona y, si es el caso, se acaba añadiendo a la rama main.
+Se ha trabajado en diversas ramas de Git para continuar con el proceso de aprendizaje de esta herramienta y fomentar las buenas prácticas. Primeramente se ha creado la rama develop y, como ha sido un trabajo en parejas, cada uno de nosotros dividía develop en varias subramas para trabajar desde ahí. Después cada uno mergeaba develop primero en su subrama, y una vez comprobado que todo seguía en funcionamiento, se mergeaba a develop y se subía a github para que el otro compañero pudiese hacer un pull para bajarse las nuevas implementaciones. Finalmente, una vez asegurado que todo e proyecto está en funcionamiento desde develop, se mergea a main.
 
 
  
 ## :pushpin: Objetivos 
 
-1.1. Página de noticias
-- [X] Implementa React Router en tu página
-    - [X] /home. Home de la app
-    - [X] /form. Formulario para crear noticia
-    - [X] /list. Lista detallada de noticias
+**GENERALES:**
 
-- [X] Componentes mínimos
+- [X] Registro de usuarios.
+- [X] Login de usuarios.
+- [X] Que se puedan ver los productos  y añadir al carrito de compra
+- [X] Que se pueda crear pedidos
+- [X] Que en tu perfil puedas ver tus datos
+- [X] Uso de ramas con git, cuando se termine el proyecto deberán quedar dos ramas la master o main y la develop.
+- [X] Presentación de README excelente.
+
+
+**1.1.E-commerce( tienda online)**
+
+- Componentes mínimos:
+    - [X] Register
+    - [X] Login
+    - [X] Home
+    - [X] Products
+            - Product
+    - [X] Perfil. Vista perfil con los datos del usuario logeado y sus pedidos
     - [X] Header
-    - [X] Home.
-    - [X] Form.
-        - [X] Formulario de alta de nueva noticia. 
-        - [X] Guardar formulario en el local storage
-        - [X] Tras dar de alta debes redirigir a ListNews
-    - [X] ListNews. Pinta las noticias
     - [X] Footer
-
+- [X] Implementa React Router en tu página
+    - /home. Home de la app
+    - /login
+    - /register
+    - /profile. 
+- [X] Utilizar Context 
+- [X] Readme Excelente
+- [X] Uso de SASS
 - [X] Importante el diseño
-- [X] Utilizar context
-- [X] Utilizar SASS
-- [X] Readme Excelente!!!
+
+*Reglas:*
+- [ ] Los componentes no podrán sobrepasar las 400 líneas de código.
+- [ ] Las funciones no deberán sobrepasar las 75 líneas de código.
+
+
 
 ## 1.2. Extras
 - [ ] Que sea responsive
