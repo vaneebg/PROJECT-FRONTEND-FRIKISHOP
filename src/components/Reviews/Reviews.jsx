@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 import { ReviewsContext } from '../../context/ReviewsContext/ReviewsState'
-import { UserContext } from '../../context/UserContext/UserState'
-import { Alert } from 'antd';
 
 const Reviews = () => {
 
-  const { products } = useContext(ProductsContext)
-  const { createReview, reviews, id, modifyReview } = useContext(ReviewsContext)
-  const { user } = useContext(UserContext)
+  const { createReview, reviews, id } = useContext(ReviewsContext)
 
-  console.log('reviews', reviews)
 
   const [title, setTitle] = useState('')
   const [score, setScore] = useState(0)
@@ -30,13 +24,13 @@ const Reviews = () => {
   const createRevie = (e) => {
     e.preventDefault()
     if(title.length<5){
-      alert('sss')
+      alert('Escribe un título de al menos 5 carácteres')
     }
     if(score>10){
-      alert('aaa')
+      alert('Score mayor de 10 no permitido')
     }
     if(body.length<5){
-      alert('introduce')
+      alert('Escribe más cuerpo de revew')
     }
     else{
       createReview({ ProductId: id, title, score, body })
