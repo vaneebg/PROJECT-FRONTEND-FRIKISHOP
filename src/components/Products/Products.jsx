@@ -87,7 +87,7 @@ const Products = () => {
             <button className='btnsadmin'><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
             <button  className='btnsadmin'onClick={() => deleteProduct(product.id)}>Borrar producto</button></div>
             <div className="reviews">
-              <Button type="primary" onClick={() => modalButton(product.id)}>
+              <Button  className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
                 Reviews
               </Button>
               <Modal

@@ -36,7 +36,7 @@ const Favs = () => {
 
   return (
     <div className="center">
-    <div className='favs'><h2>Favoritos: </h2><br/>{favsItem}
+    <div className='favs'><h2>Favoritos: </h2>{favsItem}
     <button onClick={()=>clearFavs()}>Borrar favoritos</button>
     </div>
     </div>

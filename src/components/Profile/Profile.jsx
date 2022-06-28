@@ -26,7 +26,8 @@ const Profile = () => {
     if(!user){
         return <span>Cargando...</span>
     }
-    const listOrders=user.Orders.map((order)=>order.Products.map((product,i)=>{return(<>
+    const listOrders=user.Orders.map((order)=>order.Products.map((product,i)=>{
+      return(<>
     <div className='orderc' key={i}>
     <span>Nombre del producto: {product.name}</span><br/>
     <span>Descripción:<br/> {product.description}</span><br/></div>
@@ -42,7 +43,7 @@ const Profile = () => {
           </span>
           </div>
         <div className="contentInfo">
-        <img src={"http://localhost:8080/images/users/"+user.img}/>
+        {user.img ? <img src={"http://localhost:8080/images/users/" + user.img} /> : <img src="http://localhost:8080/images/users/none.jpg" />}
         <div className="text">
         <span>Tu nombre: {user.username}</span> <br />
         <span>Tu email: {user.email}</span><br />
@@ -50,7 +51,7 @@ const Profile = () => {
         </div>
         </div>
         <div className="orders">
-        { role==='SuperAdmin' ? <span className='hello'>👋 Aquí está el jefazo de nuevo 👋</span> : <span><div className="titleorder">Pedidos hechos:</div> <br/>{listOrders}</span>}
+        { role==='SuperAdmin' ? <span className='hello'>👋 Aquí está el jefazo de nuevo 👋</span> : <span><div className="titleorder">Productos pedidos:</div> <br/>{listOrders}</span>}
         </div>
         </div>
         </div>

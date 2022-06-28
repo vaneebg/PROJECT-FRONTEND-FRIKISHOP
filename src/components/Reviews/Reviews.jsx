@@ -43,6 +43,7 @@ const Reviews = () => {
   // const [body1,setBody1 ] = useState(el.body) 
     return (
       <div>
+<<<<<<< HEAD
         {/* {user.id == el.UserId ?
           <div>
             <div key={i}>
@@ -69,6 +70,13 @@ const Reviews = () => {
           </div>
 
         {/* } */}
+=======
+        <div key={i}>
+          <span>Título:{el.title}</span><br />
+          <span>Puntuacíon:{el.score}</span><br />
+          <span>Review:{el.body}</span><br/><br/>
+        </div>
+>>>>>>> develop
       </div>
     )
   })
@@ -79,14 +87,21 @@ const Reviews = () => {
     <div className="review" >
       {listProducts}
       <div>
-        <form action="" >
+        <form  action="" >
+          <div className="newrev">
+          <span>REVIEW NUEVA:</span><br/>
           <span>Título review:</span><br />
           <input type="text" onChange={handleInputchange2} /><br />
           <span>Puntuación:</span> <br />
           <input type="number" max={"10"} min={"0"} onChange={handleInputchange3} /><br />
           <span>Review:</span><br />
           <input type="text" onChange={handleInputchange4} /><br />
+<<<<<<< HEAD
           <input type="submit" onClick={createRevie} />
+=======
+          <input type='submit' className='reviewbtn' onClick={createRevie} />
+        </div>
+>>>>>>> develop
         </form>
       </div>
     </div>

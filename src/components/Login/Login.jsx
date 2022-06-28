@@ -27,8 +27,8 @@ const Login = () => {
             if(foundToken){
                 navigate('/profile')
                 return notification.success({
-                  message: "Nuevo nakama!",
-                  description: "Usuario creado con éxito!",
+                  message: "Holii de nuevo!",
+                  description: "Bienvenido!",
                 });
             }
          },100)
