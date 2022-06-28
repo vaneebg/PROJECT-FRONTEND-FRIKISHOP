@@ -12,11 +12,6 @@ const reviews =(state,action)=>{
                 ...state,
                 reviews:[action.payload,...state.reviews]
             }
-        case 'MODIFY_REVIEW':
-            return{
-                ...state,
-                review:action.payload
-            }
         default:
             return state;
     }

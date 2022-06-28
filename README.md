@@ -38,6 +38,7 @@
 
     - [Implementar Multer](#implementar-multer)
   
+    -[Diseños modales antDesign](#diseños-modales-antdesign)
 
 
 - [Agradecimientos](#agradecimientos)
@@ -157,7 +158,7 @@ Para la comunicación en equipo hemos hecho uso principalmente de Trello, dividi
 - [X] Vista Admin donde se puede hacer el CRUD de productos (solamente si tienes el role Admin)
 - [X] CRUD de los productos
 - [X] Añadir o quitar un producto de favoritos
-- [ ] Que el usuario pueda añadir reviews a un producto
+- [X] Que el usuario pueda añadir reviews a un producto
 - [ ] Que solo puedas editar y eliminar las reviews que tu creas.
 - [ ] El usuario puede subir fotos en las reviews o cambiar su foto de perfil.
 - [ ] El usuario puede dar likes a las reviews de los productos.
@@ -245,7 +246,8 @@ Resto de componentes:
 
 - **Register:** consta principalmente de un formulario en el que el usuario tiene que introducir cuatro campos: username, email, adress y password. Tanto en Login como en el resto de formularios hay validaciones de forma que el usuario no se puede dejar ningún campo en blanco.
 
-- **Reviews:**
+- **Reviews:** tiene dos partes diferenciadas. La primera parte corresponde a pintar en el modal de reviews las que ya tienen los productos. En su segunda parte, por medio de un formulario con inputs, se encarga de enviar una nueva review hecha por el usuario.Este componente se muestra en el modal que aparece al darle al botón de reviews:
+![foto](./toReadme/reviews.png)
 
 
 -------
@@ -286,7 +288,15 @@ const initialState = {
 }
 ````
 
-- **ReviewsContext:**
+- **ReviewsContext:** en ReviewsState tenemos las diferentes funciones encargadas de este componente, crear reviews y conseguirlas. En ReviewsReducer los diferentes casos de dispatch.
+````
+const initialState={
+    token: token ? token : null,
+    reviews:[],
+    review:{},
+    id:[]
+}
+````
 
 
 
@@ -343,6 +353,11 @@ Vaciar del carrito únicamente un producto supuso un reto. Había que traerlo de
 ## - Implementar multer
 
 Cambiar la implementación de Multer en el backend por una más sofisticada, que guardase en diferentes carpetas según si la imagen era del usuario, del producto o de las reviews, además de cambiar que la imagen sea un campo obligatorio en la entrada de la creación de un producto o de un usuario por ejemplo.
+
+
+## Diseños modales antDesign
+
+Los modales vienen con estilos en linea predispuestos y resulta dificil cambiar textos dentro del modal, así como el tipo de letra o cualquier otro estilo.
 
 ------------------------------
 

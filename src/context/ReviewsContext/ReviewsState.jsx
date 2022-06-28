@@ -48,18 +48,6 @@ export const ReviewsProvider = ({children}) => {
         })
     }
 
-    const modifyReview = async(reviewId)=>{
-        const token = JSON.parse(localStorage.getItem('token'))
-        const res = await axios.put(API_URL + '/reviews/id/' + reviewId,{
-            headers:{
-                authorization:token
-            }
-        })
-        dispatch({
-            type:'MODIFY_REVIEW',
-            payload:res.data
-        })
-    }
 
 
   return (<ReviewsContext.Provider
@@ -68,7 +56,6 @@ export const ReviewsProvider = ({children}) => {
         review:state.review,
         id:state.id,
         getReview,
-        modifyReview,
         createReview
     }}
     >
