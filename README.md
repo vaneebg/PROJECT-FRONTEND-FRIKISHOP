@@ -76,6 +76,8 @@ npm start
 ```
 
 Automáticamente se te abrirá una nueva ventana del navegador con la página web.
+
+---------
 ## :wrench: Tecnologias/packages utilizados 
 - Javascript
 - React
@@ -93,6 +95,7 @@ Automáticamente se te abrirá una nueva ventana del navegador con la página we
 - AntDesign
 - Trello
 
+---------
 
 ## :dart: Origen 
 Es un proyecto fullstack de la academia The Brigde para asentar conocimientos sobre la utilización de React conjuntamente con context y useReducer, esta vez adaptado para trabajar con la API de backend que hemos creado anteriormente para un e-commerce, con lo cual se trabajan aptitudes anteriores, como el uso de Axios para llamar a nuestra API y el trabajo con NodeJS en caso de tener que modificar algo en la API para mejorar el funcionamiento. En lo referente al diseño, se ha seguido utilizando SASS y la librería AntDesign, que nos ha proporcionado tanto nofificaciones, como formularios e iconos entre otros.
@@ -104,7 +107,7 @@ Se ha trabajado en diversas ramas de Git para continuar con el proceso de aprend
 Para la comunicación en equipo hemos hecho uso principalmente de Trello, dividiendo cada tarjeta por tareas:
 ![foto](./toReadme/trello.png)
 
-
+------
  
 ## :pushpin: Objetivos 
 
@@ -119,7 +122,7 @@ Para la comunicación en equipo hemos hecho uso principalmente de Trello, dividi
 - [X] Presentación de README excelente.
 
 
-**1.1.E-commerce( tienda online)**
+## 1.1. E-commerce( tienda online)
 
 - Componentes mínimos:
     - [X] Register
@@ -363,4 +366,4 @@ A una gran amiga por la idea del diseño principal, a [Fran](https://github.com/
 
 # :raised_hands: Autores :raised_hands:
 - :smiling_imp: [Vanesa Beltrán](https://github.com/vaneebg)
-- [Shan](https://github.com/tianfanshan)
+- [Shan](https://github.com/tianfanshan) 
