@@ -389,6 +389,7 @@ A la profe [Sofia](https://github.com/SofiaPinilla) por la ayuda...!
 - [ ] Implementación de guards
 - [ ] Implementación del resto de funcionalidades de las reviews.
 - [ ] Subir foto con productos.
+- [ ] Modificar review por el mismo input de text.
 
 ----------------------
 
