@@ -21,10 +21,12 @@ import AddProduct from './components/Products/AddProduct/AddProduct';
 import EditProduct from './components/Products/EditProduct/EditProduct';
 
 import 'antd/dist/antd.css'
+import Reviews from './components/Reviews/Reviews';
 
 
 
-const links = ['Información', 'Blog', 'Empleo', 'Ayuda', 'API', 'Privacidad', 'Condiciones', 'Cuentas destacadas', 'Hashtags', 'Ubicaciones', 'Saber más', 'Cosis1', 'Cosis2']
+
+const links=['Información','Blog','Empleo','Ayuda','API','Privacidad','Condiciones','Cuentas destacadas','Hashtags','Ubicaciones', 'Saber más', 'Cosis1','Cosis2']
 
 function App() {
   return (

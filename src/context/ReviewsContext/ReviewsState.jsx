@@ -6,7 +6,9 @@ const token = JSON.parse(localStorage.getItem('token'))
 
 const initialState={
     token: token ? token : null,
-    reviews:[]
+    reviews:[],
+    review:{},
+    id:[]
 }
 
 export const ReviewsContext = createContext(initialState)
@@ -18,25 +20,23 @@ export const ReviewsProvider = ({children}) => {
     const [state,dispatch] = useReducer(ReviewsReducer,initialState)
 
  
-    const getReview = async(produ)=>{
-        console.log('hola')
-        console.log('soy produ',produ)
+    const getReview = async(id)=>{
         const token = JSON.parse(localStorage.getItem('token'))
-        const res = await axios.get(API_URL + '/reviews/review_product/id/' + produ,{
+        const res = await axios.get(API_URL + '/reviews/review_product/id/' + id,{
             headers:{
                 authorization:token,
             }
         }
         )
-        console.log('res.data',res.data.Reviews)
+        console.log(id)
         dispatch({
             type:'GET_REVIEW_BY_ID',
-            payload:res.data.Reviews
+            payload:res.data.Reviews,
+            payload2:id
         })
     }
 
     const createReview = async(review)=>{
-        console.log(review)
         const token = JSON.parse(localStorage.getItem('token'))
         const res = await axios.post(API_URL + '/reviews' ,review,{
             headers:{
@@ -50,11 +50,28 @@ export const ReviewsProvider = ({children}) => {
         })
     }
 
+    const modifyReview = async(reviewId)=>{
+        const token = JSON.parse(localStorage.getItem('token'))
+        const res = await axios.put(API_URL + '/reviews/id/' + reviewId,{
+            headers:{
+                authorization:token
+            }
+        })
+        console.log(res)
+        dispatch({
+            type:'MODIFY_REVIEW',
+            payload:res.data
+        })
+    }
+
 
   return (<ReviewsContext.Provider
     value={{
         reviews:state.reviews,
+        review:state.review,
+        id:state.id,
         getReview,
+        modifyReview,
         createReview
     }}
     >
