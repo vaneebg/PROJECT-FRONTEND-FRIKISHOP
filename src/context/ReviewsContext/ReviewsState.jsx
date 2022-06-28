@@ -28,7 +28,6 @@ export const ReviewsProvider = ({children}) => {
             }
         }
         )
-        console.log(id)
         dispatch({
             type:'GET_REVIEW_BY_ID',
             payload:res.data.Reviews,
@@ -56,7 +55,6 @@ export const ReviewsProvider = ({children}) => {
                 authorization:token
             }
         })
-        console.log(res)
         dispatch({
             type:'MODIFY_REVIEW',
             payload:res.data
