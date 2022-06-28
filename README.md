@@ -37,7 +37,7 @@
 
 - [Futuras implementaciones](#blacknib-futuras-implementaciones-blacknib)
 
-- [Autor](#raisedhands-autor-raisedhands)
+- [Autores](#raisedhands-autores-raisedhands)
 
 ------------------
 
@@ -223,7 +223,7 @@ Resto de componentes:
 
 - Products: este componente coge previamente todas las funciones necesarias desde ProductsContext para pintar los productos o filtrarlos. Además utiliza localStorage para el token y el role. El token es necesario para que el usuario logeado pueda realizar acciones, como el botón de añadir carrito o de favoritos. El role por otra parte, actúa como filter, de forma que si el usuario que hizo login es el Admin, los botones de carrito y favoritos desaparecen, y trae los botones de Editar o Eliminar un producto. Este mismo componente, además de pintar los productos, tiene en la cabecera una barra sticky semitransparente que actúa como filtros de búsqueda. A mano izq hay un filtro por precio y a mano derecha un buscador por nombre.
 
-- Profile: está compuesto por la información del usuario junto con su foto de perfil y abajo una enumeración de los productos que se han pedido en cada Order, o bien si es el Admin, simplemente se sustituye por un mensaje de bienvenida.
+- Profile: está compuesto por la información del usuario junto con su foto de perfil y abajo una enumeración de los productos que se han pedido en cada Order, o bien si es el Admin, simplemente se sustituye por un mensaje de bienvenida. En la esquina superior derecha encontramos el botón de Logout para que el usuario salga de la plataforma.
 
 - Login: compuesto principalmente por un formulario que pide el email y la contraseña del usuario previamente registrado. Cuenta con una verificación de seguridad traída desde el backend, con lo cual si el usuario introducido no coincide con el guardado en la BBDD, salta un alert:
 ![foto](./toReadme/alert.png)
@@ -243,39 +243,38 @@ En este caso, dentro de la carpeta context, tenemos 4 diferentes:
 
 - ProductsContext: en ProductsState tenemos las diferentes funciones que usamos. Para realizarlas, necesitamos de LocalStorage el token, el carrito y los favs. Aquí además de las funciones que competen a los productos, como llamar a la API para conseguirlos todos, o hacer filtro por nombre, también están las funciones del carrito y los favs, como borrar un solo elemento o borrarlos todos. Estas funciones luego las llamamos en los componentes Cart y Favs para poderlas utilizar gracias a ProductsCOntext.Provider. En ProductReducer tenemos los diferentes casos en los que el dispatch se va a centrar. Especial mención a los casos de borrar un producto y borrar un favorito o un elmento del carrito. Llevan un filter para que automáticamente después de realizar la acción, el usuario ya no vea ese elemento en su lista.
 
-- UserContext:
-
-Primero, importamos todo lo que vamos a necesitar en las primeras lineas y después definimos un estado inicial donde news será una array vacía:
-
-``````
+````
 const initialState = {
-  news: []
+    token: token ? token : null,
+    products: [],
+    cart: cart ? cart : [],
+    favs: favs ? favs : [],
+    product:{}
 };
-``````
+````
 
-Creamos nuestro Context y GlobalProvider, donde entrará por parámetro 'children', que no son más que todos los componentes hijos que podrán heredar esta información global.
-Después desestructuramos useReducer(que usará como parámetros AppReducer e initialState) en state y dispatch.
-Por un lado, AppReducer tiene la función news mediante dos parámetros (state y action), continuando con un switch en este caso de un solo elemento que es GET_NEWS. Sin embargo, si por ejemplo tuviésemos un CRUD, aquí irían el resto de casos como por ejemplo PUT_NEWS:
-
-```````
-const news = (state, action) => {
-    switch (action.type) {
-        case "GET_NEWS":
+````
+  case "DELETE_PRODUCT":
             return {
-                ...state,
-                news: action.payload,
-            };
-        default:
-            return state;
-    }
-};
-export default news;
-````````
+                    ...state,
+                    products: state.products.filter((el) => +action.payload.el !== +el.id )
+                };
+````
 
-A continuación creamos la función getNews en este caso, ya que queremos conseguir la información de la API, y en dispatch le ponemos que el tipo de 'envío' de la información va a ser GET_NEWS, y que su 'carga' será en este caso result.data.results. Ese mismo tipo es el que designa que en AppReducer se escoja un caso u otro, con lo cual entra en GET_NEWS, que te devolverá el estado ya cambiado, y las news serán esa misma 'carga' que hemos definido en payload.
+- UserContext: en UserState encontramos las diferentes funciones que llaman a la API. En este caso necesitamos de localStorage el token y el role que se guardarán cuando el usuario haga Login y se borrarán cuando haga su Logout. En esta función de login es dónde hemos implementado la verificación para que si la respuesta de la API es email o contraseña incorrectos, esa respuesta sea la mismaen el frontend en forma de alert. Con ello evitamos que introduciendo cualquier cosa en el formulario de login, el usuario entre. en UserReducer tenemos todos los casos en los que va a ir pasando el dispatch cuando realicemos las diferentes acciones.
+````
+const initialState = {
+    token: token ? token : null,
+    role:role ? role : null,
+    user: null,
+    message:''
+}
+````
 
-Finalmente lo que retorna la función GlobalContext.Provider es un valor, compuesto por news, que será el estado cambiado de news, es decir, la array ya llena con nuestra información, y por la propia función getNews.
-Por último, dentro de GlobalContext tendremos el parámetro que le pusimos a esta función, 'children', es decir, todos los componentes que se encuentren dentro de Global provider en App.jsx, compartirán esta información.
+- ReviewsContext:
+
+
+
 
 -----------
 
@@ -284,37 +283,57 @@ Para la utilización de rutas en forma de Link en el proyecto, se instala este c
 ``````
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 ``````
-Después, debemos poner todos los componentes entre los que queramos navegar dentro de estas etiquetas(<BrowserRouter>) y los path a las rutas dentro de Routes. Gracias a esto, ahora podemos navegar entre los componentes, un ejemplo de ello es la barra de navegación del componente Header`:
+Después, debemos poner todos los componentes entre los que queramos navegar dentro de estas etiquetas(<BrowserRouter>) y los path a las rutas dentro de Routes. Gracias a esto, ahora podemos navegar entre los componentes, un ejemplo de ello es la barra de navegación del componente Header:
 `````
-<div className="nav">
-      <Link to="/form">Crea tu noticia</Link>
-      <Link to="/">Home</Link>
-      <Link to="/listNews">Ver noticias</Link>
-  </div>
-``````
+        <span>
+            <Link to="/home">Home</Link>
+          </span>
+        <span>
+          <Link to="/register">Registrarse</Link>
+        </span>
+        <span>
+          <Link to="/">Login</Link>
+        </span>
+        <span>
+            <Link to='/products'>Productos</Link>
+          </span>
+`````
+
+Después en App.jsx, debemos englobar todo dentro de los providers anteriormente creados para poder usar la información globalmente:
+```` 
+<UserProvider>
+    <ProductsProvider>
+         <OrdersProvider>
+              <ReviewsProvider>
+              [...]
+````
+
+
   --------------------
 # :dart: Retos presentados :dart:
- ## Imágenes noticias
- Algunos problemas al pintar las noticias en html ya que algunas iban sin una imagen, por tanto al hacer el método map, presentaban 'undefined'. Con este condicional se soluciona el problema:
- ``````
- {
-          notice.media.length !== 0 ? <img src={notice.media[0]["media-metadata"][0].url} alt='img'/> : null
-        }
-``````
- ## Formularios con input file
-Pese a que el input type=file sube las imágenes, al no estar usando una base de datos, sino que se están guardando en LocalStorage con un path, es complejo traerlas de nuevo al html.
-## Documentación API
-Cada API cuenta con un procedimiento diferente, por lo que hay que informarse previamente de cómo funciona y qué necesitas para traer los datos que quieres.
+
+
+
+
 ------------------------------
+
+
 # :purple_heart: Agradecimientos :purple_heart:
-A los profes [Sofía](https://github.com/SofiaPinilla) e [Iván](https://github.com/ivanpuebla10) por ayudarme a las validaciones y a [Germán](https://github.com/GeerDev) por la ayuda para las variables de entorno en React.
-Y a todos mis compis de promoción por compartir momentos de risas y apoyo entre nosotros :smile: .
-Especial mención a [Imanol](https://github.com/Imi21) por darnos suuuper peluchitos de compitruenos para la programación.
+A una gran amiga por la idea del diseño principal, a [Fran](https://github.com/franpd8) por las peleas con el background de los modales de AntDesign.
+
+
 ----------------
+
+
 # :black_nib: Futuras implementaciones :black_nib:
 - [ ] Responsive
 - [ ] Creación de componentes hijos que dividan las funciones del componente padre.
-- [ ] Pintar en html la imagen guardada en LocalStorage.
+- [ ] Implementación de guards
+- [ ] Implementación del resto de funcionalidades de las reviews.
+
 ----------------------
-# :raised_hands: Autor :raised_hands:
+
+
+# :raised_hands: Autores :raised_hands:
 - :smiling_imp: [Vanesa Beltrán](https://github.com/vaneebg)
+- [Shan](https://github.com/tianfanshan)
