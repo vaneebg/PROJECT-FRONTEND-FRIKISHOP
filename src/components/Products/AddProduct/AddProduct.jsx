@@ -25,7 +25,7 @@ const AddProduct = () => {
   };
  
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    console.error("Failed:", errorInfo);
     return notification.error({
       message: "Meec",
       description: "No ha ido bien...",
