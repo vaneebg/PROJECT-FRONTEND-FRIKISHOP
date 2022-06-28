@@ -134,25 +134,42 @@ Se ha trabajado en diversas ramas de Git para continuar con el proceso de aprend
 
 
 ## 1.2. Extras
-- [ ] Que sea responsive
+- [ ] Frontend disponible en producción (ej:Heroku)
+- [X] Buscador de productos
+- [X] Implementación de filtros, por ejemplo que se pueda filtrar un producto por precio
+- [X] El usuario con rol Admin pueda tiene una opción en el nav que le lleva a la vista Admin
+- [X] Vista Admin donde se puede hacer el CRUD de productos (solamente si tienes el role Admin)
+- [X] CRUD de los productos
+- [X] Añadir o quitar un producto de favoritos
+- [ ] Que el usuario pueda añadir reviews a un producto
+- [ ] Que solo puedas editar y eliminar las reviews que tu creas.
+- [ ] El usuario puede subir fotos en las reviews o cambiar su foto de perfil.
+- [ ] El usuario puede dar likes a las reviews de los productos.
+- [X] El usuario en su perfil puede ver sus pedidos
+- [ ] Implementación de guards
+- [/] Que sea responsive
+
 
 -------------------
 ## :cinema: Inspiración 
-La idea principal con la que he construido este proyecto es intentar emular la apariencia de un periódico real. Para ello, he utilizado principalmente una paleta de diversos grises y también transparencias para la barra de navegación del header, que he guardado dentro de colors.scss en forma de variables:
-![foto](./toReadme/paleta.png)
+La idea principal con la que se ha construido este proyecto es un diseño de cómic tal como ele componente Home indica. Al final hemos visto adecuado que, ya que setrata de una tienda friki, su diseño se adapte a estas características. Para ello, se ha utilizado principalmente una paleta de diversos verdes "geek" y también transparencias para la barra de navegación del header por ejemplo En el archivo colors.scss, están guardadas tanto la paleta de colores, como las dos fuentes principales que se han usado en la web en forma de variables:
+![foto](./toReadme/paleta.jpg)
 
-Para el fondo general de la página, he escogido una imagen con efecto blur para que no entorpezca la lectura de las noticias:
+Para el fondo general de la página, se ha escogido una imagen del mismo estilo con un attachment "fixed" para no tener los cortes de imagen y así ponerla estable en todo el fondo:
 
-![foto](./src/assets/background3.jpg)
+![foto](./src/assets/background.jpg)
 
-En cuanto al diseño en general, tiene un diseño basado en tarjetas que están levemente pintadas con transparencia. Además tienen un efecto hover que les pone un blanco más resaltado por si hay algún problema de lectura con el fondo semitransparente:
+En Home hay una animación general de bienvenida que emula a las películas de Marvel:
+![foto](./toReadme/homevideo.gif)
 
-![foto](./toReadme/noticias.png)
+En cuanto al diseño en general, tiene un diseño basado en tarjetas que están levemente pintadas con transparencia, por ejemplo el componente Register:
+
+![foto](./toReadme/register.png)
 
 
-El componente Home presenta el mismo diseño, solo que se han añadido algunos gif al principio y final de la página:
+El el caso del componente Products presenta el mismo diseño, solo que son tarjetas coloreadas con efecto sombra y los filtros de búsqueda es una barra sticky que conforme bajemos se quedará fija con un leve efecto de transparencia:
 
-![foto](./toReadme/home.png)
+![foto](./toReadme/productsg.gif)
 
 Componente formulario:
 
