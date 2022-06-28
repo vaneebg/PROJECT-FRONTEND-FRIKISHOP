@@ -1,2 +1,37 @@
 @import '../../colors.scss';
 
+.newrev{
+    margin-top:30px;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: $green6;
+font-family: $font-content;
+.score{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titlerev{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+}
+.reviewContt{
+    border: 2px solid $green4;
+}
+.circle{
+    border-radius: 20px;
+    width:80%;
+}
+.btnSub{
+    
+    width:50%;
+}
+.number{
+    width:4em;
+}

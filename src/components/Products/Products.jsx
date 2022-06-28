@@ -72,6 +72,9 @@ const Products = () => {
               <Modal
                 title="Reviews producto"
                 centered
+                maskClosable
+                footer={null}
+                width={800}
                 visible={modal2Visible}
                 onOk={() => setModal2Visible(false)}
                 onCancel={() => setModal2Visible(false)}

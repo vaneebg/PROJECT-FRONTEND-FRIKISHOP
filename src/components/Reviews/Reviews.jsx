@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
 import { ReviewsContext } from '../../context/ReviewsContext/ReviewsState'
+import './Reviews.scss'
 
 const Reviews = () => {
 
@@ -40,10 +41,10 @@ const Reviews = () => {
   const listProducts = reviews.map((el, i) => {
 
     return (
-      <div key={i}>
+      <div className='reviewContt' key={i}>
         <span>Título:{el.title}</span><br />
-        <span>Puntuacíon:{el.score}</span><br />
-        <span>Review:{el.body}</span><br /><br />
+        <span>Cuerpo:{el.body}</span><br />
+        <span>Puntuacíon: {el.score}</span><br />
       </div>
     )
   })
@@ -56,14 +57,16 @@ const Reviews = () => {
       <div>
         <form action="" >
           <div className="newrev">
-            <span>REVIEW NUEVA:</span><br />
+            <span className='titlerev'>REVIEW NUEVA:</span><br />
             <span>Título:</span>
-            <input type="text" onChange={handleInputchange2} /><br />
+            <input className='circle' type="text" onChange={handleInputchange2} /><br />
+            <span>Cuerpo:</span>
+            <input className='circle' type="text" onChange={handleInputchange4} /><br />
+            <div className="score">
             <span>Score:</span>
-            <input type="number" max={10} min={0} onChange={handleInputchange3} /><br />
-            <span>Review:</span>
-            <input type="text" onChange={handleInputchange4} /><br />
-            <input type="submit" onClick={createRevie} />
+            <input className='number circle' type="number" max={10} min={0} onChange={handleInputchange3} /><br />
+            </div> 
+            <input className='btnSub' type="submit" onClick={createRevie} />
           </div>
         </form>
       </div >

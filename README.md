@@ -381,7 +381,7 @@ A una gran amiga por la idea del diseño principal, a [Fran](https://github.com/
 - [ ] Creación de componentes hijos que dividan las funciones del componente padre.
 - [ ] Implementación de guards
 - [ ] Implementación del resto de funcionalidades de las reviews.
-- [ ] Subir foto con productos.
+- [ ] Subir foto con productos o usuario.
 
 ----------------------
 
