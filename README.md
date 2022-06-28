@@ -366,11 +366,18 @@ Cambiar la implementación de Multer en el backend por una más sofisticada, que
 
 Los modales vienen con estilos en linea predispuestos y resulta dificil cambiar textos dentro del modal, así como el tipo de letra o cualquier otro estilo.
 
+
+## Crear review por producto
+
+Traer el ID del producto que elegimos del componente de productos al de reviews atraves del contexto de reviews!
+
 ------------------------------
 
 
 # :purple_heart: Agradecimientos :purple_heart:
 A una gran amiga por la idea del diseño principal, a [Fran](https://github.com/franpd8) por las peleas con el background de los modales de AntDesign.
+
+A la profe [Sofia](https://github.com/SofiaPinilla) por la ayuda...!
 
 
 ----------------
@@ -381,11 +388,12 @@ A una gran amiga por la idea del diseño principal, a [Fran](https://github.com/
 - [ ] Creación de componentes hijos que dividan las funciones del componente padre.
 - [ ] Implementación de guards
 - [ ] Implementación del resto de funcionalidades de las reviews.
-- [ ] Subir foto con productos o usuario.
+- [ ] Subir foto con productos.
+- [ ] Modificar review por el mismo input de text.
 
 ----------------------
 
 
 # :raised_hands: Autores :raised_hands:
 - :smiling_imp: [Vanesa Beltrán](https://github.com/vaneebg)
-- [Shan](https://github.com/tianfanshan) 
+- :whale2: [Shan](https://github.com/tianfanshan) 
