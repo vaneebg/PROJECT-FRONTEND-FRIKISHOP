@@ -16,6 +16,7 @@
 
 - [Descripción del proyecto](#greenbook-descripción-del-proyecto-greenbook)
 
+    - [API](#1-api)
 
     - [Componentes](#2-componentes)
 
@@ -171,68 +172,78 @@ El el caso del componente Products presenta el mismo diseño, solo que son tarje
 
 ![foto](./toReadme/productsg.gif)
 
-Componente formulario:
+Una vez el usuario ha hecho Login, aquí podemos ver la vista de perfil y la sección productos contiene los 3 botones de ver reviews, añadir un producto al carrito o a favoritos:
 
-![foto](./toReadme/form.png)
+![foto](./toReadme/user.gif)
 
-Los cursores también se han personalizado para añadirle ese toque personal friki. En este proyecto he elegido a Zelda, por un lado la espada como cursor y por otro la cara de Link como pointer :smile:
+En lo referente a la vista Admin, en perfil, la sección de pedidos hechos se elimina y encontramos que en el header se visualiza un componente nuevo, y en productos aparecen los botones eeditar y eliminar producto: 
+![foto](./toReadme/admin.gif)
+
+Para finalizar, siguiendo con la temática friki, se han añadido gifs en caso de que vacíes tu cesta o tus favoritos, para indicar al usuario que efectivamente ha borrado eso bien:
+![foto](./toReadme/gifs.gif)
+
+Prácticamente toda la página web tiene diseñadas unas notificaciones que avisan al usuario de que ha hecho Login bien o se ha registrado correctamente:
+![foto](./toReadme/notif.png)
 
 ----------
 # :green_book: Descripción del proyecto :green_book:
 
 ## 1. API
-Lo primero que debemos hacer es registrarnos en [Nytimes](https://developer.nytimes.com/apis). Después, justo como indica la documentación, nos dirigimos al apartado de perfil, a Apps y creamos una. Ahí al final, debemos activar qué secciones queremos descargar de la propia API:
-
-![foto](./toReadme/api.png)
-
-En este caso, nos vamos a traer las noticias más populares de NYT. 
-En cuanto a cómo acceder, en el apartado APIs de la propia web, seleccionando lo que nos interese, te muestran diferentes links con los que traer esa información. Lo único que hay que hacer es copiar nuestra key(la tenemos en el perfil) en la sección del link que pone 'yourkey'
-`````
-https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=yourkey
-``````
-
-Finalmente, haremos una petición Axios a ese mismo enlace:
-
-``````
-let url=`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${APIKEY}`
-    const result = await axios.get(url);
-``````
-
-Esta llamada la encontraremos dentro de la carpeta context, en GlobalState, dentro de la función getNews.
-
-
+La API a la que realizamos las llamadas es la que construimos en un proyecto anterior con base en MySQL usando Sequelize. Toda la información acerca de la API la puedes encontrar aquí:
+````
+https://github.com/vaneebg/BACKEND_FRIKISHOP
+````
+En el Readme se explican todos los endpoints y el funcionamiento en general de la misma.
 ----------
 
 ## 2. Componentes
-Son un total de 5 componentes, cada uno de ellos enlazado a su fichero scss:
+Son un total de 11 componentes y 2 subcomponentes de Productos, cada uno de ellos enlazado a su fichero scss:
 
 
 Dos de ellos se encuentran fijados para aparecer siempre independientemente del componente al que te hayas dirigido:
-- Header: consta de 2 partes: por un lado, una barra de navegación con posición sticky semitransparente que te lleva a los apartados de la web. Por otro lado, está el título principal de la página "Noticiario casero made in VB".
-- Footer: consta del nombre del autor junto con el año de creación. A mano derecha hay una serie de links dispuestos como iconos que redireccionan a las diferentes redes sociales (solo en funcionamiento real github y linkedin).
-    Finalmente hay una serie de links no funcionales para simular el pie de página de varias webs.
+- Header: Links iniciales hacia Login, Registrarse, Home y Productos. Una vez se ha hecho Login, los links son: Home, Perfil, Productos, y dos iconos que son los componentes de Carrito y Favoritos, con un número dinámico que va cambiando según se rellenen ambos componentes.
+    Al iniciar sesión como Admin, solo se muestra el componente Admin, Perfil y Productos.
 
-- Form: Un formulario con diversos input, tanto tipo texto, como un select para asignar la sección de tu noticia y un input type:file para poder subir una imagen. Además, dentro del mismo está la siguiente función con el objetivo de guardar en el localStorage la información introducida en el formulario:
-````
-let writeNew = JSON.parse(localStorage.getItem("NEWS")) || [];
-  const saveData=() =>{
-       writeNew.push(data);
-       localStorage.setItem("NEWS", JSON.stringify(writeNew));
-     }
-````
 
-- ListNews: Se encarga principalmente de pintar las noticias que ha recibido de la API.
+- Footer: consta del nombre de los autores junto con el año de creación. A mano derecha hay una serie de links dispuestos como iconos que redireccionan a las diferentes redes sociales (solo en funcionamiento real github y linkedin).
+Finalmente hay una serie de links no funcionales para simular el pie de página de varias webs.
 
-- Home: se encarga de pintar las noticias que se han ido almacenando en el localStorage mediante la siguiente función:
-````
-const newsBack = JSON.parse(localStorage.getItem("NEWS"));
-````
+
+
+Resto de componentes:
+
+
+- Home: cuenta únicamente con un texto y todo lo demás es animación en SCSS con el cambio de transiciones entra background-image y varios transform.
+
+- Admin: consta de tres Link: el primero 'Crear producto' te lleva al subcomponente 'AddProduct', que consta de un formulario para rellenar con la información del nuevo producto: nombre, descripción, stock y precio. El segundo link y el tercero (modificar y borrar producto) te lleva al componente Products pero con el añadido de dos botones: Editar y Borrar. Si le damos a Editar, nos lleva al segundo subcomponente de Products, 'EditProduct', que consta del mismo formulario que 'AddProduct' pero esta vez para modificar el producto sobre el que hayamos hecho click. Finalmente, el botón borrar, elimina el producto de la base de datos y también del propio frontend inmediatamente mediante un filter previo.
+
+- Cart: este componente realiza varias funciones. La primera, llamar a las funciones de carrito y crear order previamente cogidas de ProductContext y OrderContext. Y por otra parte se encarga de ir pintando en el componente los productos que se van añadiendo en el carrito junto con un total de precio de la suma de todos los productos que haya. Además, este componente se guarda en localStorage bajo la key 'cart' de forma que el usuario aunque actualice la página, tenga su carrito previamente guardado.
+
+- Favs: las mismas funcionalidades que el componente Cart pero para añadir productos favoritos. Sin embargo, pese a que el mismo producto se puede poner en la cesta varias veces (podemos querer varias uds), en favoritos no sucede así. Una vez le das a un producto, este botón desaparece para que no lo puedas guardar dos veces. Tanto este componente como Cart, poseen la opción de borrar un solo producto de la lista independientemente del resto.
+
+- Products: este componente coge previamente todas las funciones necesarias desde ProductsContext para pintar los productos o filtrarlos. Además utiliza localStorage para el token y el role. El token es necesario para que el usuario logeado pueda realizar acciones, como el botón de añadir carrito o de favoritos. El role por otra parte, actúa como filter, de forma que si el usuario que hizo login es el Admin, los botones de carrito y favoritos desaparecen, y trae los botones de Editar o Eliminar un producto. Este mismo componente, además de pintar los productos, tiene en la cabecera una barra sticky semitransparente que actúa como filtros de búsqueda. A mano izq hay un filtro por precio y a mano derecha un buscador por nombre.
+
+- Profile: está compuesto por la información del usuario junto con su foto de perfil y abajo una enumeración de los productos que se han pedido en cada Order, o bien si es el Admin, simplemente se sustituye por un mensaje de bienvenida.
+
+- Login: compuesto principalmente por un formulario que pide el email y la contraseña del usuario previamente registrado. Cuenta con una verificación de seguridad traída desde el backend, con lo cual si el usuario introducido no coincide con el guardado en la BBDD, salta un alert:
+![foto](./toReadme/alert.png)
+
+- Register: consta principalmente de un formulario en el que el usuario tiene que introducir cuatro campos: username, email, adress y password. Tanto en Login como en el resto de formularios hay validaciones de forma que el usuario no se puede dejar ningún campo en blanco.
+
+- Reviews:
+
 
 -------
 
 ## 3. Context
-La parte fundamental sobre la que se sustenta el trabajo. Tiene como objetivo globalizar la información (en este caso la que obtenemos de la API) para poderla utilizar luego en cualquier de nuestros componentes gracias a GlobalProvider. 
-Aquí tenemos una función principal que es GlobalProvider, que engloba otra función llamada getNews, que se encargará de la llamada a la API y el almacenamiento de la información en nuestro initialState.
+La parte fundamental sobre la que se sustenta el trabajo. Tiene como objetivo globalizar la información (en este caso la que obtenemos de la API) para poderla utilizar luego en cualquier de nuestros componentes.
+En este caso, dentro de la carpeta context, tenemos 4 diferentes:
+
+- OrderContext: tiene el fichero OrderState, que se encarga de realizar la llamada a la API para crear una nueva order.Para ello coge el id de los productos que están en el carrito, y además el token para comprobar que efectivamente, la autenticación es válida para realizar esta acción. Después en OrderContext.Provider globalizamos esa información.
+
+- ProductsContext: en ProductsState tenemos las diferentes funciones que usamos. Para realizarlas, necesitamos de LocalStorage el token, el carrito y los favs. Aquí además de las funciones que competen a los productos, como llamar a la API para conseguirlos todos, o hacer filtro por nombre, también están las funciones del carrito y los favs, como borrar un solo elemento o borrarlos todos. Estas funciones luego las llamamos en los componentes Cart y Favs para poderlas utilizar gracias a ProductsCOntext.Provider. En ProductReducer tenemos los diferentes casos en los que el dispatch se va a centrar. Especial mención a los casos de borrar un producto y borrar un favorito o un elmento del carrito. Llevan un filter para que automáticamente después de realizar la acción, el usuario ya no vea ese elemento en su lista.
+
+- UserContext:
 
 Primero, importamos todo lo que vamos a necesitar en las primeras lineas y después definimos un estado inicial donde news será una array vacía:
 
