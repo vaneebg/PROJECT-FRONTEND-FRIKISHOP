@@ -21,6 +21,7 @@ import AddProduct from './components/Products/AddProduct/AddProduct';
 import EditProduct from './components/Products/EditProduct/EditProduct';
 
 import 'antd/dist/antd.css'
+import Reviews from './components/Reviews/Reviews';
 
 
 

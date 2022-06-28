@@ -7,10 +7,10 @@ import { ReviewsContext } from "../../context/ReviewsContext/ReviewsState";
 import './Products.scss'
 import Reviews from "../Reviews/Reviews";
 
+
 const Products = () => {
   const { products, getProducts, favs, addCart, addFavs, deleteProduct, filterProduct, filterProductName } = useContext(ProductsContext);
   const { getReview } = useContext(ReviewsContext)
-
 
   const token = JSON.parse(localStorage.getItem('token'))
   const role = JSON.parse(localStorage.getItem('role'))
@@ -39,25 +39,17 @@ const Products = () => {
     getProducts()
   }
 
-
   const modalButton = (value) => {
     setModal2Visible(true)
     getReview(value)
   }
 
-
-
   if (products.length <= 0) {
     return <span>Cargando...</span>;
   }
 
-
-
   const listProducts = products.map((product, i) => {
-
-
     return (
-
       <div className='product' key={i}>
         <h2>{product.name}</h2>
         <div className='content' >
@@ -95,7 +87,7 @@ const Products = () => {
             <button className='btnsadmin'><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
             <button  className='btnsadmin'onClick={() => deleteProduct(product.id)}>Borrar producto</button></div>
             <div className="reviews">
-            <Button className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
+              <Button type="primary" onClick={() => modalButton(product.id)}>
                 Reviews
               </Button>
               <Modal
@@ -108,7 +100,8 @@ const Products = () => {
                 <Reviews />
               </Modal>
             </div>
-          </div> : null}</div></div>
+          </div> : null}
+        </div></div>
     )
   }
   )
