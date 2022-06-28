@@ -43,7 +43,7 @@ const Profile = () => {
           </span>
           </div>
         <div className="contentInfo">
-        <img src={"http://localhost:8080/images/users/"+user.img}/>
+        {user.img ? <img src={"http://localhost:8080/images/users/" + user.img} /> : <img src="http://localhost:8080/images/users/none.jpg" />}
         <div className="text">
         <span>Tu nombre: {user.username}</span> <br />
         <span>Tu email: {user.email}</span><br />
