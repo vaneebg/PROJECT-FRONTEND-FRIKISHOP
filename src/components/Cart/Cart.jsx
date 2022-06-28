@@ -16,7 +16,7 @@ const Cart = () => {
     },[cart])
 
     if(cart.length<=0){
-        return <div className='nomoney'>  <span className='messagecar'>No tienes ningún producto añadido, es hora de gastar 💰💰</span><img src={gif} alt="" /></div>
+        return <div className='nomoney'>  <span className='messagecar'>No tienes ningún producto añadido, es hora de gastar 💰💰</span><img className='imgcat' src={gif} alt="" /></div>
     }
 
     const createNewOrder=()=>{
@@ -54,7 +54,7 @@ const Cart = () => {
 
     return (
     <div className="center">
-    <div className='cart'><h2>Carrito: </h2><br/>{cartItem}
+    <div className='cart'><h2>Carrito: </h2>{cartItem}
     <span>Total: {sumDec} €</span>
     <button onClick={()=>clearCart()}>Vaciar carrito</button>
     <button onClick={()=>createNewOrder()}>Crear pedido</button>
