@@ -145,8 +145,8 @@ Para la comunicación en equipo hemos hecho uso principalmente de Trello, dividi
 - [X] Importante el diseño
 
 *Reglas:*
-- [ ] Los componentes no podrán sobrepasar las 400 líneas de código.
-- [ ] Las funciones no deberán sobrepasar las 75 líneas de código.
+- [X] Los componentes no podrán sobrepasar las 400 líneas de código.
+- [X] Las funciones no deberán sobrepasar las 75 líneas de código.
 
 
 
