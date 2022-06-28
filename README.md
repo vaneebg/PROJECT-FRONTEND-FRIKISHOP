@@ -1,4 +1,4 @@
-#  <center> :card_index: Proyecto React: Web de noticias :card_index: </center> 
+#  <center> :video_game: :space_invader: Proyecto Frontend: Frikishop :video_game: :space_invader: </center> 
 
  ## :clipboard: Índice :clipboard:
 
@@ -23,13 +23,20 @@
 
     - [Context](#2-componentes)
 
-    - [Vista Admin]
+
 
     - [React router](#4-react-router)
 
 
 - [Retos presentados](#dart-retos-presentados-dart)
 
+    - [Vista Admin](#vista-admin)
+
+    - [CRUD de productos](#crud-de-productos)
+
+    - [Borrar producto concreto](#borrar-producto-concreto)
+
+    - [Implementar Multer](#implementar-multer)
   
 
 
@@ -49,10 +56,10 @@ Para el desarrollo de este proyecto se ha utilizado React principalmente.
 El proyecto se subirá a un repositorio público de GitHub.
 Además, el backend procede de la API anteriormente creada para e-commerce online: [Frikishop API](https://github.com/vaneebg/BACKEND_FRIKISHOP).
 Para instalar este proyecto debes hacer lo siguiente: primero acceder desde github a los dos repositorios y proceder a clonártelos con el siguiente comando:
-
+````
 git clone https://github.com/vaneebg/PROJECT-FRONTEND-FRIKISHOP
 git clone https://github.com/vaneebg/BACKEND_FRIKISHOP
-
+````
 Una vez clonado el repositorio es muy importante que en tu consola instales todos los npm que necesita cada proyecto con el siguiente comando: 
 ````
 npm i
@@ -84,6 +91,7 @@ Automáticamente se te abrirá una nueva ventana del navegador con la página we
 - Jsonwebtoken
 - Multer
 - AntDesign
+- Trello
 
 
 ## :dart: Origen 
@@ -91,6 +99,10 @@ Es un proyecto fullstack de la academia The Brigde para asentar conocimientos so
 
 
 Se ha trabajado en diversas ramas de Git para continuar con el proceso de aprendizaje de esta herramienta y fomentar las buenas prácticas. Primeramente se ha creado la rama develop y, como ha sido un trabajo en parejas, cada uno de nosotros dividía develop en varias subramas para trabajar desde ahí. Después cada uno mergeaba develop primero en su subrama, y una vez comprobado que todo seguía en funcionamiento, se mergeaba a develop y se subía a github para que el otro compañero pudiese hacer un pull para bajarse las nuevas implementaciones. Finalmente, una vez asegurado que todo e proyecto está en funcionamiento desde develop, se mergea a main.
+
+
+Para la comunicación en equipo hemos hecho uso principalmente de Trello, dividiendo cada tarjeta por tareas:
+![foto](./toReadme/trello.png)
 
 
  
@@ -201,11 +213,11 @@ Son un total de 11 componentes y 2 subcomponentes de Productos, cada uno de ello
 
 
 Dos de ellos se encuentran fijados para aparecer siempre independientemente del componente al que te hayas dirigido:
-- Header: Links iniciales hacia Login, Registrarse, Home y Productos. Una vez se ha hecho Login, los links son: Home, Perfil, Productos, y dos iconos que son los componentes de Carrito y Favoritos, con un número dinámico que va cambiando según se rellenen ambos componentes.
+- **Header:** Links iniciales hacia Login, Registrarse, Home y Productos. Una vez se ha hecho Login, los links son: Home, Perfil, Productos, y dos iconos que son los componentes de Carrito y Favoritos, con un número dinámico que va cambiando según se rellenen ambos componentes.
     Al iniciar sesión como Admin, solo se muestra el componente Admin, Perfil y Productos.
 
 
-- Footer: consta del nombre de los autores junto con el año de creación. A mano derecha hay una serie de links dispuestos como iconos que redireccionan a las diferentes redes sociales (solo en funcionamiento real github y linkedin).
+- **Footer:** consta del nombre de los autores junto con el año de creación. A mano derecha hay una serie de links dispuestos como iconos que redireccionan a las diferentes redes sociales (solo en funcionamiento real github y linkedin).
 Finalmente hay una serie de links no funcionales para simular el pie de página de varias webs.
 
 
@@ -213,24 +225,24 @@ Finalmente hay una serie de links no funcionales para simular el pie de página 
 Resto de componentes:
 
 
-- Home: cuenta únicamente con un texto y todo lo demás es animación en SCSS con el cambio de transiciones entra background-image y varios transform.
+- **Home:** cuenta únicamente con un texto y todo lo demás es animación en SCSS con el cambio de transiciones entra background-image y varios transform.
 
-- Admin: consta de tres Link: el primero 'Crear producto' te lleva al subcomponente 'AddProduct', que consta de un formulario para rellenar con la información del nuevo producto: nombre, descripción, stock y precio. El segundo link y el tercero (modificar y borrar producto) te lleva al componente Products pero con el añadido de dos botones: Editar y Borrar. Si le damos a Editar, nos lleva al segundo subcomponente de Products, 'EditProduct', que consta del mismo formulario que 'AddProduct' pero esta vez para modificar el producto sobre el que hayamos hecho click. Finalmente, el botón borrar, elimina el producto de la base de datos y también del propio frontend inmediatamente mediante un filter previo.
+- **Admin:** consta de tres Link: el primero 'Crear producto' te lleva al subcomponente 'AddProduct', que consta de un formulario para rellenar con la información del nuevo producto: nombre, descripción, stock y precio. El segundo link y el tercero (modificar y borrar producto) te lleva al componente Products pero con el añadido de dos botones: Editar y Borrar. Si le damos a Editar, nos lleva al segundo subcomponente de Products, **'EditProduct'**, que consta del mismo formulario que **'AddProduct'** pero esta vez para modificar el producto sobre el que hayamos hecho click. Finalmente, el botón borrar, elimina el producto de la base de datos y también del propio frontend inmediatamente mediante un filter previo.
 
-- Cart: este componente realiza varias funciones. La primera, llamar a las funciones de carrito y crear order previamente cogidas de ProductContext y OrderContext. Y por otra parte se encarga de ir pintando en el componente los productos que se van añadiendo en el carrito junto con un total de precio de la suma de todos los productos que haya. Además, este componente se guarda en localStorage bajo la key 'cart' de forma que el usuario aunque actualice la página, tenga su carrito previamente guardado.
+- **Cart:** este componente realiza varias funciones. La primera, llamar a las funciones de carrito y crear order previamente cogidas de ProductContext y OrderContext. Y por otra parte se encarga de ir pintando en el componente los productos que se van añadiendo en el carrito junto con un total de precio de la suma de todos los productos que haya. Además, este componente se guarda en localStorage bajo la key 'cart' de forma que el usuario aunque actualice la página, tenga su carrito previamente guardado.
 
-- Favs: las mismas funcionalidades que el componente Cart pero para añadir productos favoritos. Sin embargo, pese a que el mismo producto se puede poner en la cesta varias veces (podemos querer varias uds), en favoritos no sucede así. Una vez le das a un producto, este botón desaparece para que no lo puedas guardar dos veces. Tanto este componente como Cart, poseen la opción de borrar un solo producto de la lista independientemente del resto.
+- **Favs:** las mismas funcionalidades que el componente Cart pero para añadir productos favoritos. Sin embargo, pese a que el mismo producto se puede poner en la cesta varias veces (podemos querer varias uds), en favoritos no sucede así. Una vez le das a un producto, este botón desaparece para que no lo puedas guardar dos veces. Tanto este componente como Cart, poseen la opción de borrar un solo producto de la lista independientemente del resto.
 
-- Products: este componente coge previamente todas las funciones necesarias desde ProductsContext para pintar los productos o filtrarlos. Además utiliza localStorage para el token y el role. El token es necesario para que el usuario logeado pueda realizar acciones, como el botón de añadir carrito o de favoritos. El role por otra parte, actúa como filter, de forma que si el usuario que hizo login es el Admin, los botones de carrito y favoritos desaparecen, y trae los botones de Editar o Eliminar un producto. Este mismo componente, además de pintar los productos, tiene en la cabecera una barra sticky semitransparente que actúa como filtros de búsqueda. A mano izq hay un filtro por precio y a mano derecha un buscador por nombre.
+- **Products:** este componente coge previamente todas las funciones necesarias desde ProductsContext para pintar los productos o filtrarlos. Además utiliza localStorage para el token y el role. El token es necesario para que el usuario logeado pueda realizar acciones, como el botón de añadir carrito o de favoritos. El role por otra parte, actúa como filter, de forma que si el usuario que hizo login es el Admin, los botones de carrito y favoritos desaparecen, y trae los botones de Editar o Eliminar un producto. Este mismo componente, además de pintar los productos, tiene en la cabecera una barra sticky semitransparente que actúa como filtros de búsqueda. A mano izq hay un filtro por precio y a mano derecha un buscador por nombre.
 
-- Profile: está compuesto por la información del usuario junto con su foto de perfil y abajo una enumeración de los productos que se han pedido en cada Order, o bien si es el Admin, simplemente se sustituye por un mensaje de bienvenida. En la esquina superior derecha encontramos el botón de Logout para que el usuario salga de la plataforma.
+- **Profile:** está compuesto por la información del usuario junto con su foto de perfil y abajo una enumeración de los productos que se han pedido en cada Order, o bien si es el Admin, simplemente se sustituye por un mensaje de bienvenida. En la esquina superior derecha encontramos el botón de Logout para que el usuario salga de la plataforma.
 
-- Login: compuesto principalmente por un formulario que pide el email y la contraseña del usuario previamente registrado. Cuenta con una verificación de seguridad traída desde el backend, con lo cual si el usuario introducido no coincide con el guardado en la BBDD, salta un alert:
+- **Login:** compuesto principalmente por un formulario que pide el email y la contraseña del usuario previamente registrado. Cuenta con una verificación de seguridad traída desde el backend, con lo cual si el usuario introducido no coincide con el guardado en la BBDD, salta un alert:
 ![foto](./toReadme/alert.png)
 
-- Register: consta principalmente de un formulario en el que el usuario tiene que introducir cuatro campos: username, email, adress y password. Tanto en Login como en el resto de formularios hay validaciones de forma que el usuario no se puede dejar ningún campo en blanco.
+- **Register:** consta principalmente de un formulario en el que el usuario tiene que introducir cuatro campos: username, email, adress y password. Tanto en Login como en el resto de formularios hay validaciones de forma que el usuario no se puede dejar ningún campo en blanco.
 
-- Reviews:
+- **Reviews:**
 
 
 -------
@@ -239,9 +251,9 @@ Resto de componentes:
 La parte fundamental sobre la que se sustenta el trabajo. Tiene como objetivo globalizar la información (en este caso la que obtenemos de la API) para poderla utilizar luego en cualquier de nuestros componentes.
 En este caso, dentro de la carpeta context, tenemos 4 diferentes:
 
-- OrderContext: tiene el fichero OrderState, que se encarga de realizar la llamada a la API para crear una nueva order.Para ello coge el id de los productos que están en el carrito, y además el token para comprobar que efectivamente, la autenticación es válida para realizar esta acción. Después en OrderContext.Provider globalizamos esa información.
+- **OrderContext:** tiene el fichero OrderState, que se encarga de realizar la llamada a la API para crear una nueva order.Para ello coge el id de los productos que están en el carrito, y además el token para comprobar que efectivamente, la autenticación es válida para realizar esta acción. Después en OrderContext.Provider globalizamos esa información.
 
-- ProductsContext: en ProductsState tenemos las diferentes funciones que usamos. Para realizarlas, necesitamos de LocalStorage el token, el carrito y los favs. Aquí además de las funciones que competen a los productos, como llamar a la API para conseguirlos todos, o hacer filtro por nombre, también están las funciones del carrito y los favs, como borrar un solo elemento o borrarlos todos. Estas funciones luego las llamamos en los componentes Cart y Favs para poderlas utilizar gracias a ProductsCOntext.Provider. En ProductReducer tenemos los diferentes casos en los que el dispatch se va a centrar. Especial mención a los casos de borrar un producto y borrar un favorito o un elmento del carrito. Llevan un filter para que automáticamente después de realizar la acción, el usuario ya no vea ese elemento en su lista.
+- **ProductsContext:** en ProductsState tenemos las diferentes funciones que usamos. Para realizarlas, necesitamos de LocalStorage el token, el carrito y los favs. Aquí además de las funciones que competen a los productos, como llamar a la API para conseguirlos todos, o hacer filtro por nombre, también están las funciones del carrito y los favs, como borrar un solo elemento o borrarlos todos. Estas funciones luego las llamamos en los componentes Cart y Favs para poderlas utilizar gracias a ProductsCOntext.Provider. En ProductReducer tenemos los diferentes casos en los que el dispatch se va a centrar. Especial mención a los casos de borrar un producto y borrar un favorito o un elmento del carrito. Llevan un filter para que automáticamente después de realizar la acción, el usuario ya no vea ese elemento en su lista.
 
 ````
 const initialState = {
@@ -261,7 +273,7 @@ const initialState = {
                 };
 ````
 
-- UserContext: en UserState encontramos las diferentes funciones que llaman a la API. En este caso necesitamos de localStorage el token y el role que se guardarán cuando el usuario haga Login y se borrarán cuando haga su Logout. En esta función de login es dónde hemos implementado la verificación para que si la respuesta de la API es email o contraseña incorrectos, esa respuesta sea la mismaen el frontend en forma de alert. Con ello evitamos que introduciendo cualquier cosa en el formulario de login, el usuario entre. en UserReducer tenemos todos los casos en los que va a ir pasando el dispatch cuando realicemos las diferentes acciones.
+- **UserContext:** en UserState encontramos las diferentes funciones que llaman a la API. En este caso necesitamos de localStorage el token y el role que se guardarán cuando el usuario haga Login y se borrarán cuando haga su Logout. En esta función de login es dónde hemos implementado la verificación para que si la respuesta de la API es email o contraseña incorrectos, esa respuesta sea la mismaen el frontend en forma de alert. Con ello evitamos que introduciendo cualquier cosa en el formulario de login, el usuario entre. en UserReducer tenemos todos los casos en los que va a ir pasando el dispatch cuando realicemos las diferentes acciones.
 ````
 const initialState = {
     token: token ? token : null,
@@ -271,7 +283,7 @@ const initialState = {
 }
 ````
 
-- ReviewsContext:
+- **ReviewsContext:**
 
 
 
@@ -283,7 +295,7 @@ Para la utilización de rutas en forma de Link en el proyecto, se instala este c
 ``````
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 ``````
-Después, debemos poner todos los componentes entre los que queramos navegar dentro de estas etiquetas(<BrowserRouter>) y los path a las rutas dentro de Routes. Gracias a esto, ahora podemos navegar entre los componentes, un ejemplo de ello es la barra de navegación del componente Header:
+Después, debemos poner todos los componentes entre los que queramos navegar dentro de estas etiquetas 'BrowserRouter' y los path a las rutas dentro de Routes. Gracias a esto, ahora podemos navegar entre los componentes, un ejemplo de ello es la barra de navegación del componente Header:
 `````
         <span>
             <Link to="/home">Home</Link>
@@ -312,8 +324,22 @@ Después en App.jsx, debemos englobar todo dentro de los providers anteriormente
   --------------------
 # :dart: Retos presentados :dart:
 
+## - Vista Admin:
+
+Puesto que los token van cambiando conforme haces login o logout, no servía para hacer el filtro. Esto se solucionó guardando el role con el que entraba cada usuario a la tienda, ya que ed forma predefinida cualquier usuario nuevo adquiere el role de 'user', mientras que el Admin posee un role de 'SuperAdmin'. Una vez sacado el role de localStorage, simplemente había que hacer un condicional en el que si ese role coincidía, se vería la vista Admin. Lo mismo con el usuario registrado, si el token existe, se muestran diferentes vistas, como poder añadir al carrito o a favoritos. Igualmente en vista Admin, en los productos no salen estas dos opciones anteriores, sino que sale borrar producto o editarlo. 
+
+## - CRUD de productos:
+
+ Puesto que se hace la llamada a una API creada por nosotros, ha habido veces que era necesario cambiar send.res en nuestra API para traernos a frontend lo que nos interesaba. Especial cuidado con las rutas  y las autenticaciones de la API para ponerlas en la llamada con axios correctamente.
+
+## - Borrar producto/fav/carrito concreto:
+
+Vaciar del carrito únicamente un producto supuso un reto. Había que traerlo desde LocalStorage y borrar ese concreto, además de filtrar para que ese producto coincidente con la misma id no apareciese en pantalla después de ser eliminado.
 
 
+## - Implementar multer
+
+Cambiar la implementación de Multer en el backend por una más sofisticada, que guardase en diferentes carpetas según si la imagen era del usuario, del producto o de las reviews, además de cambiar que la imagen sea un campo obligatorio en la entrada de la creación de un producto o de un usuario por ejemplo.
 
 ------------------------------
 
@@ -330,6 +356,7 @@ A una gran amiga por la idea del diseño principal, a [Fran](https://github.com/
 - [ ] Creación de componentes hijos que dividan las funciones del componente padre.
 - [ ] Implementación de guards
 - [ ] Implementación del resto de funcionalidades de las reviews.
+- [ ] Subir foto con productos.
 
 ----------------------
 
