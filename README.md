@@ -193,12 +193,19 @@ Una vez el usuario ha hecho Login, aquí podemos ver la vista de perfil y la sec
 ![foto](./toReadme/user.gif)
 
 En lo referente a la vista Admin, en perfil, la sección de pedidos hechos se elimina y encontramos que en el header se visualiza un componente nuevo, y en productos aparecen los botones eeditar y eliminar producto: 
+
+
 ![foto](./toReadme/admin.gif)
 
 Para finalizar, siguiendo con la temática friki, se han añadido gifs en caso de que vacíes tu cesta o tus favoritos, para indicar al usuario que efectivamente ha borrado eso bien:
+
+
 ![foto](./toReadme/gifs.gif)
 
+
 Prácticamente toda la página web tiene diseñadas unas notificaciones que avisan al usuario de que ha hecho Login bien o se ha registrado correctamente:
+
+
 ![foto](./toReadme/notif.png)
 
 ----------
