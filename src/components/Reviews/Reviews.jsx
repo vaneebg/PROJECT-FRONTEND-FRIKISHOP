@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { ProductsContext } from '../../context/ProductsContext/ProductsState'
 import { ReviewsContext } from '../../context/ReviewsContext/ReviewsState'
 import { UserContext } from '../../context/UserContext/UserState'
+import { Alert } from 'antd';
 
 const Reviews = () => {
 
@@ -26,35 +27,30 @@ const Reviews = () => {
     setBody(event.target.value)
   }
 
-    const createRevie = (e) => {
+  const createRevie = (e) => {
     e.preventDefault()
     if(title.length<5){
-      alert('Introduce mas de 5 caractes')
+      alert('sss')
     }
     if(score>10){
-      alert('Clack no puedes dar mas puntuacion')
+      alert('aaa')
     }
-    if(body.length<10){
-      alert('Escribe mas porfavor!')
+    if(body.length<5){
+      alert('introduce')
     }
     else{
       createReview({ ProductId: id, title, score, body })
     }
   }
 
-
-
   const listProducts = reviews.map((el, i) => {
-    
-  // const [title1,setTitle1 ] = useState(el.title) 
-  // const [score1,setScore1 ] = useState(el.score) 
-  // const [body1,setBody1 ] = useState(el.body) 
+
     return (
-        <div key={i}>
-          <span>Título:{el.title}</span><br />
-          <span>Puntuacíon:{el.score}</span><br />
-          <span>Review:{el.body}</span><br/><br/>
-        </div>
+      <div key={i}>
+        <span>Título:{el.title}</span><br />
+        <span>Puntuacíon:{el.score}</span><br />
+        <span>Review:{el.body}</span><br /><br />
+      </div>
     )
   })
 
@@ -64,20 +60,20 @@ const Reviews = () => {
     <div className="review" >
       {listProducts}
       <div>
-        <form  action="" >
+        <form action="" >
           <div className="newrev">
-          <span>REVIEW NUEVA:</span><br/>
-          <span>Título review:</span><br />
-          <input type="text" onChange={handleInputchange2} /><br />
-          <span>Puntuación:</span> <br />
-          <input type="number" max={"10"} min={"0"} onChange={handleInputchange3} /><br />
-          <span>Review:</span><br />
-          <input type="text" onChange={handleInputchange4} /><br />
-          <input type='submit' className='reviewbtn' onClick={createRevie} />
-        </div>
+            <span>REVIEW NUEVA:</span><br />
+            <span>Título:</span>
+            <input type="text" onChange={handleInputchange2} /><br />
+            <span>Score:</span>
+            <input type="number" max={10} min={0} onChange={handleInputchange3} /><br />
+            <span>Review:</span>
+            <input type="text" onChange={handleInputchange4} /><br />
+            <input type="submit" onClick={createRevie} />
+          </div>
         </form>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 export default Reviews
