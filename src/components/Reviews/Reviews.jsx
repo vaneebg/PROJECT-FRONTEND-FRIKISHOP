@@ -45,7 +45,7 @@ const Reviews = () => {
         <div key={i}>
           <span>Título:{el.title}</span><br />
           <span>Puntuacíon:{el.score}</span><br />
-          <span>Review:{el.body}</span>
+          <span>Review:{el.body}</span><br/><br/>
         </div>
       </div>
     )
@@ -57,14 +57,17 @@ const Reviews = () => {
     <div className="review" >
       {listProducts}
       <div>
-        <form action="" >
+        <form  action="" >
+          <div className="newrev">
+          <span>REVIEW NUEVA:</span><br/>
           <span>Título review:</span><br />
           <input type="text" onChange={handleInputchange2} /><br />
           <span>Puntuación:</span> <br />
           <input type="number" max={"10"} min={"0"} onChange={handleInputchange3} /><br />
           <span>Review:</span><br />
           <input type="text" onChange={handleInputchange4} /><br />
-          <button onClick={createRevie} />
+          <input type='submit' className='reviewbtn' onClick={createRevie} />
+        </div>
         </form>
       </div>
     </div>
