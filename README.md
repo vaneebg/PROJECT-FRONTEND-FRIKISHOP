@@ -254,6 +254,8 @@ Resto de componentes:
 - **Register:** consta principalmente de un formulario en el que el usuario tiene que introducir cuatro campos: username, email, adress y password. Tanto en Login como en el resto de formularios hay validaciones de forma que el usuario no se puede dejar ningún campo en blanco.
 
 - **Reviews:** tiene dos partes diferenciadas. La primera parte corresponde a pintar en el modal de reviews las que ya tienen los productos. En su segunda parte, por medio de un formulario con inputs, se encarga de enviar una nueva review hecha por el usuario.Este componente se muestra en el modal que aparece al darle al botón de reviews:
+
+
 ![foto](./toReadme/reviews.png)
 
 
