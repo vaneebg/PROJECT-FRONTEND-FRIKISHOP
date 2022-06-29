@@ -256,7 +256,7 @@ Resto de componentes:
 - **Reviews:** tiene dos partes diferenciadas. La primera parte corresponde a pintar en el modal de reviews las que ya tienen los productos. En su segunda parte, por medio de un formulario con inputs, se encarga de enviar una nueva review hecha por el usuario.Este componente se muestra en el modal que aparece al darle al botón de reviews:
 
 
-![foto](./toReadme/reviews.png)
+![foto](./toReadme/reviews2.png)
 
 
 -------
