@@ -40,7 +40,7 @@ const Profile = () => {
         <div className="header">
           <h1>Perfil</h1>
           <span onClick={logoutUser}>
-            <Link to="/"><PoweroffOutlined /></Link>
+            <Link to="/login"><PoweroffOutlined /></Link>
           </span>
         </div>
         <div className="contentInfo">
