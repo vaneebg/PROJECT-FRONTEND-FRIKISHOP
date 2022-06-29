@@ -279,6 +279,8 @@ const initialState = {
 };
 ````
 
+
+
 ````
   case "DELETE_PRODUCT":
             return {

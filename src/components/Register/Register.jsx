@@ -12,7 +12,7 @@ function Register() {
   const onFinish = (values) => {
     register(values)
     setTimeout(() => {
-      navigate("/")
+      navigate("/login")
       clearMessage()
     }, 3000)
     return notification.success({
