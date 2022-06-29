@@ -21,7 +21,6 @@ import AddProduct from './components/Products/AddProduct/AddProduct';
 import EditProduct from './components/Products/EditProduct/EditProduct';
 
 import 'antd/dist/antd.css'
-import Reviews from './components/Reviews/Reviews';
 
 
 
@@ -38,9 +37,9 @@ function App() {
               <ReviewsProvider>
                 <Header />
                 <Routes>
-                  <Route path="/home" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/products" element={<Products />} />
-                  <Route path='/' element={<Login />} />
+                  <Route path='/login' element={<Login />} />
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/register' element={<Register />} />
                   <Route path="/cart" element={<Cart />} />

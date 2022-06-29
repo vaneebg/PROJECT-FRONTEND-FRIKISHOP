@@ -37,7 +37,7 @@ const Header = () => {
             ) :
               (<>
                 <span>
-                  <Link to="/home">Home</Link>
+                  <Link to="/">Home</Link>
                 </span>
 
                 <span>
@@ -72,13 +72,13 @@ const Header = () => {
         ) : (
           <>
             <span>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </span>
             <span>
               <Link to="/register">Registrarse</Link>
             </span>
             <span>
-              <Link to="/">Login</Link>
+              <Link to="/login">Login</Link>
             </span>
             <span>
               <Link to='/products'>Productos</Link>
