@@ -28,23 +28,27 @@ const Reviews = () => {
     if (title.length < 5) {
       return notification.error({
         message: "Error!",
-        description: "'Escribe un título de al menos 5 carácteres'",
-      });
-    }
-    if (score > 10 || score == 0) {
-      return notification.error({
-        message: "Error!",
-        description: "Revisa la puntuacion clack!",
+        description: "'Escribe un título de al menos 5 carácteres'"
       });
     }
     if (body.length < 5) {
       return notification.error({
         message: "Error!",
-        description: "Escribe un review de al menos 5 carácteres",
+        description: "Escribe un review de al menos 5 carácteres"
+      });
+    }
+    if (score > 10 || score == 0) {
+      return notification.error({
+        message: "Error!",
+        description: "Revisa la puntuacion clack!"
       });
     }
     else {
       createReview({ ProductId: id, title, score, body })
+      return notification.success({
+        message: "Genial!",
+        description: "Has creado un review con éxito!"
+      });
     }
   }
 
