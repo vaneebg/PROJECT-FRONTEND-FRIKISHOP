@@ -44,7 +44,12 @@ const Reviews = () => {
       });
     }
     else {
+      
       createReview({ ProductId: id, title, score, body })
+      return notification.success({
+        message: "Perrfe!!",
+        description: "Review creada!!",
+      });
     }
   }
 
