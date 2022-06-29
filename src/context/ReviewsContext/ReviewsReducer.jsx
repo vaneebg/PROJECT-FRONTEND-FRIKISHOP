@@ -1,16 +1,16 @@
-const reviews =(state,action)=>{
+const reviews = (state, action) => {
     switch (action.type) {
-        
+
         case 'GET_REVIEW_BY_ID':
-            return{
+            return {
                 ...state,
-                reviews:action.payload,
-                id:action.payload2
+                reviews: action.payload,
+                id: action.payload2
             }
         case 'CREATE_REVIEW':
-            return{
+            return {
                 ...state,
-                reviews:[action.payload,...state.reviews]
+                reviews: [action.payload, ...state.reviews]
             }
         default:
             return state;

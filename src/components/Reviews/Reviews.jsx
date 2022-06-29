@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 import { ReviewsContext } from '../../context/ReviewsContext/ReviewsState'
 import './Reviews.scss'
+import { notification } from 'antd';
 
 const Reviews = () => {
 
@@ -24,16 +25,25 @@ const Reviews = () => {
 
   const createRevie = (e) => {
     e.preventDefault()
-    if(title.length<5){
-      alert('Escribe un título de al menos 5 carácteres')
+    if (title.length < 5) {
+      return notification.error({
+        message: "Error!",
+        description: "'Escribe un título de al menos 5 carácteres'",
+      });
     }
-    if(score>10){
-      alert('Score mayor de 10 no permitido')
+    if (score > 10 || score == 0) {
+      return notification.error({
+        message: "Error!",
+        description: "Revisa la puntuacion clack!",
+      });
     }
-    if(body.length<5){
-      alert('Escribe más cuerpo de revew')
+    if (body.length < 5) {
+      return notification.error({
+        message: "Error!",
+        description: "Escribe un review de al menos 5 carácteres",
+      });
     }
-    else{
+    else {
       createReview({ ProductId: id, title, score, body })
     }
   }
@@ -63,9 +73,9 @@ const Reviews = () => {
             <span>Cuerpo:</span>
             <input className='circle' type="text" onChange={handleInputchange4} /><br />
             <div className="score">
-            <span>Score:</span>
-            <input className='number circle' type="number" max={10} min={0} onChange={handleInputchange3} /><br />
-            </div> 
+              <span>Score:</span>
+              <input className='number circle' type="number" max={10} min={0} onChange={handleInputchange3} /><br />
+            </div>
             <input className='btnSub' type="submit" onClick={createRevie} />
           </div>
         </form>

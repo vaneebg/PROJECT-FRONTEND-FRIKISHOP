@@ -3,30 +3,30 @@ import axios from 'axios';
 
 const API_URL = "http://localhost:8080";
 
-export const OrdersContext=createContext();
+export const OrdersContext = createContext();
 
-export const OrdersProvider=({children})=>{
+export const OrdersProvider = ({ children }) => {
 
- const createOrder=async(order)=>{
-const token=JSON.parse(localStorage.getItem('token'))
-try {
-   const productId=order.map(element=>{return element.id})
-    await axios.post(API_URL+'/orders',{ ProductId: productId},{
-        headers:{
-            authorization:token,
+    const createOrder = async (order) => {
+        const token = JSON.parse(localStorage.getItem('token'))
+        try {
+            const productId = order.map(element => { return element.id })
+            await axios.post(API_URL + '/orders', { ProductId: productId }, {
+                headers: {
+                    authorization: token,
+                }
+            })
+        } catch (error) {
+            console.error(error)
         }
-    })
-} catch (error) {
-    console.error(error)
-}
-}
-return(
-    <OrdersContext.Provider 
-    value={{
-        createOrder,
-    }}
-    >
-    {children}
-    </OrdersContext.Provider>
-)
+    }
+    return (
+        <OrdersContext.Provider
+            value={{
+                createOrder,
+            }}
+        >
+            {children}
+        </OrdersContext.Provider>
+    )
 }

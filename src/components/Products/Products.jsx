@@ -61,10 +61,10 @@ const Products = () => {
         </div>
 
         <div className="buttonCont" key={i}>
-          {token && role === 'user' ?<> <div className='together'> <button className='btnss' onClick={() => addCart(product)}>Añadir a carrito</button>
+          {token && role === 'user' ? <> <div className='together'> <button className='btnss' onClick={() => addCart(product)}>Añadir a carrito</button>
             {favs.map((f) => f.id).includes(product.id) ? null : <button className='btnss' onClick={() => addFavs(product)}>Añadir favorito</button>
             }
-            </div>
+          </div>
             <div className="reviews">
               <Button className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
                 Reviews
@@ -82,15 +82,15 @@ const Products = () => {
                 <Reviews />
               </Modal>
             </div>
-            </>
-         
+          </>
+
             : null}
           {role === 'SuperAdmin' ? <div className="buttonCont" key={i}>
-          <div className='together'>
-            <button className='btnsadmin'><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
-            <button  className='btnsadmin'onClick={() => deleteProduct(product.id)}>Borrar producto</button></div>
+            <div className='together'>
+              <button className='btnsadmin'><Link to={'/products/id/' + product.id}>Editar producto</Link> </button>
+              <button className='btnsadmin' onClick={() => deleteProduct(product.id)}>Borrar producto</button></div>
             <div className="reviews">
-              <Button  className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
+              <Button className='btnssRev' type="primary" onClick={() => modalButton(product.id)}>
                 Reviews
               </Button>
               <Modal

@@ -1,36 +1,36 @@
-const users = (state,action) => {
-    switch (action.type){
+const users = (state, action) => {
+    switch (action.type) {
         case 'LOGIN':
-            return{
+            return {
                 ...state,
-                token:action.payload.token,
-                role:action.payload.user.role
+                token: action.payload.token,
+                role: action.payload.user.role
             }
-        case'USER_INFO':
-        return{
-            ...state,
-            user:action.payload
-        }
-        case 'LOGOUT':
-            return{
+        case 'USER_INFO':
+            return {
                 ...state,
-                user:null,
-                token:null
+                user: action.payload
+            }
+        case 'LOGOUT':
+            return {
+                ...state,
+                user: null,
+                token: null
             }
         case 'REGISTER':
-            return{
+            return {
                 ...state,
-                message:action.payload.message
+                message: action.payload.message
             }
         case 'CLEARMESSAGE':
-            return{
+            return {
                 ...state,
-                message:''
+                message: ''
             }
-            default:
-        return state;
+        default:
+            return state;
     }
-    
+
 }
 
 export default users;

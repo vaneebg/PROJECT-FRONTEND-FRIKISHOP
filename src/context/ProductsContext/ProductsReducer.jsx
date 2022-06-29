@@ -12,53 +12,53 @@ const products = (state, action) => {
             };
         case "ADD_PRODUCT":
             return {
-                  ...state,
-                  products: [action.payload, ...state.products],
+                ...state,
+                products: [action.payload, ...state.products],
             };
         case "DELETE_PRODUCT":
             return {
-                    ...state,
-                    products: state.products.filter((el) => +action.payload.el !== +el.id )
-                };
+                ...state,
+                products: state.products.filter((el) => +action.payload.el !== +el.id)
+            };
         case 'ADD_CART':
-            return{
+            return {
                 ...state,
-                cart:[action.payload, ...state.cart],
+                cart: [action.payload, ...state.cart],
             };
-            case 'ADD_FAVS':
-                return{
-                    ...state,
-                    favs:[action.payload,...state.favs],
-                };
+        case 'ADD_FAVS':
+            return {
+                ...state,
+                favs: [action.payload, ...state.favs],
+            };
         case 'CLEAR_CART':
-            return{
+            return {
                 ...state,
-                cart:[]
+                cart: []
             };
-            case 'CLEAR_FAVS':
-            return{
+        case 'CLEAR_FAVS':
+            return {
                 ...state,
-                favs:[]
+                favs: []
             }
         case 'CLEAR_ONE':
-            return{
+            return {
                 ...state,
-                cart:state.cart.filter((produ)=>produ !== action.payload)
+                cart: state.cart.filter((produ) => produ !== action.payload)
             }
         case 'CLEAR_ONE_FAV':
-            return{
-                 ...state,
-                favs:state.favs.filter((fav)=>fav !== action.payload)
-                }
-        case 'FILTER_PRODUCT':
-            return{
+            return {
                 ...state,
-                products:action.payload
+                favs: state.favs.filter((fav) => fav !== action.payload)
+            }
+        case 'FILTER_PRODUCT':
+            return {
+                ...state,
+                products: action.payload
             }
         case 'NAME_FILTER':
-            return{
+            return {
                 ...state,
-                products:action.payload
+                products: action.payload
             }
         default:
             return state;
